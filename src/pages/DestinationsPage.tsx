@@ -1,18 +1,15 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { destinations } from "@/data/destinations";
 
 const DestinationsPage = () => {
   const [activeFilter, setActiveFilter] = useState("All Collections");
 
   const filters = ["All Collections", "Mountain Retreats", "Coastal Luxury", "Desert Safari", "International Gems"];
 
-  const destinations = [
-    { name: "Goa", price: "₹24,000", desc: "Pristine sands and sunset rhythms at our curated coastal retreats.", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuB8KIg52psEjZinlG2FF-64bDU8zj4tpEFwJvstCgYRXYMyiXpXfDxww3jBe2xykyXvD3h3l_4PbFEmBmyjTJ_RfMWkxNSy8Y1ouGKU3zPSf_Z-ev9CudODtYUI2mq_KJIL5iBln98oXKkxLELH69hjiTcPaO_i3kSqSDUQ1a1SkQpi92esT43dHwnrQ_2voP4Bj55RJewx-deYofIAYAjEi2v8jnRTYsj8jjrz0mG7XI0N3ylrahHkydUwTNVujP8S87NEJwInFdQ" },
-    { name: "Manali", price: "₹18,500", desc: "Find your peak in the heart of the Himalayas with bespoke alpine treks.", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDpJPSFCeqnfVal6wVuwH6Cx6A3hCSn2aS_bl6BqvHxsdsLpYgL9EkyWf9RhSvEUOpDhv62rS6xwCku6lf5IqDKlQlbcl3GmgX34MfvyTl7KbCY7OmCLui-8sz35rjT9OqQIk3DPIWkcAL55L8MY7klZvSKhHi36vcu5uxD4u0ZTImfEk7V0l6a-NHqVuKRj0dinlwD_M-ibyjqogaU3g6BVdqUaHeJRpxS_hPGVN3ytYjDnwa3Bpc4g4bZTx7il7DAuvwzqy1K_ho" },
-    { name: "Dubai", price: "₹52,000", desc: "Experience ultimate grandeur where the golden desert meets the future.", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuB1aEcVP8fdLoU80XwGZNDeJ-Y81KUEJgsbR8-0sXe1VqEYRM6wJXFo-CCOfJxnjASvhQPJzv89Ox7E6q8fizHApU1OGyBCapqq_KHzQ4W6gHA_U8GAdVPtHcx4_IGvQzYv77tYsRQGBiQ9q7eWoDyujXaPB4CRK7fU51d5NV5RnYgU3k-fSpNAZLLYyvb3uTwvGTBoYbLr_Cg8nEJXsg8nFWXcMTkfUL0Ng0jwasBdi61Rxa-ZL7l-mde2sUaHAsKN_oGEhuHjpmY" },
-    { name: "Maldives", price: "₹85,000", desc: "A sanctuary of turquoise waters and absolute seclusion for the elite traveler.", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCj-6rfuQqpzkouxjFv3x9ioHbgr8Ki8FO-1P3AEAhPS0vb3q0GxZmue7b7BTAmRO43L1SmiS9FKHHnl8DZExqKpiN5kqYiuY1o8Va16Hy4nRd8A6aEFd_gNOW2NbB9ozNPnN6dK3KVJ9603wuHBO3MbrWzCRchAKlouBQ9-4Sn0TSCN4dmpGP2vFSeyblW0bvgIDftDa5WHHzF932eb9n3M714vdv_BGRlXQsLo_zw5lI-hYy5cTZkCc3brFO0B9juKajoDyctbdY" },
-    { name: "Kashmir", price: "₹35,000", desc: "Ethereal valleys and slow shikara rides on the paradise on earth.", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCNlP-vxR9L2IirHvtUtK-IeUWPzdQq6qwQ_bAqYtH6-ZV8m3pAZFamVbyvhPAssaEQRhvjJwBzc7wBAPFed10on54Moc-kaopEM5oToKb4k4URhPMx7xL0q6NiPGh61JSmVlkbFjYIImLhjgAcR5za-q8RVn39Ugyro-0YllPK5Qluy2hp4G_NPiXApYP14V7N2lqKkUSb4Po7LTMjAgbdC1pv60bXQM7SLxpvkqNYmRI-GYf0VEmeNWbbIIkUqiUj-6AtQn5Pf3s" },
-    { name: "Rajasthan", price: "₹28,000", desc: "Walk through the corridors of history in the land of kings and vibrant sands.", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDOHD5qdTHi6zi6R5jK8ZxeLLxnlxmsVWrKmlsjMHT4vdq3Yz1l2EMnsX61EKGjuIqGwAnDZdhQy-GMrLLefDtOXJzO6SXWTVE6r2XFlg6NV0oT7NdqXnRnv72wMAAvdgl1_1ZfQrvCMnULtx517q8o_BPAjMJHEF8ulFDfc4eDmK2XbwBOjuQlUvyI1UEE1pMYqYWggNfS8s4rdUlAZ9PJG4JcPUynyv6DOK8YYRNnp78yjuQm-GBATQY5hN5YEeEsXx7qR3Xsamc" },
-  ];
+  const filtered = activeFilter === "All Collections"
+    ? destinations
+    : destinations.filter((d) => d.category === activeFilter);
 
   const faqs = [
     { q: "What is the best time to book international packages?", a: "We recommend booking at least 3-4 months in advance for premium destinations like the Maldives or Dubai to ensure luxury villa availability and the most competitive flight rates." },
@@ -49,7 +46,7 @@ const DestinationsPage = () => {
       {/* Grid */}
       <section className="px-8 max-w-7xl mx-auto pb-32">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {destinations.map((dest) => (
+          {filtered.map((dest) => (
             <div key={dest.name} className="group relative bg-surface-container-lowest rounded-DEFAULT overflow-hidden transition-all duration-500 hover:-translate-y-2">
               <div className="aspect-[4/5] overflow-hidden">
                 <img alt={dest.name} className="w-full h-full object-cover rounded-[12px] m-2 w-[calc(100%-1rem)] h-[calc(100%-1rem)] transition-transform duration-700 group-hover:scale-110" src={dest.img} />
@@ -60,9 +57,12 @@ const DestinationsPage = () => {
                   <span className="font-label text-xs font-bold px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full">FROM {dest.price}</span>
                 </div>
                 <p className="font-body text-lg text-on-surface/70 mb-6 leading-relaxed">{dest.desc}</p>
-                <button className="w-full py-4 rounded-full border border-outline-variant text-on-surface font-label text-xs uppercase tracking-widest hover:bg-primary-container hover:text-on-primary hover:border-transparent transition-all">
+                <Link
+                  to={`/destinations/${dest.slug}`}
+                  className="block w-full py-4 rounded-full border border-outline-variant text-on-surface font-label text-xs uppercase tracking-widest hover:bg-primary-container hover:text-on-primary hover:border-transparent transition-all text-center"
+                >
                   View Details
-                </button>
+                </Link>
               </div>
             </div>
           ))}
