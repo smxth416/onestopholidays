@@ -1,4 +1,5 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { SmoothLink as Link } from "@/components/SmoothLink";
 import { ArrowLeft, Calendar, Clock, MapPin, Check } from "lucide-react";
 import { destinations } from "@/data/destinations";
 
@@ -18,7 +19,7 @@ const DestinationDetailPage = () => {
   }
 
   return (
-    <main className="pt-24">
+    <main>
       {/* Back Button */}
       <div className="max-w-7xl mx-auto px-8 pt-8">
         <Link
@@ -33,8 +34,8 @@ const DestinationDetailPage = () => {
       </div>
 
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-8 pt-8 pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <section className="min-h-screen flex flex-col justify-center max-w-7xl mx-auto px-8 py-24 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
           <div className="aspect-[4/5] rounded-[20px] overflow-hidden">
             <img src={dest.img} alt={dest.name} className="w-full h-full object-cover" />
           </div>
@@ -74,8 +75,8 @@ const DestinationDetailPage = () => {
       </section>
 
       {/* Highlights */}
-      <section className="bg-surface-container-low py-24">
-        <div className="max-w-7xl mx-auto px-8">
+      <section className="min-h-screen flex flex-col justify-center py-24">
+        <div className="max-w-7xl mx-auto px-8 w-full">
           <div className="text-center mb-16">
             <span className="font-label text-xs uppercase tracking-[0.3em] text-secondary font-bold">What Awaits</span>
             <h2 className="font-headline text-5xl mt-4">Experience Highlights</h2>
@@ -94,8 +95,8 @@ const DestinationDetailPage = () => {
       </section>
 
       {/* Itinerary */}
-      <section className="py-24">
-        <div className="max-w-5xl mx-auto px-8">
+      <section className="min-h-screen flex flex-col justify-center py-24">
+        <div className="max-w-5xl mx-auto px-8 w-full">
           <div className="text-center mb-16">
             <span className="font-label text-xs uppercase tracking-[0.3em] text-secondary font-bold">Your Journey</span>
             <h2 className="font-headline text-5xl mt-4">Day-by-Day Itinerary</h2>
@@ -125,8 +126,8 @@ const DestinationDetailPage = () => {
       </section>
 
       {/* Inclusions */}
-      <section className="bg-surface-container-low py-24">
-        <div className="max-w-4xl mx-auto px-8">
+      <section className="min-h-screen flex flex-col justify-center py-24">
+        <div className="max-w-4xl mx-auto px-8 w-full">
           <div className="text-center mb-16">
             <span className="font-label text-xs uppercase tracking-[0.3em] text-secondary font-bold">What's Included</span>
             <h2 className="font-headline text-5xl mt-4">Package Inclusions</h2>
@@ -145,8 +146,8 @@ const DestinationDetailPage = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-24">
-        <div className="max-w-4xl mx-auto px-8 text-center">
+      <section className="min-h-screen flex flex-col justify-center py-24">
+        <div className="max-w-4xl mx-auto px-8 text-center w-full">
           <h2 className="font-headline text-5xl mb-6">Ready to Experience {dest.name}?</h2>
           <p className="font-body text-xl text-on-surface/60 mb-10 max-w-2xl mx-auto">
             Let our travel curators craft a personalized itinerary tailored to your preferences. Every detail, handled.

@@ -1,4 +1,5 @@
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { SmoothLink as Link } from "@/components/SmoothLink";
 
 const Navbar = () => {
   const location = useLocation();
@@ -12,31 +13,29 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md">
-      <div className="flex justify-between items-center max-w-7xl mx-auto px-8 py-4">
-        <Link to="/" className="text-2xl font-semibold tracking-tight text-primary-container font-headline">
-          One Stop Holidays
-        </Link>
-        <div className="hidden md:flex items-center gap-8">
-          {links.map((link) => (
+    <div className="fixed top-8 left-1/2 -translate-x-1/2 z-50">
+      <nav className="bg-[#242424]/95 backdrop-blur-md border border-white/5 shadow-2xl rounded-full p-1.5 flex items-center">
+        {links.map((link) => {
+          const isActive = currentPath === link.to;
+          return (
             <Link
               key={link.to}
               to={link.to}
-              className={`font-headline text-lg antialiased transition-colors duration-300 ${
-                currentPath === link.to
-                  ? "text-secondary border-b border-secondary pb-1"
-                  : "text-on-surface hover:text-secondary"
+              className={`relative px-6 py-2.5 rounded-full text-[15px] tracking-wide transition-all duration-300 flex flex-col items-center ${
+                isActive 
+                  ? "text-white bg-white/10 font-semibold" 
+                  : "text-white/60 hover:text-white font-medium"
               }`}
             >
               {link.label}
+              {isActive && (
+                <span className="absolute bottom-1.5 w-4 h-[2px] bg-white rounded-full"></span>
+              )}
             </Link>
-          ))}
-        </div>
-        <button className="bg-secondary text-on-secondary px-8 py-2.5 rounded-full font-label text-sm font-bold tracking-widest uppercase hover:opacity-90 active:scale-95 transition-all">
-          Book Now
-        </button>
-      </div>
-    </nav>
+          );
+        })}
+      </nav>
+    </div>
   );
 };
 

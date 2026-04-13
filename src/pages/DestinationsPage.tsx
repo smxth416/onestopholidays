@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { SmoothLink as Link } from "@/components/SmoothLink";
 import { destinations } from "@/data/destinations";
 
 const DestinationsPage = () => {
@@ -18,9 +18,9 @@ const DestinationsPage = () => {
   ];
 
   return (
-    <main className="pt-24">
+    <main>
       {/* Hero & Filter */}
-      <section className="min-h-[409px] flex flex-col justify-end px-8 max-w-7xl mx-auto pb-12">
+      <section className="min-h-screen flex flex-col justify-center px-8 max-w-7xl mx-auto py-24 w-full">
         <h1 className="font-headline text-7xl md:text-8xl lg:text-9xl tracking-tight leading-[0.9] mb-12">
           Curated <br />
           <span className="italic text-primary">Escapes</span>
@@ -31,11 +31,10 @@ const DestinationsPage = () => {
             <button
               key={f}
               onClick={() => setActiveFilter(f)}
-              className={`px-6 py-2 rounded-full font-label text-sm transition-all ${
-                activeFilter === f
+              className={`px-6 py-2 rounded-full font-label text-sm transition-all ${activeFilter === f
                   ? "bg-secondary text-on-secondary"
                   : "bg-surface-container-high text-on-surface hover:bg-surface-container-highest"
-              }`}
+                }`}
             >
               {f}
             </button>
@@ -44,8 +43,8 @@ const DestinationsPage = () => {
       </section>
 
       {/* Grid */}
-      <section className="px-8 max-w-7xl mx-auto pb-32">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="min-h-screen flex flex-col justify-center px-8 max-w-7xl mx-auto py-24 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
           {filtered.map((dest) => (
             <div key={dest.name} className="group relative bg-surface-container-lowest rounded-DEFAULT overflow-hidden transition-all duration-500 hover:-translate-y-2">
               <div className="aspect-[4/5] overflow-hidden">
@@ -70,8 +69,8 @@ const DestinationsPage = () => {
       </section>
 
       {/* FAQ */}
-      <section className="bg-surface-container-low py-32">
-        <div className="max-w-4xl mx-auto px-8">
+      <section className="min-h-screen flex flex-col justify-center py-24">
+        <div className="max-w-4xl mx-auto px-8 w-full">
           <div className="text-center mb-20">
             <span className="font-label text-xs uppercase tracking-[0.3em] text-secondary font-bold">Inquiries</span>
             <h2 className="font-headline text-5xl mt-4">Traveler Essentials</h2>

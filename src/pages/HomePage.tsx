@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
+import { SmoothLink as Link } from "@/components/SmoothLink";
 
 const HomePage = () => {
   return (
     <main>
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-surface">
+      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden py-24">
         <div className="absolute inset-0 z-0">
           <img className="w-full h-full object-cover" alt="Cinematic wide shot of a luxury overwater villa in Maldives during sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYu9bPzFIIyyx8i_UpEjb0SMZYQv_SQHK6nzgvE40ODmYq3kzxV-VWE_9MpjUbYTcopntz3ruIFwQ6vB-J-2kOAuhMO8UgiRwZGdDsAe3lk9oNQYAAKKS0YFA25Tu4EsHIUSD4fQavFC3OOfEteB5eEQbovyyXEBswt4rcH_IXKBjlnNlcUO95PEr5GCmy3fJoeOYSogACg8zD5LBZNTKJA39DJ2v1xhI887B1sH6whH_cxjjy0cwdfigijzuHtQDiJxnuCHZZ094" />
           <div className="absolute inset-0 hero-gradient"></div>
@@ -44,8 +44,8 @@ const HomePage = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-24 bg-surface-container-low">
-        <div className="max-w-7xl mx-auto px-8">
+      <section className="min-h-screen flex flex-col justify-center py-24">
+        <div className="max-w-7xl mx-auto px-8 w-full">
           <div className="mb-16 flex flex-col md:flex-row justify-between items-end gap-6">
             <div className="max-w-2xl">
               <span className="font-label text-secondary font-bold tracking-[0.2em] text-sm uppercase mb-4 block">The Curator's Standard</span>
@@ -72,8 +72,8 @@ const HomePage = () => {
       </section>
 
       {/* Destinations Preview */}
-      <section className="py-24 bg-surface">
-        <div className="max-w-7xl mx-auto px-8">
+      <section className="min-h-screen flex flex-col justify-center py-24">
+        <div className="max-w-7xl mx-auto px-8 w-full">
           <div className="mb-16 text-center max-w-3xl mx-auto">
             <span className="font-label text-secondary font-bold tracking-[0.2em] text-sm uppercase mb-4 block">World-Class Selections</span>
             <h2 className="text-on-surface font-headline text-6xl italic mb-6">Featured Escapes</h2>
@@ -106,11 +106,11 @@ const HomePage = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 bg-surface-container-high relative overflow-hidden">
+      <section className="min-h-screen flex flex-col justify-center py-24 relative overflow-hidden">
         <div className="absolute top-0 right-0 opacity-5 -mr-20 -mt-20">
           <span className="material-symbols-outlined text-[300px]">format_quote</span>
         </div>
-        <div className="max-w-7xl mx-auto px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-8 relative z-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-16">
             <div className="lg:col-span-4">
               <span className="font-label text-secondary font-bold tracking-[0.2em] text-sm uppercase mb-4 block">Kind Words</span>

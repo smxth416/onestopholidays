@@ -1,52 +1,194 @@
-import { Link } from "react-router-dom";
+import { Mail, Phone, MapPin, Globe, Share2 } from "lucide-react";
+import { SmoothLink as Link } from "@/components/SmoothLink";
+import { TextHoverEffect } from "@/components/ui/TextHoverEffect";
+
+const navigationLinks = [
+  { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
+  { label: "Destinations", to: "/destinations" },
+  { label: "Contact", to: "/contact" },
+];
+
+const legalLinks = [
+  { label: "Privacy Policy", to: "/privacy-policy" },
+  { label: "Terms of Service", to: "/terms" },
+  { label: "Sitemap", to: "/" },
+];
+
+const contactInfo = [
+  {
+    icon: <Mail size={16} className="text-secondary mt-0.5 shrink-0" />,
+    text: "hello@onestopholidays.com",
+    href: "mailto:hello@onestopholidays.com",
+  },
+  {
+    icon: <Phone size={16} className="text-secondary mt-0.5 shrink-0" />,
+    text: "+91 (0) 281 4455 6677",
+    href: "tel:+912814455677",
+  },
+  {
+    icon: <MapPin size={16} className="text-secondary mt-0.5 shrink-0" />,
+    label: "Office",
+    text: "301 Silver Plaza, Kalawad Road, Rajkot, Gujarat 360005",
+  },
+];
+
+const socialLinks = [
+  { icon: <Globe size={18} />, label: "Website", href: "#" },
+  { icon: <Share2 size={18} />, label: "Share", href: "#" },
+];
 
 const Footer = () => {
   return (
-    <footer className="w-full rounded-t-[20px] bg-surface-container-low">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto px-8 py-16 font-label text-sm tracking-wide text-primary-container">
-        <div className="md:col-span-1">
-          <div className="font-headline text-xl text-primary-container mb-6">One Stop Holidays</div>
-          <p className="text-on-surface/70 mb-8 leading-relaxed">
-            Crafting bespoke travel experiences for the modern soul seeker. Every journey is a story waiting to be told.
-          </p>
-          <div className="flex gap-4">
-            <span className="material-symbols-outlined cursor-pointer hover:text-secondary transition-colors">public</span>
-            <span className="material-symbols-outlined cursor-pointer hover:text-secondary transition-colors">share</span>
-          </div>
-        </div>
-        <div>
-          <h4 className="font-bold mb-6 text-on-surface uppercase tracking-widest text-xs">Explore</h4>
-          <ul className="space-y-4">
-            <li><Link className="text-on-surface/70 hover:underline decoration-secondary underline-offset-4" to="/destinations">Destinations</Link></li>
-            <li><a className="text-on-surface/70 hover:underline decoration-secondary underline-offset-4" href="#">Private Charters</a></li>
-            <li><a className="text-on-surface/70 hover:underline decoration-secondary underline-offset-4" href="#">The Journal</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 className="font-bold mb-6 text-on-surface uppercase tracking-widest text-xs">Company</h4>
-          <ul className="space-y-4">
-            <li><Link className="text-secondary font-bold" to="/about">About Us</Link></li>
-            <li><a className="text-on-surface/70 hover:underline decoration-secondary underline-offset-4" href="#">Sitemap</a></li>
-            <li><a className="text-on-surface/70 hover:underline decoration-secondary underline-offset-4" href="#">Privacy Policy</a></li>
-            <li><a className="text-on-surface/70 hover:underline decoration-secondary underline-offset-4" href="#">Terms of Service</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 className="font-bold mb-6 text-on-surface uppercase tracking-widest text-xs">Connect</h4>
-          <p className="text-on-surface/70 mb-4 italic">Rajkot Office</p>
-          <p className="text-on-surface/70 mb-6">hello@onestopholidays.com<br />+91 (0) 281 4455 6677</p>
-          <div className="flex items-center gap-2">
-            <div className="h-px w-8 bg-secondary"></div>
-            <span className="text-xs uppercase font-bold text-secondary">Inquire Now</span>
+    /* mx-4 / mb-4 / mt-20 gives the floating-card look with nav clearance */
+    <footer
+      className="relative rounded-[2.5rem] overflow-hidden mx-4 mb-4 mt-20 border border-outline-variant/10 shadow-sm flex flex-col"
+      style={{ height: "calc(100vh - 5rem)" }} /* 5rem ≈ mt-20 so card fills exactly 100vh on screen */
+    >
+
+      {/* Ambient gradient overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none z-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 120% 80% at 50% 0%, rgba(0,13,116,0.06) 0%, rgba(0,108,78,0.04) 60%, transparent 100%)",
+        }}
+      />
+
+      {/* ── TAGLINE (top anchor) ─────────────────────────────── */}
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-8 md:px-14 pt-10 pb-8 border-b border-outline-variant/15 shrink-0">
+        <span className="font-label text-xs tracking-[0.3em] uppercase text-secondary font-bold">
+          Crafting Bespoke Journeys
+        </span>
+        <h2 className="font-serif-display text-4xl md:text-5xl text-primary mt-3 leading-snug max-w-lg">
+          Every holiday is a story{" "}
+          <span className="italic text-secondary">waiting to be told.</span>
+        </h2>
+      </div>
+
+      {/* ── 4-COLUMN GRID (fills remaining space, content centered) ─ */}
+      <div className="relative z-10 flex-1 flex items-center">
+        <div className="max-w-7xl mx-auto w-full px-8 md:px-14">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+            {/* Brand */}
+            <div className="sm:col-span-2 lg:col-span-1">
+              <div className="font-serif-display text-xl font-bold text-primary-container mb-4">
+                One Stop Holidays
+              </div>
+              <p className="text-on-surface/60 text-sm leading-relaxed max-w-xs mb-6 font-label">
+                Your dedicated travel partner from Rajkot, India — curating premium, personalised holidays across the globe.
+              </p>
+              <div className="flex gap-3">
+                {socialLinks.map(({ icon, label, href }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    aria-label={label}
+                    className="w-9 h-9 rounded-full border border-outline-variant/20 flex items-center justify-center text-on-surface/50 hover:text-secondary hover:border-secondary transition-all duration-300"
+                  >
+                    {icon}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Explore */}
+            <div>
+              <h4 className="font-label text-xs font-bold uppercase tracking-[0.25em] text-primary mb-5">
+                Explore
+              </h4>
+              <ul className="space-y-3">
+                {navigationLinks.map((link) => (
+                  <li key={link.to}>
+                    <Link
+                      to={link.to}
+                      className="font-label text-sm text-on-surface/60 hover:text-primary transition-colors duration-200"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Legal */}
+            <div>
+              <h4 className="font-label text-xs font-bold uppercase tracking-[0.25em] text-primary mb-5">
+                Legal
+              </h4>
+              <ul className="space-y-3">
+                {legalLinks.map((link) => (
+                  <li key={link.to}>
+                    <Link
+                      to={link.to}
+                      className="font-label text-sm text-on-surface/60 hover:text-primary transition-colors duration-200"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Connect */}
+            <div>
+              <h4 className="font-label text-xs font-bold uppercase tracking-[0.25em] text-primary mb-5">
+                Connect
+              </h4>
+              <ul className="space-y-4">
+                {contactInfo.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    {item.icon}
+                    <div className="flex flex-col">
+                      {item.label && (
+                        <span className="font-label text-[10px] font-bold uppercase tracking-widest text-secondary mb-0.5">
+                          {item.label}
+                        </span>
+                      )}
+                      {item.href ? (
+                        <a
+                          href={item.href}
+                          className="font-label text-sm text-on-surface/60 hover:text-primary transition-colors leading-relaxed"
+                        >
+                          {item.text}
+                        </a>
+                      ) : (
+                        <span className="font-label text-sm text-on-surface/60 leading-relaxed">
+                          {item.text}
+                        </span>
+                      )}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
           </div>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-8 py-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4 text-on-surface/50 text-[10px] uppercase tracking-[0.2em]">
-        <span>© 2024 One Stop Holidays. Rajkot, India.</span>
-        <div className="flex gap-6">
-          <span>All Rights Reserved</span>
+
+      {/* ── WATERMARK (bottom decoration) ───────────────────── */}
+      <div className="hidden lg:flex h-24 relative z-10 opacity-30 overflow-hidden px-14 shrink-0">
+        <TextHoverEffect text="ONE STOP HOLIDAYS" />
+      </div>
+
+      {/* ── COPYRIGHT BAR (bottom anchor) ───────────────────── */}
+      <div className="relative z-10 shrink-0 max-w-7xl mx-auto w-full px-8 md:px-14 py-5 border-t border-outline-variant/15 flex flex-col md:flex-row justify-between items-center gap-3 text-on-surface/40 text-[10px] uppercase tracking-[0.2em] font-label">
+        <span>
+          All Rights Reserved © {new Date().getFullYear()} One Stop Holidays. Rajkot, India.
+        </span>
+        <div className="flex items-center gap-5">
+          <Link to="/privacy-policy" className="hover:text-primary transition-colors">
+            Privacy Policy
+          </Link>
+          <div className="w-px h-3 bg-on-surface/15" />
+          <Link to="/terms" className="hover:text-primary transition-colors">
+            Terms of Service
+          </Link>
         </div>
       </div>
+
     </footer>
   );
 };

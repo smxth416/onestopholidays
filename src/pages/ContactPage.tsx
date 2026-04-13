@@ -2,7 +2,7 @@ const ContactPage = () => {
   return (
     <main>
       {/* Contact Form Hero */}
-      <section className="min-h-screen flex items-center pt-20 px-8 relative overflow-hidden bg-surface">
+      <section className="min-h-screen flex flex-col justify-center px-8 py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
             <h1 className="font-headline text-7xl md:text-8xl leading-none text-primary -tracking-wider">
@@ -49,7 +49,7 @@ const ContactPage = () => {
       </section>
 
       {/* Office Details */}
-      <section className="min-h-screen flex items-center bg-surface-container-low px-8">
+      <section className="min-h-screen flex flex-col justify-center py-24 px-8">
         <div className="max-w-7xl mx-auto w-full">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="md:col-span-1 space-y-6">
@@ -86,8 +86,8 @@ const ContactPage = () => {
       </section>
 
       {/* Map Section */}
-      <section className="py-24 bg-surface px-8">
-        <div className="max-w-7xl mx-auto">
+      <section className="min-h-screen flex flex-col justify-center py-24 px-8">
+        <div className="max-w-7xl mx-auto w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
             <div className="relative h-[600px] rounded-lg overflow-hidden shadow-2xl border border-outline-variant/10">
               <img className="w-full h-full object-cover" alt="Map of Rajkot showing One Stop Holidays office location" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMomNobCsTyVZDyTe4U1gE-0d9We_uRqWORsAj71BelfXQvjNt18XkxUP_rvOZQQnPywAf_Et3ZasZAC_OKL8s0R9hsDMtubxIp83E1yuSqMb-JUfDgZKVQu8sYX46rc3L2bJ_fjKX0aTjuDQhjMEnN8HnJnZxUuRAOr5rhQOK_Mpp7M195MtfA2liQEyhSZWJuYzYwrz4fkQPPNOLj14Viw1rM9eA2BV93P4aWlqadfiuxpXufuctDLLS_okinW_P-gpHtaulZJk" />

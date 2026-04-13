@@ -43,7 +43,8 @@
     @apply border-border;
   }
   body {
-    @apply bg-surface text-on-surface font-body antialiased;
+    @apply text-on-surface font-body antialiased;
+    background-color: #faf9f5; /* single global background for all pages */
   }
 }
 

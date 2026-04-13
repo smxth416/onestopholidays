@@ -2,14 +2,10 @@ const AboutPage = () => {
   return (
     <main>
       {/* Hero */}
-      <section className="min-h-screen flex items-center pt-20 px-8 bg-surface">
+      <section className="min-h-screen flex flex-col justify-center px-8 py-24">
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
           <div className="md:col-span-7">
-            <nav className="mb-8 flex gap-2 font-label text-xs uppercase tracking-widest text-outline">
-              <span>Home</span>
-              <span>/</span>
-              <span className="text-secondary font-bold">About</span>
-            </nav>
+
             <h1 className="font-serif-display text-7xl md:text-8xl text-primary leading-[1.1] mb-8 -tracking-[0.02em]">
               Curating Journeys <br /><span className="italic text-secondary">With Soul.</span>
             </h1>
@@ -31,8 +27,8 @@ const AboutPage = () => {
       </section>
 
       {/* Stats */}
-      <section className="min-h-[819px] py-32 px-8 bg-surface-container-low rounded-t-lg">
-        <div className="max-w-7xl mx-auto">
+      <section className="min-h-screen flex flex-col justify-center py-24 px-8">
+        <div className="max-w-7xl mx-auto w-full">
           <div className="mb-20 text-center">
             <span className="font-label text-sm tracking-[0.3em] uppercase text-secondary font-bold">The Pillars of Expertise</span>
             <h2 className="font-serif-display text-5xl md:text-6xl mt-4 text-primary">A Decade of Crafting Stories</h2>
@@ -67,8 +63,8 @@ const AboutPage = () => {
       </section>
 
       {/* Team */}
-      <section className="min-h-screen py-32 px-8 bg-surface">
-        <div className="max-w-7xl mx-auto">
+      <section className="min-h-screen flex flex-col justify-center py-24 px-8">
+        <div className="max-w-7xl mx-auto w-full">
           <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
             <div className="max-w-2xl">
               <span className="font-label text-sm tracking-[0.3em] uppercase text-secondary font-bold">Leadership</span>
@@ -97,7 +93,7 @@ const AboutPage = () => {
       </section>
 
       {/* Rajkot Office */}
-      <section className="min-h-[819px] flex items-center py-32 px-8 bg-surface-container-low rounded-b-lg">
+      <section className="min-h-screen flex flex-col justify-center py-24 px-8">
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
           <div className="order-2 md:order-1">
             <div className="bg-surface-container-lowest p-4 rounded-lg shadow-2xl">

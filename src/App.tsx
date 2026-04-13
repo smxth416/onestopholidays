@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import RouteScroll from "./components/RouteScroll";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
@@ -11,6 +12,8 @@ import DestinationsPage from "./pages/DestinationsPage";
 import ContactPage from "./pages/ContactPage";
 import DestinationDetailPage from "./pages/DestinationDetailPage";
 import NotFound from "./pages/NotFound";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import TermsPage from "./pages/TermsPage";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +23,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <RouteScroll />
         <div className="scroll-smooth">
           <Navbar />
           <Routes>
@@ -28,6 +32,8 @@ const App = () => (
             <Route path="/destinations" element={<DestinationsPage />} />
             <Route path="/destinations/:slug" element={<DestinationDetailPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="/terms" element={<TermsPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
