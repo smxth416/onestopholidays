@@ -71,32 +71,50 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Destinations Preview */}
-      <section className="min-h-screen flex flex-col justify-center py-24">
-        <div className="max-w-7xl mx-auto px-8 w-full">
-          <div className="mb-16 text-center max-w-3xl mx-auto">
-            <span className="font-label text-secondary font-bold tracking-[0.2em] text-sm uppercase mb-4 block">World-Class Selections</span>
-            <h2 className="text-on-surface font-headline text-6xl italic mb-6">Featured Escapes</h2>
+      {/* Destinations Preview — World-Class Selections */}
+      <section className="h-screen max-h-screen pt-20 flex flex-col justify-center overflow-hidden px-8">
+        <div className="max-w-6xl mx-auto w-full flex flex-col justify-center gap-12">
+          {/* Header */}
+          <div className="text-center flex-shrink-0">
+            <h2 className="text-on-surface font-headline text-5xl md:text-6xl italic mb-3">Featured Escapes</h2>
             <p className="text-on-surface-variant font-light text-lg">Hand-picked destinations that define luxury and serenity.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          {/* 4-col single row */}
+          <div className="grid grid-cols-4 gap-8 md:gap-10">
             {[
-              { name: "Goa", tag: "Coastal Luxury", price: "₹45,000", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCcv6rs8I3zqx-wkyOWO4DaL8H8A--GG3I_w7KhpUyNGNwxrscXdoVNdniv9a5Dmzr23Gb0sxc6HvaWbCOo4k5kdKYegborB1HuY07VyC3fbkS-GFvuShofoZ5pFVTmJNWzbm5ELGN2_beHEaWU3UVKUZZ9AQccAhXS9wMW_a55lk_0HJ9j8iEKKN974C8sNPzvWDG2aN4iyQP7J1R7eJreDaSYY056fBTQFWe6syzEuz7yVBIY_nd38LhS06Z53RoHzFu3i6FYBZM" },
-              { name: "Dubai", tag: "Urban Opulence", price: "₹85,000", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuC9sgUnEP9O4o2qRZDidt8sVElKyekPVlbFqMtQe6f1tb7H6xRCzFxx1lCg3YKT4PnGKwQdpptKhHCpZyu-RnqElWPLcFG_K5lNBxlsOa8qYA_sEMXnSA0qb6kImu6BtSTZCRgb0utaV76yr0gbIHPZZE8Z32NQqgHyXKgXMDNu_AxrysMrQlN91LTo0R4sHNHOuwUG9WsaaTExOcvP_ln5BE-QV7S-3FQ9M_Zz1bV5QZDDeaM0R8tpoYWBPxOh-ZiNkNh4_l2tEGY" },
-              { name: "Maldives", tag: "Private Island", price: "₹1,20,000", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCrLEuBGB4-WOZJw_wcxD4lrfHHP3FhPHl3KsgV8vzJhezKvvTnShqrL2uRDcO8CKJQ7zKAZEpgf4lI8SZFAPAmIIvRjs8IIg-eRoiGKlE3Cx3QnGZCYc9bsJMU24vjW219olAabdJSoKDdjkWxIvamLUSRfyuxU2yxlCzybbMGkXC9IJSYr2fYoUJlqvXNGQMuvZ2RVhhO3axCnEM32jsFWfwWmLWm35C1qFlCwEYM1b5LIWIIF3hKSaU5T9LqdRhDy9q5EohRCM8" },
-              { name: "Kashmir", tag: "Eternal Heaven", price: "₹55,000", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDobEc45AC6O8QAzkMvHJQ60RbV0Cl7mgOSyen7sTrR1ylP2uTfWjlPcTO4JRrybrpjd8Kq9ldHUuXM6z3LB0XzHhTjoqWz6pvwyrmSU5-c3PLz0ickFO28btHLuUsEQKcviQPCw0CV1Bosel5QIJ7fjfVN0ktab0hnWDnsgvmuwaGp6DJN7zx24VwaL6gd_VAFj_WS03WUctmguCoZKSnTHXhJN9vthhJ24mIn_BD3aoN2bEKeev8MA1N90v8-lemTsPd9ZV07kFk" },
-              { name: "Manali", tag: "Mountain Retreat", price: "₹38,000", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAJSggVRXbD5zMqSMZSQ7xvh0jNea2RHy1aebHSh2Ezbi2uXl2ibyfHrFdXGAbYEqVZj0_EXtBWhvrDWNgPy0mkc8x0ZHmwYtY_4Bu-fDHgQakkL-X-29Zq46K1SjS5AVGdSXx3pY9l3LoauTK3WVrjbE8rNlohmNgQHq6BtCjt_PqiyCf4xBvNz2NBCqs8oJpp217zehsRDQyJxGyxE7OgpRHiecb9ZXwUG1L_IHSJVZUyFqo1pXkP088zehVh3n_7TJ6cNMfiz2E" },
-              { name: "Rajasthan", tag: "Royal Heritage", price: "₹62,000", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAIvan-0Jl6_0zqEWSaQDCmkeMjyUJFu-Gz3xa13SreSCI6xupsIo55tCdrUCtGaGc-x_fdywDZP9ukfC1xSXlX3dqCcaUpokM2BUbG9of-nsqrEKyo1IluQTH39VzEZSaJb_SHqlLzWrHO61ra993jM5-2qvbNxHhAQoTNCZv5JQuTP-Ti6Rl5Yl-oNTkhiAk-Cfy1PfAcb_GrlASp1cRGmZxMk7RfnrNJmZxb2lXHizJKhIu-E3mS1K-MNe_ezciHpdUVnj4_iPw" },
+              { name: "Goa", tag: "Coastal Luxury", price: "₹45,000", slug: "goa", desc: "Pristine sands and sunset rhythms at our curated coastal retreats.", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCcv6rs8I3zqx-wkyOWO4DaL8H8A--GG3I_w7KhpUyNGNwxrscXdoVNdniv9a5Dmzr23Gb0sxc6HvaWbCOo4k5kdKYegborB1HuY07VyC3fbkS-GFvuShofoZ5pFVTmJNWzbm5ELGN2_beHEaWU3UVKUZZ9AQccAhXS9wMW_a55lk_0HJ9j8iEKKN974C8sNPzvWDG2aN4iyQP7J1R7eJreDaSYY056fBTQFWe6syzEuz7yVBIY_nd38LhS06Z53RoHzFu3i6FYBZM" },
+              { name: "Dubai", tag: "Urban Opulence", price: "₹85,000", slug: "dubai", desc: "Experience ultimate grandeur where the golden desert meets the future.", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuC9sgUnEP9O4o2qRZDidt8sVElKyekPVlbFqMtQe6f1tb7H6xRCzFxx1lCg3YKT4PnGKwQdpptKhHCpZyu-RnqElWPLcFG_K5lNBxlsOa8qYA_sEMXnSA0qb6kImu6BtSTZCRgb0utaV76yr0gbIHPZZE8Z32NQqgHyXKgXMDNu_AxrysMrQlN91LTo0R4sHNHOuwUG9WsaaTExOcvP_ln5BE-QV7S-3FQ9M_Zz1bV5QZDDeaM0R8tpoYWBPxOh-ZiNkNh4_l2tEGY" },
+              { name: "Maldives", tag: "Private Island", price: "₹1,20,000", slug: "maldives", desc: "A sanctuary of turquoise waters and absolute seclusion for the elite traveler.", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCrLEuBGB4-WOZJw_wcxD4lrfHHP3FhPHl3KsgV8vzJhezKvvTnShqrL2uRDcO8CKJQ7zKAZEpgf4lI8SZFAPAmIIvRjs8IIg-eRoiGKlE3Cx3QnGZCYc9bsJMU24vjW219olAabdJSoKDdjkWxIvamLUSRfyuxU2yxlCzybbMGkXC9IJSYr2fYoUJlqvXNGQMuvZ2RVhhO3axCnEM32jsFWfwWmLWm35C1qFlCwEYM1b5LIWIIF3hKSaU5T9LqdRhDy9q5EohRCM8" },
+              { name: "Kashmir", tag: "Eternal Heaven", price: "₹55,000", slug: "kashmir", desc: "Ethereal valleys and slow shikara rides on the paradise on earth.", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDobEc45AC6O8QAzkMvHJQ60RbV0Cl7mgOSyen7sTrR1ylP2uTfWjlPcTO4JRrybrpjd8Kq9ldHUuXM6z3LB0XzHhTjoqWz6pvwyrmSU5-c3PLz0ickFO28btHLuUsEQKcviQPCw0CV1Bosel5QIJ7fjfVN0ktab0hnWDnsgvmuwaGp6DJN7zx24VwaL6gd_VAFj_WS03WUctmguCoZKSnTHXhJN9vthhJ24mIn_BD3aoN2bEKeev8MA1N90v8-lemTsPd9ZV07kFk" },
             ].map((dest) => (
-              <div key={dest.name} className="group relative overflow-hidden rounded-[20px] h-[500px] editorial-shadow">
-                <img className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt={dest.name} src={dest.img} />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                <div className="absolute bottom-0 p-8 w-full">
-                  <span className="bg-secondary-container text-on-secondary-container font-label text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full mb-3 inline-block">{dest.tag}</span>
-                  <h3 className="text-white font-headline text-3xl mb-1">{dest.name}</h3>
-                  <div className="flex justify-between items-center">
-                    <p className="text-white/80 font-label text-sm uppercase">Starting from {dest.price}</p>
-                    <span className="material-symbols-outlined text-white group-hover:translate-x-2 transition-transform">arrow_forward_ios</span>
+              /* White parent card — border frame responsive */
+              <div key={dest.name} className="group bg-white rounded-[25px] p-2 w-full aspect-[2/3] max-h-[55vh] flex flex-col shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                {/* Child image card — full width & height, all content overlaid */}
+                <div className="relative overflow-hidden rounded-[19px] w-full h-full">
+                  <img
+                    src={dest.img}
+                    alt={dest.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  {/* Strong gradient for readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+
+                  {/* Hover Tag overlay */}
+                  <span className="absolute top-3 left-3 bg-white/20 backdrop-blur-sm text-white font-label text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                    {dest.tag}
+                  </span>
+
+                  {/* Name + desc + button — overlaid at bottom */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4 flex flex-col gap-1.5">
+                    <h3 className="font-headline text-white text-xl leading-tight">{dest.name}</h3>
+                    <p className="font-body text-white/75 text-xs leading-snug line-clamp-2">{dest.desc}</p>
+                    <Link
+                      to={`/destinations/${dest.slug}`}
+                      className="mt-2 w-full py-2.5 rounded-full bg-white text-gray-900 font-label text-xs font-bold uppercase tracking-widest text-center hover:bg-white/90 transition-colors duration-200"
+                    >
+                      Book Now
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -107,9 +125,7 @@ const HomePage = () => {
 
       {/* Testimonials */}
       <section className="min-h-screen flex flex-col justify-center py-24 relative overflow-hidden">
-        <div className="absolute top-0 right-0 opacity-5 -mr-20 -mt-20">
-          <span className="material-symbols-outlined text-[300px]">format_quote</span>
-        </div>
+
         <div className="max-w-7xl mx-auto px-8 relative z-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-16">
             <div className="lg:col-span-4">
@@ -119,7 +135,7 @@ const HomePage = () => {
             <div className="lg:col-span-8 flex overflow-x-auto pb-12 gap-8 snap-x no-scrollbar">
               <div className="min-w-[400px] bg-surface-container-lowest p-10 rounded-[20px] editorial-shadow snap-start">
                 <div className="flex text-secondary mb-6">
-                  {[1,2,3,4,5].map(i => <span key={i} className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>)}
+                  {[1, 2, 3, 4, 5].map(i => <span key={i} className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>)}
                 </div>
                 <p className="font-headline text-2xl italic leading-relaxed mb-8">"Their attention to detail for our Maldives honeymoon was impeccable. Truly a one-stop boutique experience right here in Rajkot."</p>
                 <div className="flex items-center gap-4">
@@ -134,7 +150,7 @@ const HomePage = () => {
               </div>
               <div className="min-w-[400px] bg-surface-container-lowest p-10 rounded-[20px] editorial-shadow snap-start">
                 <div className="flex text-secondary mb-6">
-                  {[1,2,3,4,5].map(i => <span key={i} className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>)}
+                  {[1, 2, 3, 4, 5].map(i => <span key={i} className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>)}
                 </div>
                 <p className="font-headline text-2xl italic leading-relaxed mb-8">"One Stop Holidays managed our extended family trip to Kashmir perfectly. The local guides they provided were exceptional."</p>
                 <div className="flex items-center gap-4">

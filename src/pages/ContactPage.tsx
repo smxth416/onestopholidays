@@ -87,9 +87,10 @@ const ContactPage = () => {
 
       {/* Map Section */}
       <section className="min-h-screen flex flex-col justify-center py-24 px-8">
-        <div className="max-w-7xl mx-auto w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
-            <div className="relative h-[600px] rounded-lg overflow-hidden shadow-2xl border border-outline-variant/10">
+        <div className="max-w-6xl mx-auto w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
+            {/* Map Block */}
+            <div className="relative h-[400px] lg:h-auto rounded-[24px] overflow-hidden shadow-xl border border-outline-variant/10">
               <img className="w-full h-full object-cover" alt="Map of Rajkot showing One Stop Holidays office location" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMomNobCsTyVZDyTe4U1gE-0d9We_uRqWORsAj71BelfXQvjNt18XkxUP_rvOZQQnPywAf_Et3ZasZAC_OKL8s0R9hsDMtubxIp83E1yuSqMb-JUfDgZKVQu8sYX46rc3L2bJ_fjKX0aTjuDQhjMEnN8HnJnZxUuRAOr5rhQOK_Mpp7M195MtfA2liQEyhSZWJuYzYwrz4fkQPPNOLj14Viw1rM9eA2BV93P4aWlqadfiuxpXufuctDLLS_okinW_P-gpHtaulZJk" />
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group">
                 <div className="relative flex items-center justify-center">
@@ -97,34 +98,37 @@ const ContactPage = () => {
                   <div className="relative bg-secondary text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl border-4 border-white">
                     <span className="material-symbols-outlined">travel_explore</span>
                   </div>
-                  <div className="absolute top-full mt-4 bg-white px-6 py-3 rounded-xl shadow-xl border border-outline-variant/20 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
-                    <p className="font-headline text-lg">One Stop Holidays Office</p>
+                  <div className="absolute top-full mt-4 bg-white px-6 py-3 rounded-2xl shadow-xl border border-outline-variant/20 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+                    <p className="font-headline text-lg text-primary">One Stop Holidays</p>
                     <p className="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">22.3039° N, 70.8022° E</p>
                   </div>
                 </div>
               </div>
-              <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur-md p-4 rounded-lg border border-white/40 shadow-xl">
-                <div className="space-y-1">
+              <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-md p-5 rounded-[16px] border border-white/40 shadow-xl">
+                <div className="space-y-1.5">
                   <p className="font-label text-[10px] uppercase tracking-[0.2em] text-secondary font-bold">Geo-Location</p>
-                  <p className="font-headline text-xl">Rajkot, India</p>
-                  <p className="font-label text-[10px] text-on-surface-variant">Lat: 22.3039 | Lng: 70.8022</p>
+                  <p className="font-headline text-2xl text-primary">Rajkot, India</p>
                 </div>
               </div>
             </div>
-            <div className="bg-primary rounded-lg p-12 flex flex-col justify-center relative overflow-hidden">
-              <div className="absolute right-0 top-0 w-full h-full opacity-10 pointer-events-none">
+
+            {/* Content Block */}
+            <div className="bg-white rounded-[24px] p-12 md:p-16 flex flex-col justify-center relative overflow-hidden shadow-xl border border-outline-variant/10">
+              <div className="absolute right-0 top-0 w-full h-full opacity-[0.03] pointer-events-none">
                 <img className="w-full h-full object-cover grayscale" alt="Topographical map pattern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9Igz0oW4xJWM4gWfDUySRCRwjRILwgfF2x7Kecjdbq3jDUnq4PcTQsX8tc450Tumm-McQdy6RfZw2x9xBtFIgoRPHCtECMOU9_Ed6vYDNavcw-a1_AabTGyAEGnJ26Ghmy4HfGkI23wXY-j58Nn_AbtMua0E8OSXJj8dSdSDBIYm4vJXU6l7YFdaapD4jcoILt0tMMAhwPLj_PvFReKXl6_KMDw19PPnMxDipzOl0AU-HXvZcOLG2M9EIb1yLd7FDrpgOCowjEBA" />
               </div>
               <div className="relative z-10 space-y-8">
                 <div className="space-y-4">
-                  <span className="font-label text-xs uppercase tracking-[0.3em] text-on-primary-container font-bold">Our Physical Space</span>
-                  <h3 className="font-headline text-5xl md:text-6xl text-white leading-tight">Visit our studio and <br /><span className="italic text-on-primary-container">experience the curation.</span></h3>
+                  <span className="font-label text-xs uppercase tracking-[0.3em] text-secondary font-bold">Our Physical Space</span>
+                  <h3 className="font-headline text-5xl md:text-6xl text-primary leading-[1.1] -tracking-[0.02em]">
+                    Visit our studio and <br /><span className="italic text-secondary">experience the curation.</span>
+                  </h3>
                 </div>
-                <p className="text-white/70 font-body text-lg max-w-md">
+                <p className="text-on-surface-variant font-serif-display text-xl leading-relaxed max-w-md">
                   Witness the art of travel planning first-hand. Our studio is designed to inspire your next great adventure through sensory storytelling and personalized consultation.
                 </p>
-                <div className="pt-4">
-                  <a className="inline-block bg-white text-primary px-10 py-4 rounded-full font-label text-xs uppercase tracking-widest font-bold hover:bg-secondary hover:text-white transition-all shadow-lg" href="https://maps.google.com/?q=22.3039,70.8022" target="_blank" rel="noopener noreferrer">
+                <div className="pt-2">
+                  <a className="inline-block bg-primary text-on-primary px-8 py-4 rounded-full font-label text-[11px] uppercase tracking-[0.15em] font-bold hover:bg-primary/90 transition-all shadow-lg" href="https://maps.google.com/?q=22.3039,70.8022" target="_blank" rel="noopener noreferrer">
                     Open in Maps
                   </a>
                 </div>

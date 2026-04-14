@@ -20,45 +20,47 @@ const DestinationsPage = () => {
   return (
     <main>
       {/* Hero & Filter */}
-      <section className="min-h-screen flex flex-col justify-center px-8 max-w-7xl mx-auto py-24 w-full">
-        <h1 className="font-headline text-7xl md:text-8xl lg:text-9xl tracking-tight leading-[0.9] mb-12">
-          Curated <br />
-          <span className="italic text-primary">Escapes</span>
-        </h1>
-        <div className="flex flex-wrap items-center gap-4 py-8 border-t border-outline-variant/20">
-          <span className="font-label text-xs uppercase tracking-widest text-outline mr-4">Filter By Experience</span>
-          {filters.map((f) => (
-            <button
-              key={f}
-              onClick={() => setActiveFilter(f)}
-              className={`px-6 py-2 rounded-full font-label text-sm transition-all ${activeFilter === f
-                ? "bg-secondary text-on-secondary"
-                : "bg-surface-container-high text-on-surface hover:bg-surface-container-highest"
-                }`}
-            >
-              {f}
-            </button>
-          ))}
+      <section className="pt-32 pb-8 px-8 w-full">
+        <div className="max-w-6xl mx-auto w-full">
+          <h1 className="font-headline text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[1.1] mb-10">
+            Curated <br />
+            <span className="italic text-primary">Escapes.</span>
+          </h1>
+          <div className="flex flex-wrap items-center gap-4 py-8 border-t border-outline-variant/20">
+            <span className="font-label text-xs uppercase tracking-widest text-outline mr-4">Filter By Experience</span>
+            {filters.map((f) => (
+              <button
+                key={f}
+                onClick={() => setActiveFilter(f)}
+                className={`px-6 py-2 rounded-full font-label text-sm transition-all shadow-sm ${activeFilter === f
+                  ? "bg-secondary text-on-secondary shadow-md hover:shadow-lg"
+                  : "bg-surface-container-lowest text-on-surface hover:bg-surface-container-high border border-outline-variant/30"
+                  }`}
+              >
+                {f}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Grid */}
-      <section className="min-h-screen flex flex-col justify-center px-8 max-w-7xl mx-auto py-24 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+      <section className="flex flex-col justify-center px-8 w-full">
+        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {filtered.map((dest) => (
-            <div key={dest.name} className="group relative bg-surface-container-lowest rounded-DEFAULT overflow-hidden transition-all duration-500 hover:-translate-y-2">
-              <div className="aspect-[4/5] overflow-hidden">
-                <img alt={dest.name} className="w-full h-full object-cover rounded-[12px] m-2 w-[calc(100%-1rem)] h-[calc(100%-1rem)] transition-transform duration-700 group-hover:scale-110" src={dest.img} />
+            <div key={dest.name} className="group relative bg-white rounded-[24px] shadow-sm hover:shadow-xl border border-outline-variant/10 overflow-hidden transition-all duration-500 hover:-translate-y-1">
+              <div className="aspect-[4/3] overflow-hidden m-2 rounded-[18px]">
+                <img alt={dest.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src={dest.img} />
               </div>
-              <div className="p-8 pt-4">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="font-headline text-3xl">{dest.name}</h3>
-                  <span className="font-label text-xs font-bold px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full">FROM {dest.price}</span>
+              <div className="p-6 pt-3">
+                <div className="flex justify-between items-center mb-3">
+                  <h3 className="font-headline text-2xl text-primary">{dest.name}</h3>
+                  <span className="font-label text-[10px] font-bold px-3 py-1.5 bg-secondary-container text-on-secondary-container rounded-full tracking-widest">FROM {dest.price}</span>
                 </div>
-                <p className="font-body text-lg text-on-surface/70 mb-6 leading-relaxed">{dest.desc}</p>
+                <p className="font-serif-display text-base text-on-surface-variant mb-6 line-clamp-3 leading-relaxed">{dest.desc}</p>
                 <Link
                   to={`/destinations/${dest.slug}`}
-                  className="block w-full py-4 rounded-full border border-outline-variant text-on-surface font-label text-xs uppercase tracking-widest hover:bg-primary-container hover:text-on-primary hover:border-transparent transition-all text-center"
+                  className="block w-full py-3 rounded-full border border-outline-variant/50 text-on-surface font-label text-[11px] uppercase tracking-widest hover:bg-primary hover:text-white transition-all text-center"
                 >
                   View Details
                 </Link>

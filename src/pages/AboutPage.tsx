@@ -2,24 +2,23 @@ const AboutPage = () => {
   return (
     <main>
       {/* Hero */}
-      <section className="min-h-screen flex flex-col justify-center px-8 py-24">
-        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-          <div className="md:col-span-7">
-
-            <h1 className="font-serif-display text-7xl md:text-8xl text-primary leading-[1.1] mb-8 -tracking-[0.02em]">
+      <section className="h-screen max-h-screen pt-20 flex flex-col justify-center overflow-hidden px-8">
+        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div>
+            <h1 className="font-serif-display text-5xl md:text-6xl lg:text-7xl text-primary leading-[1.1] mb-8 -tracking-[0.02em]">
               Curating Journeys <br /><span className="italic text-secondary">With Soul.</span>
             </h1>
-            <div className="max-w-xl">
-              <p className="font-serif-display text-2xl leading-relaxed text-on-surface-variant mb-6">
+            <div className="pr-0 md:pr-4">
+              <p className="font-serif-display text-xl lg:text-2xl leading-relaxed text-on-surface-variant mb-6">
                 One Stop Holidays wasn't born in a boardroom; it was conceived on the winding trails of the Himalayas and the quiet streets of hidden European villages.
               </p>
-              <p className="font-serif-display text-2xl leading-relaxed text-on-surface-variant">
+              <p className="font-serif-display text-xl lg:text-2xl leading-relaxed text-on-surface-variant">
                 Our mission is to replace transactional travel with curated emotional discovery. We don't just book rooms; we orchestrate moments that linger in the memory long after the tan has faded.
               </p>
             </div>
           </div>
-          <div className="md:col-span-5 relative">
-            <div className="aspect-[4/5] rounded-lg overflow-hidden">
+          <div className="relative flex justify-center md:justify-end">
+            <div className="w-full max-w-md lg:max-w-lg aspect-[2/2] rounded-[24px] overflow-hidden shadow-2xl">
               <img className="w-full h-full object-cover" alt="Luxury vintage explorer desk with maps and compass" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS-7-RTNXslWNf7EelL1VsCBU2v_mUH7VRs5m-8nlSwcgnr6fJSpB9J47jY5TqLL9ad4alidUm7azP-MBZSSRbG6Y1M2uTTwz2qH92RLTvxp-RIorX8SUDNaPMSX9zHMBKLmpzGAXQ_gRj5kgQXT1h302VhQFVKEVrpofOcuqiO0QA-QyrvNTD2YKMPUgd39RH7tlnxF0eXKWlBF9fGAg30wGReaAV9YagV9hzbmOF8t1hliThR0iDSB4qZqjdAErGMOk6WGG0uGk" />
             </div>
           </div>
@@ -63,29 +62,29 @@ const AboutPage = () => {
       </section>
 
       {/* Team */}
-      <section className="min-h-screen flex flex-col justify-center py-24 px-8">
-        <div className="max-w-7xl mx-auto w-full">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-            <div className="max-w-2xl">
+      <section className="h-screen max-h-screen pt-20 flex flex-col justify-center overflow-hidden px-8">
+        <div className="max-w-6xl mx-auto w-full">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
+            <div className="max-w-xl">
               <span className="font-label text-sm tracking-[0.3em] uppercase text-secondary font-bold">Leadership</span>
-              <h2 className="font-serif-display text-5xl md:text-7xl mt-4 text-primary italic">The Curators.</h2>
+              <h2 className="font-serif-display text-5xl md:text-6xl lg:text-7xl mt-4 text-primary italic">The Curators.</h2>
             </div>
-            <p className="font-serif-display text-2xl text-on-surface-variant max-w-sm">
+            <p className="font-serif-display text-xl lg:text-2xl text-on-surface-variant max-w-sm pb-2">
               Guided by travel visionaries who believe every holiday is a masterpiece in waiting.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
             {[
               { name: "Vikram Shah", title: "Founder & Chief Architect", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBq9txtDbrKF8rCZp6Zn3xaW7SUwn0-CTE8b614t7lgJkpJ6ClSQfXS2_QCCaOwxoLHeMxQKbCbWVxEGn8Her4v09qLFyAWppfvqu-bhsBh-IgomWm8wzkDsNMgnPQhW7ZU31XO8ISxqJ-S1B4qjatJ46U-zH7ppaOGR-cl9wUvJZ7bgQl7j4Jbew-_gdVZhNctYfxtOjNuMYATeCR7weecQbU4Ido4S8W6i4q2I2_RsxrpQI1dgbuEfUIQuzL3oJi8P2HbKUtMOYY" },
               { name: "Ananya Patel", title: "Director of Experiences", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAWlesZm8g6GyNemVhVNCLshCcQFU-8jzw6yWSfdDlVi3UMxEqEstwUPKfZQF8SSxtJTSAfmGp3PTq9eJImxVzZbG6AEn3QVb7zWpTVg84dtn6sinJfC3Q20LKqZNXC3vbSCd8MGl2X92MW6_RfJzk45Udyb-7_UHSkYZ77tM8JJUvjTq4a_BpqRsHWIFTL3-9EgMW5E1FBOim_xpN7-DC8RtZkqRLW9vrD8Vr0095OJK3QYx64G7odKRemU34eDWIiHP7ooK17nfA" },
               { name: "Rohan Mehta", title: "Head of Logistics", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCFsOiJgeYeew2CaXtcyIpdQZ03zPhR_R9FNUOxbngAiHX8jTuo7t_sIqOcmgG7pDdvlVByXtXbVYGrBAuQALH_R2xXqJOZ9d8ggafaMcs8fLONafQH9Y8gOVk1kop3GX_LNPs1W5l-MZA5y1A_dckjeK8yrekf7KM6_YY6fhwuQ0tDmL_OuUP_Xsi9fAXFXfuRrRB3J9dpQfgzetFB8qbeT2d0xStL_AYBppqiX3voXaQjzo3UReCDWHfYRF-eKK_c8tTfqjaKN4w" },
             ].map((person) => (
               <div key={person.name} className="group">
-                <div className="aspect-[3/4] rounded-lg overflow-hidden mb-6 relative">
+                <div className="aspect-square rounded-[24px] overflow-hidden mb-6 relative shadow-lg">
                   <img className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt={person.name} src={person.img} />
                 </div>
-                <h3 className="font-serif-display text-3xl text-primary">{person.name}</h3>
-                <p className="font-label text-xs uppercase tracking-widest text-secondary font-bold mt-1">{person.title}</p>
+                <h3 className="font-serif-display text-2xl lg:text-3xl text-primary">{person.name}</h3>
+                <p className="font-label text-[10px] lg:text-xs uppercase tracking-widest text-secondary font-bold mt-1">{person.title}</p>
               </div>
             ))}
           </div>
