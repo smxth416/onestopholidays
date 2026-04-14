@@ -32,8 +32,8 @@ const DestinationsPage = () => {
               key={f}
               onClick={() => setActiveFilter(f)}
               className={`px-6 py-2 rounded-full font-label text-sm transition-all ${activeFilter === f
-                  ? "bg-secondary text-on-secondary"
-                  : "bg-surface-container-high text-on-surface hover:bg-surface-container-highest"
+                ? "bg-secondary text-on-secondary"
+                : "bg-surface-container-high text-on-surface hover:bg-surface-container-highest"
                 }`}
             >
               {f}
