@@ -73,9 +73,12 @@ const Footer = () => {
 
             {/* Brand */}
             <div className="sm:col-span-2 lg:col-span-1">
-              <div className="font-serif-display text-xl font-bold text-primary-container mb-4">
-                One Stop Holidays
-              </div>
+              <Link
+                to="/"
+                className="inline-block font-serif-display text-[1.75rem] font-bold mb-4 bg-[length:200%_auto] animate-text-shine bg-clip-text text-transparent bg-gradient-to-r from-primary-container via-secondary/80 to-primary-container hover:scale-105 transition-all duration-500 origin-left"
+              >
+                One Stop <span className="italic">Holidays</span>
+              </Link>
               <p className="text-on-surface/60 text-sm leading-relaxed max-w-xs mb-6 font-label">
                 Your dedicated travel partner from Rajkot, India — curating premium, personalised holidays across the globe.
               </p>
@@ -169,7 +172,7 @@ const Footer = () => {
       </div>
 
       {/* ── WATERMARK (bottom decoration) ───────────────────── */}
-      <div className="hidden lg:flex h-24 relative z-10 opacity-30 overflow-hidden px-14 shrink-0">
+      <div className="hidden lg:flex h-24 relative z-10 opacity-90 overflow-hidden px-14 shrink-0 transition-opacity duration-500">
         <TextHoverEffect text="ONE STOP HOLIDAYS" />
       </div>
 

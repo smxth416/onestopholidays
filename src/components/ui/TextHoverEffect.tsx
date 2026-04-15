@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from "react";
+import { motion } from "motion/react";
 
 export const TextHoverEffect = ({
   text,
@@ -15,15 +16,17 @@ export const TextHoverEffect = ({
   useEffect(() => {
     if (svgRef.current) {
       const rect = svgRef.current.getBoundingClientRect();
+      const cxPercentage = ((cursor.x - rect.left) / rect.width) * 100;
+      const cyPercentage = ((cursor.y - rect.top) / rect.height) * 100;
       setMaskPos({
-        cx: `${((cursor.x - rect.left) / rect.width) * 100}%`,
-        cy: `${((cursor.y - rect.top) / rect.height) * 100}%`,
+        cx: `${cxPercentage}%`,
+        cy: `${cyPercentage}%`,
       });
     }
   }, [cursor]);
 
   return (
-    <svg
+    <motion.svg
       ref={svgRef}
       width="100%"
       height="100%"
@@ -33,6 +36,9 @@ export const TextHoverEffect = ({
       onMouseLeave={() => setHovered(false)}
       onMouseMove={(e) => setCursor({ x: e.clientX, y: e.clientY })}
       className={`select-none cursor-pointer ${className}`}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-50px" }}
     >
       <defs>
         <linearGradient id="oshTextGradient" gradientUnits="userSpaceOnUse" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -41,33 +47,21 @@ export const TextHoverEffect = ({
           <stop offset="100%" stopColor="#1e2a8a" />
         </linearGradient>
 
-        <radialGradient
+        <motion.radialGradient
           id="oshRevealMask"
           gradientUnits="userSpaceOnUse"
           r="20%"
-          cx={maskPos.cx}
-          cy={maskPos.cy}
-          style={{ transition: "cx 0.1s ease-out, cy 0.1s ease-out" }}
+          initial={{ cx: "50%", cy: "50%" }}
+          animate={maskPos}
+          transition={{ duration: 0, ease: "easeOut" }}
         >
           <stop offset="0%" stopColor="white" />
           <stop offset="100%" stopColor="black" />
-        </radialGradient>
+        </motion.radialGradient>
 
         <mask id="oshTextMask">
           <rect x="0" y="0" width="100%" height="100%" fill="url(#oshRevealMask)" />
         </mask>
-
-        <style>{`
-          @keyframes osh-draw {
-            from { stroke-dashoffset: 1500; }
-            to { stroke-dashoffset: 0; }
-          }
-          .osh-animated-stroke {
-            stroke-dasharray: 1500;
-            stroke-dashoffset: 1500;
-            animation: osh-draw 4s ease-in-out forwards;
-          }
-        `}</style>
       </defs>
 
       {/* Base outline — always visible, very subtle */}
@@ -75,38 +69,48 @@ export const TextHoverEffect = ({
         x="50%" y="50%"
         textAnchor="middle"
         dominantBaseline="middle"
-        strokeWidth="0.4"
-        className="fill-transparent stroke-primary/10 font-headline"
-        style={{ fontSize: "4.5rem", fontFamily: "Instrument Serif, serif", opacity: hovered ? 0.6 : 0.25 }}
+        strokeWidth="0.8"
+        className="fill-transparent stroke-primary/60 font-headline"
+        style={{ fontSize: "4.5rem", fontFamily: "Instrument Serif, serif", opacity: hovered ? 0.9 : 0.7 }}
       >
         {text}
       </text>
 
-      {/* Animated stroke draw-on */}
-      <text
+      {/* Animated stroke draw-on using motion */}
+      <motion.text
         x="50%" y="50%"
         textAnchor="middle"
         dominantBaseline="middle"
-        strokeWidth="0.4"
-        className="fill-transparent stroke-primary osh-animated-stroke font-headline"
+        strokeWidth="0.8"
+        className="fill-transparent stroke-primary font-headline"
         style={{ fontSize: "4.5rem", fontFamily: "Instrument Serif, serif" }}
+        variants={{
+          hidden: { strokeDashoffset: 1500, strokeDasharray: 1500 },
+          visible: {
+            strokeDashoffset: 0,
+            strokeDasharray: 1500,
+            transition: {
+              duration: 4,
+              ease: "easeInOut",
+            }
+          }
+        }}
       >
         {text}
-      </text>
+      </motion.text>
 
       {/* Hover reveal gradient fill */}
       <text
         x="50%" y="50%"
         textAnchor="middle"
         dominantBaseline="middle"
-        stroke="url(#oshTextGradient)"
-        strokeWidth="0.4"
+        fill="url(#oshTextGradient)"
         mask="url(#oshTextMask)"
-        className="fill-transparent font-headline"
-        style={{ fontSize: "4.5rem", fontFamily: "Instrument Serif, serif", opacity: hovered ? 1 : 0, transition: "opacity 0.3s ease" }}
+        className="font-headline"
+        style={{ fontSize: "4.5rem", fontFamily: "Instrument Serif, serif", opacity: hovered ? 1 : 0, transition: "opacity 0.3s ease", letterSpacing: "0.02em" }}
       >
         {text}
       </text>
-    </svg>
+    </motion.svg>
   );
 };

@@ -145,10 +145,15 @@ export default {
         ping: {
           "75%, 100%": { transform: "scale(2)", opacity: "0" },
         },
+        "text-shine": {
+          "0%": { backgroundPosition: "0% 50%" },
+          "100%": { backgroundPosition: "200% 50%" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "text-shine": "text-shine 5s linear infinite",
       },
     },
   },
