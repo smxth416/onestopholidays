@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import RouteScroll from "./components/RouteScroll";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import WhatsAppButton from "./components/WhatsAppButton";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import DestinationsPage from "./pages/DestinationsPage";
@@ -36,6 +37,7 @@ const App = () => (
             <Route path="/terms" element={<TermsPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <WhatsAppButton />
           <Footer />
         </div>
       </BrowserRouter>

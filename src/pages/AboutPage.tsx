@@ -13,7 +13,7 @@ const AboutPage = () => {
                 One Stop Holidays wasn't born in a boardroom; it was conceived on the winding trails of the Himalayas and the quiet streets of hidden European villages.
               </p>
               <p className="font-serif-display text-xl lg:text-2xl leading-relaxed text-on-surface-variant">
-                Our mission is to replace transactional travel with curated emotional discovery. We don't just book rooms; we orchestrate moments that linger in the memory long after the tan has faded.
+                We believe that travel is the ultimate catalyst for personal growth, weaving together stories, cultures, and breathtaking landscapes into unforgettable experiences.
               </p>
             </div>
           </div>
@@ -25,8 +25,69 @@ const AboutPage = () => {
         </div>
       </section>
 
+      {/* Mission & Vision */}
+      <section className="min-h-screen flex flex-col justify-center py-24 px-8 bg-surface-container-lowest border-y border-outline-variant/10">
+        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
+          <div className="p-12 md:p-16 border border-outline-variant/20 rounded-3xl bg-surface relative overflow-hidden shadow-xl transform transition hover:-translate-y-2">
+            <div className="absolute -top-12 -right-12 w-40 h-40 bg-secondary/10 rounded-full blur-3xl"></div>
+            <div className="mb-8 inline-flex items-center justify-center w-20 h-20 rounded-[20px] bg-secondary-container text-secondary">
+              <span className="material-symbols-outlined text-4xl">flag</span>
+            </div>
+            <h2 className="font-serif-display text-4xl md:text-5xl text-primary mb-6">Our Mission</h2>
+            <p className="font-serif-display text-xl text-on-surface-variant leading-relaxed">
+              We empower travelers to discover the world with ease and elegance. By curating personalized itineraries and providing comprehensive immigration solutions, we transform complex preparations into seamless, memorable journeys.
+            </p>
+          </div>
+          
+          <div className="p-12 md:p-16 border border-outline-variant/20 rounded-3xl bg-surface relative overflow-hidden shadow-xl transform transition hover:-translate-y-2">
+            <div className="absolute -bottom-12 -left-12 w-40 h-40 bg-primary/5 rounded-full blur-3xl"></div>
+            <div className="mb-8 inline-flex items-center justify-center w-20 h-20 rounded-[20px] bg-primary-container text-primary">
+              <span className="material-symbols-outlined text-4xl">visibility</span>
+            </div>
+            <h2 className="font-serif-display text-4xl md:text-5xl text-primary mb-6">Our Vision</h2>
+            <p className="font-serif-display text-xl text-on-surface-variant leading-relaxed">
+              To be the definitive global standard in bespoke travel and mobility. We envision a world where borders are fluid and every journey is crafted with profound attention to personal aspirations and authentic cultural connection.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Journey Timeline */}
+      <section className="min-h-screen flex flex-col justify-center py-24 px-8 overflow-hidden">
+        <div className="max-w-4xl mx-auto w-full">
+          <div className="mb-24 text-center">
+            <span className="font-label text-sm tracking-[0.3em] uppercase text-secondary font-bold">Our Legacy</span>
+            <h2 className="font-serif-display text-5xl md:text-6xl mt-4 text-primary">The Journey So Far</h2>
+          </div>
+          
+          <div className="space-y-16 relative before:absolute before:inset-0 before:ml-[1.125rem] md:before:ml-auto md:before:mr-auto before:-translate-x-px md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-outline-variant/40 before:to-transparent">
+            
+            {[
+              { year: "2014", title: "The Inception", desc: "Started as a boutique consultation agency in Rajkot, focusing on highly customized experiential holiday packages." },
+              { year: "2017", title: "Expanding Horizons", desc: "Launched full-suite immigration and student visa services, bridging the gap between temporary travel and permanent relocation." },
+              { year: "2020", title: "Digital Transformation", desc: "Introduced end-to-end digital booking and virtual consultations, ensuring global travel remained accessible." },
+              { year: "2023", title: "Global Footprint", desc: "Opened our official Canada branch, solidifying our international presence and enabling direct support for overseas clients." },
+            ].map((item, i) => (
+              <div key={item.year} className={`relative flex items-center justify-between md:justify-normal group ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+                <div className={`inline-flex items-center justify-center w-10 h-10 rounded-full bg-surface border-[3px] border-secondary absolute left-0 md:left-1/2 -translate-x-0 md:-translate-x-1/2 z-10 shadow-lg group-hover:scale-125 transition-transform duration-500`}>
+                  <div className="w-2.5 h-2.5 bg-secondary-container rounded-full"></div>
+                </div>
+                <div className={`w-[calc(100%-4rem)] md:w-[calc(50%-4rem)] pl-6 md:pl-0 ${i % 2 === 0 ? 'md:pr-16 text-left md:text-right' : 'md:pl-16 text-left'}`}>
+                  <div className="p-8 bg-surface-container-lowest rounded-[24px] shadow-sm border border-outline-variant/20 hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
+                    <span className="font-serif-display text-4xl text-secondary mb-3 block">{item.year}</span>
+                    <h3 className="font-serif-display text-2xl text-primary mb-3">{item.title}</h3>
+                    <p className="font-serif-display text-lg text-on-surface-variant leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+
+          </div>
+        </div>
+      </section>
+
       {/* Stats */}
-      <section className="min-h-screen flex flex-col justify-center py-24 px-8">
+      <section className="min-h-screen flex flex-col justify-center py-24 px-8 border-t border-outline-variant/10">
         <div className="max-w-7xl mx-auto w-full">
           <div className="mb-20 text-center">
             <span className="font-label text-sm tracking-[0.3em] uppercase text-secondary font-bold">The Pillars of Expertise</span>
@@ -62,7 +123,7 @@ const AboutPage = () => {
       </section>
 
       {/* Team */}
-      <section className="h-screen max-h-screen pt-20 flex flex-col justify-center overflow-hidden px-8">
+      <section className="h-screen max-h-screen pt-20 flex flex-col justify-center overflow-hidden px-8 border-t border-outline-variant/10">
         <div className="max-w-6xl mx-auto w-full">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
             <div className="max-w-xl">
@@ -91,41 +152,78 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Rajkot Office */}
-      <section className="min-h-screen flex flex-col justify-center py-24 px-8">
-        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-          <div className="order-2 md:order-1">
-            <div className="bg-surface-container-lowest p-4 rounded-lg shadow-2xl">
-              <div className="aspect-video rounded-lg overflow-hidden grayscale contrast-125">
-                <img className="w-full h-full object-cover" alt="Map of Rajkot city" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9mr1IKLdbqzcVKerR7LrSDwWcMZ7KdSBuI9yoa-sIyvHJyGv6yqLTxo3eM7i5Qzh_m2KNVKSk6gZUw1WG03Loy-rpCDtH-3Tuqj6vIAThM91xhYHfqe_c6vf4xJq_Vj3_2_zDJl73FoNN7wyRrt1WlL9NgYeEw2SFweg2Nv3Nj9D-Ldtm6pP7EaKhETIg52oVwuh0hhk0_jJp3Or9IDR2_-isMBqvVnaee9a15jf8y69-P3dqHkrtniIs1p62TBBfdT1txAQL9w8" />
-              </div>
-            </div>
+      {/* Global Offices replacing Local Roots */}
+      <section className="min-h-screen flex flex-col justify-center py-24 px-8 bg-surface-container-lowest border-t border-outline-variant/10">
+        <div className="max-w-7xl mx-auto w-full">
+          <div className="mb-20 text-center">
+            <span className="font-label text-sm tracking-[0.3em] uppercase text-secondary font-bold">Global Presence</span>
+            <h2 className="font-serif-display text-5xl md:text-6xl mt-4 text-primary">Our Operational Hubs</h2>
           </div>
-          <div className="order-1 md:order-2">
-            <span className="font-label text-sm tracking-[0.3em] uppercase text-secondary font-bold">Local Roots</span>
-            <h2 className="font-serif-display text-5xl md:text-6xl mt-4 mb-8 text-primary">Heart in Rajkot, Eyes on the World.</h2>
-            <div className="space-y-6">
-              <p className="font-serif-display text-2xl text-on-surface-variant leading-relaxed">
-                Our headquarters in Rajkot serves as our design studio. Here, we blend Gujarati hospitality with global travel standards.
-              </p>
-              <div className="flex items-start gap-4 p-6 bg-surface-container-lowest rounded-lg">
-                <span className="material-symbols-outlined text-secondary">location_on</span>
-                <div>
-                  <p className="font-label font-bold text-primary">The Travel Atelier</p>
-                  <p className="font-serif-display text-lg text-on-surface-variant">301 Silver Plaza, Kalawad Road, Rajkot, Gujarat 360005</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            
+            <div className="bg-surface p-10 md:p-14 rounded-[32px] relative overflow-hidden group hover:shadow-2xl transition-all duration-500 border border-outline-variant/20 flex flex-col justify-between">
+              <div className="absolute -top-6 -right-6 md:top-8 md:right-8 opacity-[0.08] group-hover:opacity-20 group-hover:scale-110 transition-all duration-700 pointer-events-none">
+                <img src="https://flagcdn.com/ca.svg" alt="Canada Flag" className="w-32 md:w-36 h-auto drop-shadow-xl rounded-sm object-cover" />
+              </div>
+              <div className="relative z-10">
+                <div className="mb-8 inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary-container text-secondary">
+                  <span className="material-symbols-outlined text-3xl">public</span>
+                </div>
+                <h3 className="font-serif-display text-5xl text-primary mb-2">Canada</h3>
+                <p className="font-label text-sm tracking-widest uppercase text-secondary font-bold mb-10">Registered Office</p>
+                
+                <div className="space-y-6">
+                  <div className="flex items-start gap-5">
+                    <span className="material-symbols-outlined text-xl text-secondary mt-1 bg-surface-container-lowest p-2 rounded-full">location_on</span>
+                    <div>
+                      <p className="font-label font-bold text-primary mb-1 tracking-wider text-xs uppercase">Surrey Branch</p>
+                      <p className="font-serif-display text-xl text-on-surface-variant leading-relaxed">Unit 201, 7380 King George Blvd<br/>Surrey, BC V3W 5A5</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-5">
+                    <span className="material-symbols-outlined text-xl text-secondary mt-1 bg-surface-container-lowest p-2 rounded-full">call</span>
+                    <div>
+                      <p className="font-label font-bold text-primary mb-1 tracking-wider text-xs uppercase">Contact</p>
+                      <p className="font-serif-display text-xl text-on-surface-variant">+1 (604) 555-0198</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="flex items-start gap-4 p-6 bg-surface-container-lowest rounded-lg">
-                <span className="material-symbols-outlined text-secondary">schedule</span>
-                <div>
-                  <p className="font-label font-bold text-primary">Consultation Hours</p>
-                  <p className="font-serif-display text-lg text-on-surface-variant">Monday – Saturday: 10:00 AM – 7:00 PM</p>
+            </div>
+
+            <div className="bg-surface p-10 md:p-14 rounded-[32px] relative overflow-hidden group hover:shadow-2xl transition-all duration-500 border border-outline-variant/20 flex flex-col justify-between">
+              <div className="absolute -top-6 -right-6 md:top-8 md:right-8 opacity-[0.08] group-hover:opacity-20 group-hover:scale-110 transition-all duration-700 pointer-events-none">
+                <img src="https://flagcdn.com/in.svg" alt="India Flag" className="w-32 md:w-36 h-auto drop-shadow-xl rounded-sm object-cover" />
+              </div>
+              <div className="relative z-10">
+                <div className="mb-8 inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary-container text-secondary">
+                  <span className="material-symbols-outlined text-3xl">public</span>
+                </div>
+                <h3 className="font-serif-display text-5xl text-primary mb-2">India</h3>
+                <p className="font-label text-sm tracking-widest uppercase text-secondary font-bold mb-10">Corporate Office</p>
+                
+                <div className="space-y-6">
+                  <div className="flex items-start gap-5">
+                    <span className="material-symbols-outlined text-xl text-secondary mt-1 bg-surface-container-lowest p-2 rounded-full">location_on</span>
+                    <div>
+                      <p className="font-label font-bold text-primary mb-1 tracking-wider text-xs uppercase">Rajkot Hub</p>
+                      <p className="font-serif-display text-xl text-on-surface-variant leading-relaxed">301 Silver Plaza, Kalawad Road<br/>Rajkot, Gujarat 360005</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-5">
+                    <span className="material-symbols-outlined text-xl text-secondary mt-1 bg-surface-container-lowest p-2 rounded-full">call</span>
+                    <div>
+                      <p className="font-label font-bold text-primary mb-1 tracking-wider text-xs uppercase">Contact</p>
+                      <p className="font-serif-display text-xl text-on-surface-variant">+91 98765 43210</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
     </main>
   );
 };
