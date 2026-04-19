@@ -10,6 +10,7 @@ export interface Destination {
   highlights: string[];
   itinerary: { day: string; title: string; description: string }[];
   inclusions: string[];
+  exclusions?: string[];
   longDesc: string;
 }
 
@@ -141,4 +142,45 @@ export const destinations: Destination[] = [
     ],
     inclusions: ["7 nights heritage accommodation", "Daily breakfast & select dinners", "All inter-city transfers", "Monument entry fees", "Desert safari & camping", "Lake Pichola boat ride", "Local English-speaking guides"],
   },
+  {
+    slug: "bali",
+    name: "Bali",
+    price: "Enquire Now",
+    category: "International Gems",
+    duration: "6 Days / 5 Nights",
+    bestTime: "April – October",
+    desc: "Experience a perfect blend of rich culture, stunning beaches, and romantic leisure in the Island of Gods.",
+    longDesc: "Bali is an island paradise that offers a mesmerizing blend of vibrant culture, lush landscapes, and immaculate beaches. From the bustling streets of Kuta and Seminyak to the spiritual heart of Ubud, our curated 6-day itinerary ensures you experience the best of the Island of Gods. Enjoy thrilling water sports, breathtaking sunsets at Uluwatu, a full-day exploration of Nusa Penida, and relaxing romantic moments amidst nature.",
+    img: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=2938&auto=format&fit=crop",
+    highlights: [
+      "Water Sports at Nusa Dua Beach",
+      "Uluwatu Sunset Tour & Optional Kecak Dance",
+      "Nusa Penida West Island Tour",
+      "Ubud Nature Tour: waterfalls & rice terraces",
+      "Optional Floating Breakfast & Romantic experiences"
+    ],
+    itinerary: [
+      { day: "Day 1", title: "Arrival in Bali – Kuta/Seminyak", description: "Arrival at Denpasar Airport. Meet & greet with private transfer. Check-in at 4★ hotel in Kuta/Seminyak area. Evening at leisure for beach walk or shopping. Dinner at hotel." },
+      { day: "Day 2", title: "Water Sports + Uluwatu Sunset Tour", "description": "Visit Nusa Dua Beach for included basic water sports like Banana Boat. Optional upgrades for Jet Ski or Parasailing. Later, visit Uluwatu Temple and witness the spectacular sunset and optional Kecak Fire Dance." },
+      { day: "Day 3", title: "Nusa Penida Island Tour", description: "Full-day West Island Tour including Kelingking Beach, Broken Beach, and Angel's Billabong. Options to upgrade to a snorkeling experience or private tour." },
+      { day: "Day 4", title: "Ubud Transfer + Nature Tour", description: "Private transfer to Ubud. Enroute sightseeing including Tegenungan Waterfall, Tegalalang Rice Terrace, and a Coffee Plantation. Check-in at your 4★ Resort/Villa. Optional Bali Swing or ATV Ride." },
+      { day: "Day 5", title: "Leisure / Romantic Experiences", description: "Free day to relax. Perfect for premium clients to add optional experiences like a Floating Breakfast, Candlelight Dinner, or a Private Pool Villa upgrade. Shopping in Ubud Market." },
+      { day: "Day 6", title: "Departure", description: "Leisurely breakfast depending on flight timings. Check-out and private airport transfer for your onward journey." }
+    ],
+    inclusions: [
+      "Return airport transfers (private)",
+      "5 Nights accommodation (4★ or similar)",
+      "Daily Breakfast + Dinner (MAP Plan)",
+      "All tours & transfers on private basis (excluding shared boat to Nusa Penida)",
+      "Nusa Penida tour with transfers",
+      "Water sports (basic inclusion)"
+    ],
+    exclusions: [
+      "International flights",
+      "Visa on arrival (~₹3,000–₹3,500)",
+      "Optional activities and custom upgrades",
+      "Travel insurance",
+      "Personal expenses"
+    ]
+  }
 ];
