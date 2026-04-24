@@ -59,7 +59,7 @@ const HomePage = () => {
               { icon: "support_agent", title: "Concierge Support", desc: "Travel with confidence with our 24/7 dedicated support team at your fingertips." },
               { icon: "celebration", title: "Authentic Roots", desc: "Proudly serving Rajkot with local intimacy and a global perspective." },
             ].map((item) => (
-              <div key={item.title} className="bg-surface-container-lowest p-8 rounded-[20px] editorial-shadow group hover:bg-surface-bright transition-colors">
+              <div key={item.title} className="p-8 rounded-[20px] editorial-shadow group hover:bg-surface-bright transition-colors">
                 <div className="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center mb-6">
                   <span className="material-symbols-outlined text-on-secondary-container">{item.icon}</span>
                 </div>
@@ -133,7 +133,7 @@ const HomePage = () => {
               <h2 className="text-on-surface font-headline text-5xl leading-tight">Stories from our travelers in Rajkot.</h2>
             </div>
             <div className="lg:col-span-8 flex overflow-x-auto pb-12 gap-8 snap-x no-scrollbar">
-              <div className="min-w-[400px] bg-surface-container-lowest p-10 rounded-[20px] editorial-shadow snap-start">
+              <div className="min-w-[400px] p-10 rounded-[20px] editorial-shadow snap-start">
                 <div className="flex text-secondary mb-6">
                   {[1, 2, 3, 4, 5].map(i => <span key={i} className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>)}
                 </div>
@@ -148,7 +148,7 @@ const HomePage = () => {
                   </div>
                 </div>
               </div>
-              <div className="min-w-[400px] bg-surface-container-lowest p-10 rounded-[20px] editorial-shadow snap-start">
+              <div className="min-w-[400px] p-10 rounded-[20px] editorial-shadow snap-start">
                 <div className="flex text-secondary mb-6">
                   {[1, 2, 3, 4, 5].map(i => <span key={i} className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>)}
                 </div>

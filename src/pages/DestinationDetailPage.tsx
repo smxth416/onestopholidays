@@ -19,7 +19,7 @@ const DestinationDetailPage = () => {
   }
 
   return (
-    <main className="bg-[#faf9f6]">
+    <main>
       {/* 100vh Minimalistic Hero */}
       <section className="h-screen max-h-screen flex flex-col justify-center px-12 md:px-16 lg:px-20 py-12 relative overflow-hidden">
         {/* Integrated Back Button */}
@@ -87,8 +87,8 @@ const DestinationDetailPage = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {dest.highlights.map((h, i) => (
-              <div key={i} className="bg-surface-container-lowest rounded-[16px] p-8 flex items-start gap-4">
-                <span className="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <div key={i} className="rounded-[16px] p-8 flex items-start gap-4 border border-outline-variant/5 shadow-sm">
+                <span className="w-8 h-8 rounded-full bg-secondary/5 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Check className="w-4 h-4 text-secondary" />
                 </span>
                 <p className="font-body text-lg text-on-surface/80 leading-relaxed">{h}</p>
@@ -99,7 +99,7 @@ const DestinationDetailPage = () => {
       </section>
 
       {/* Itinerary */}
-      <section className="flex flex-col justify-center py-24 bg-[#F5F2EC] overflow-hidden">
+      <section className="flex flex-col justify-center py-24 overflow-hidden">
         <div className="max-w-3xl mx-auto px-6 w-full relative">
           <div className="text-center mb-24">
             <span className="font-label text-xs uppercase tracking-[0.4em] text-secondary font-bold">Your Journey</span>
@@ -114,10 +114,10 @@ const DestinationDetailPage = () => {
               return (
                 <div key={i} className="relative w-full flex flex-col items-center md:block mb-[60px] md:mb-[160px] group">
                   {/* The Box */}
-                  <div className={`w-[92%] md:w-[60%] bg-white rounded-[24px] px-8 pt-12 pb-8 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] transition-all duration-700 ease-out hover:-translate-y-2 relative z-10 ${isEven ? "md:mr-auto md:ml-0" : "md:ml-auto md:mr-0"}`}>
+                  <div className={`w-[92%] md:w-[60%] rounded-[24px] px-8 pt-12 pb-8 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] transition-all duration-700 ease-out hover:-translate-y-2 relative z-10 ${isEven ? "md:mr-auto md:ml-0" : "md:ml-auto md:mr-0"}`}>
 
                     {/* Notch */}
-                    <div className="absolute -top-7 left-1/2 -translate-x-1/2 bg-white h-14 px-8 rounded-t-2xl flex items-center justify-center 
+                    <div className="absolute -top-7 left-1/2 -translate-x-1/2 h-14 px-8 rounded-t-2xl flex items-center justify-center 
                       after:content-[''] after:absolute after:bottom-0 after:-left-5 after:w-5 after:h-5 after:bg-transparent after:rounded-br-[20px] after:shadow-[8px_8px_0_0_#FFF] 
                       before:content-[''] before:absolute before:bottom-0 before:-right-5 before:w-5 before:h-5 before:bg-transparent before:rounded-bl-[20px] before:shadow-[-8px_8px_0_0_#FFF]">
                       <span className="font-label text-sm uppercase tracking-widest text-secondary font-bold whitespace-nowrap">{item.day}</span>
@@ -177,7 +177,7 @@ const DestinationDetailPage = () => {
       </section>
 
       {/* Inclusions & Exclusions */}
-      <section className="min-h-screen flex flex-col justify-center py-24 bg-surface-container-lowest">
+      <section className="min-h-screen flex flex-col justify-center py-24 border-y border-outline-variant/10">
         <div className="max-w-6xl mx-auto px-8 w-full">
           <div className="text-center mb-16">
             <span className="font-label text-xs uppercase tracking-[0.3em] text-secondary font-bold">Details</span>
@@ -185,7 +185,7 @@ const DestinationDetailPage = () => {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Inclusions */}
-            <div className="bg-white rounded-[24px] p-8 md:p-12 shadow-sm border border-outline-variant/10">
+            <div className="rounded-[24px] p-8 md:p-12 shadow-sm border border-outline-variant/10">
               <h3 className="font-headline text-3xl mb-8 flex items-center gap-3">
                 <span className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-lg font-bold">✓</span>
                 What's Included
@@ -200,11 +200,10 @@ const DestinationDetailPage = () => {
               </div>
             </div>
 
-            {/* Exclusions */}
             {dest.exclusions ? (
-              <div className="bg-white rounded-[24px] p-8 md:p-12 shadow-sm border border-outline-variant/10">
+              <div className="rounded-[24px] p-8 md:p-12 shadow-sm border border-outline-variant/10">
                 <h3 className="font-headline text-3xl mb-8 flex items-center gap-3">
-                  <span className="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 text-lg font-bold">×</span>
+                  <span className="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center text-red-600 text-lg font-bold">×</span>
                   What's Excluded
                 </h3>
                 <div className="space-y-4">
@@ -217,7 +216,7 @@ const DestinationDetailPage = () => {
                 </div>
               </div>
             ) : (
-              <div className="bg-white/50 rounded-[24px] p-8 md:p-12 border border-outline-variant/10 flex items-center justify-center">
+              <div className="bg-surface-container-low/50 rounded-[24px] p-8 md:p-12 border border-outline-variant/10 flex items-center justify-center">
                 <p className="font-body text-lg text-on-surface/50 text-center">Comprehensive package. Additional bespoke exclusions may apply based on personalization.</p>
               </div>
             )}

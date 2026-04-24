@@ -42,18 +42,8 @@ const Footer = () => {
   return (
     /* mx-4 / mb-4 / mt-20 gives the floating-card look with nav clearance */
     <footer
-      className="relative rounded-[2.5rem] overflow-hidden mx-4 mb-4 mt-20 border border-outline-variant/10 shadow-sm flex flex-col"
-      style={{ height: "calc(100vh - 5rem)" }} /* 5rem ≈ mt-20 so card fills exactly 100vh on screen */
+      className="relative overflow-hidden mt-32 border-t border-outline-variant/15 flex flex-col bg-white"
     >
-
-      {/* Ambient gradient overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none z-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 120% 80% at 50% 0%, rgba(0,13,116,0.06) 0%, rgba(0,108,78,0.04) 60%, transparent 100%)",
-        }}
-      />
 
       {/* ── TAGLINE (top anchor) ─────────────────────────────── */}
       <div className="relative z-10 max-w-7xl mx-auto w-full px-8 md:px-14 pt-10 pb-8 border-b border-outline-variant/15 shrink-0">
@@ -66,8 +56,8 @@ const Footer = () => {
         </h2>
       </div>
 
-      {/* ── 4-COLUMN GRID (fills remaining space, content centered) ─ */}
-      <div className="relative z-10 flex-1 flex items-center">
+      {/* ── 4-COLUMN GRID (traditional layout) ───────────────── */}
+      <div className="relative z-10 py-20">
         <div className="max-w-7xl mx-auto w-full px-8 md:px-14">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 

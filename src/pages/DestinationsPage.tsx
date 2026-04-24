@@ -34,8 +34,8 @@ const DestinationsPage = () => {
                 onClick={() => setActiveFilter(f)}
                 className={`px-6 py-2 rounded-full font-label text-sm transition-all shadow-sm ${activeFilter === f
                   ? "bg-secondary text-on-secondary shadow-md hover:shadow-lg"
-                  : "bg-surface-container-lowest text-on-surface hover:bg-surface-container-high border border-outline-variant/30"
-                  }`}
+                  : "bg-surface-container-high text-on-surface hover:brightness-95 border border-outline-variant/30"
+                  } `}
               >
                 {f}
               </button>
@@ -48,7 +48,7 @@ const DestinationsPage = () => {
       <section className="flex flex-col justify-center px-8 w-full">
         <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {filtered.map((dest) => (
-            <div key={dest.name} className="group relative bg-white rounded-[24px] shadow-sm hover:shadow-xl border border-outline-variant/10 overflow-hidden transition-all duration-500 hover:-translate-y-1">
+            <div key={dest.name} className="group relative rounded-[24px] shadow-sm hover:shadow-xl border border-outline-variant/10 overflow-hidden transition-all duration-500 hover:-translate-y-1">
               <div className="aspect-[4/3] overflow-hidden m-2 rounded-[18px]">
                 <img alt={dest.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src={dest.img} />
               </div>
@@ -79,7 +79,7 @@ const DestinationsPage = () => {
           </div>
           <div className="space-y-4">
             {faqs.map((faq, i) => (
-              <div key={i} className="bg-surface-container-lowest rounded-DEFAULT p-8">
+              <div key={i} className="rounded-DEFAULT p-8 border border-outline-variant/10">
                 <h3 className="font-headline text-2xl mb-4">{faq.q}</h3>
                 <p className="font-body text-lg text-on-surface/70 leading-relaxed">{faq.a}</p>
               </div>
