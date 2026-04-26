@@ -87,67 +87,41 @@ const AboutPage = () => {
       </section>
 
       {/* Stats */}
-      <section className="min-h-screen flex flex-col justify-center py-24 px-8 border-t border-outline-variant/10">
-        <div className="max-w-7xl mx-auto w-full">
-          <div className="mb-20 text-center">
-            <span className="font-label text-sm tracking-[0.3em] uppercase text-secondary font-bold">The Pillars of Expertise</span>
+      <section className="h-screen flex flex-col justify-center px-8 border-t border-outline-variant/10">
+        <div className="max-w-6xl mx-auto w-full">
+          <div className="mb-16 text-center">
+            <span className="font-label text-xs tracking-[0.3em] uppercase text-secondary font-bold">The Pillars of Expertise</span>
             <h2 className="font-serif-display text-5xl md:text-6xl mt-4 text-primary">A Decade of Crafting Stories</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-12 rounded-lg text-center transform hover:-translate-y-2 transition-all duration-500 group">
-              <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary-container text-secondary">
-                <span className="material-symbols-outlined text-3xl">history_edu</span>
-              </div>
-              <div className="font-serif-display text-6xl text-primary mb-2">10+</div>
-              <div className="font-label text-xs uppercase tracking-widest text-outline-variant font-bold">Years of Heritage</div>
-              <p className="mt-6 font-serif-display text-xl text-on-surface-variant">A decade spent perfecting the art of bespoke itineraries across continents.</p>
-            </div>
-            <div className="bg-primary text-on-primary p-12 rounded-lg text-center transform md:-translate-y-8 shadow-xl">
-              <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary text-on-secondary">
-                <span className="material-symbols-outlined text-3xl">travel_explore</span>
-              </div>
-              <div className="font-serif-display text-6xl text-white mb-2">500+</div>
-              <div className="font-label text-xs uppercase tracking-widest text-secondary-container font-bold">Destinations Mapped</div>
-              <p className="mt-6 font-serif-display text-xl opacity-80">From polar expeditions to private island retreats, we know the terrain.</p>
-            </div>
-            <div className="p-12 rounded-lg text-center transform hover:-translate-y-2 transition-all duration-500 group">
-              <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary-container text-secondary">
-                <span className="material-symbols-outlined text-3xl">verified_user</span>
-              </div>
-              <div className="font-serif-display text-6xl text-primary mb-2">98%</div>
-              <div className="font-label text-xs uppercase tracking-widest text-outline-variant font-bold">Guest Satisfaction</div>
-              <p className="mt-6 font-serif-display text-xl text-on-surface-variant">Our travelers return not just for the sights, but for the seamless care.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-outline-variant/20">
 
-      {/* Team */}
-      <section className="h-screen max-h-screen pt-20 flex flex-col justify-center overflow-hidden px-8 border-t border-outline-variant/10">
-        <div className="max-w-6xl mx-auto w-full">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
-            <div className="max-w-xl">
-              <span className="font-label text-sm tracking-[0.3em] uppercase text-secondary font-bold">Leadership</span>
-              <h2 className="font-serif-display text-5xl md:text-6xl lg:text-7xl mt-4 text-primary italic">The Curators.</h2>
-            </div>
-            <p className="font-serif-display text-xl lg:text-2xl text-on-surface-variant max-w-sm pb-2">
-              Guided by travel visionaries who believe every holiday is a masterpiece in waiting.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
-            {[
-              { name: "Vikram Shah", title: "Founder & Chief Architect", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBq9txtDbrKF8rCZp6Zn3xaW7SUwn0-CTE8b614t7lgJkpJ6ClSQfXS2_QCCaOwxoLHeMxQKbCbWVxEGn8Her4v09qLFyAWppfvqu-bhsBh-IgomWm8wzkDsNMgnPQhW7ZU31XO8ISxqJ-S1B4qjatJ46U-zH7ppaOGR-cl9wUvJZ7bgQl7j4Jbew-_gdVZhNctYfxtOjNuMYATeCR7weecQbU4Ido4S8W6i4q2I2_RsxrpQI1dgbuEfUIQuzL3oJi8P2HbKUtMOYY" },
-              { name: "Ananya Patel", title: "Director of Experiences", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAWlesZm8g6GyNemVhVNCLshCcQFU-8jzw6yWSfdDlVi3UMxEqEstwUPKfZQF8SSxtJTSAfmGp3PTq9eJImxVzZbG6AEn3QVb7zWpTVg84dtn6sinJfC3Q20LKqZNXC3vbSCd8MGl2X92MW6_RfJzk45Udyb-7_UHSkYZ77tM8JJUvjTq4a_BpqRsHWIFTL3-9EgMW5E1FBOim_xpN7-DC8RtZkqRLW9vrD8Vr0095OJK3QYx64G7odKRemU34eDWIiHP7ooK17nfA" },
-              { name: "Rohan Mehta", title: "Head of Logistics", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCFsOiJgeYeew2CaXtcyIpdQZ03zPhR_R9FNUOxbngAiHX8jTuo7t_sIqOcmgG7pDdvlVByXtXbVYGrBAuQALH_R2xXqJOZ9d8ggafaMcs8fLONafQH9Y8gOVk1kop3GX_LNPs1W5l-MZA5y1A_dckjeK8yrekf7KM6_YY6fhwuQ0tDmL_OuUP_Xsi9fAXFXfuRrRB3J9dpQfgzetFB8qbeT2d0xStL_AYBppqiX3voXaQjzo3UReCDWHfYRF-eKK_c8tTfqjaKN4w" },
-            ].map((person) => (
-              <div key={person.name} className="group">
-                <div className="aspect-square rounded-[24px] overflow-hidden mb-6 relative shadow-lg">
-                  <img className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt={person.name} src={person.img} />
-                </div>
-                <h3 className="font-serif-display text-2xl lg:text-3xl text-primary">{person.name}</h3>
-                <p className="font-label text-[10px] lg:text-xs uppercase tracking-widest text-secondary font-bold mt-1">{person.title}</p>
+            <div className="flex flex-col items-center text-center px-12 py-10 group">
+              <div className="mb-5 inline-flex items-center justify-center w-12 h-12 rounded-full bg-white text-secondary shadow-sm">
+                <span className="material-symbols-outlined text-xl">history_edu</span>
               </div>
-            ))}
+              <div className="font-serif-display text-7xl text-primary mb-1">10+</div>
+              <div className="font-label text-[10px] uppercase tracking-widest text-secondary font-bold mb-4">Years of Heritage</div>
+              <p className="font-serif-display text-lg text-on-surface-variant leading-relaxed">A decade spent perfecting the art of bespoke itineraries across continents.</p>
+            </div>
+
+            <div className="flex flex-col items-center text-center px-12 py-10 group">
+              <div className="mb-5 inline-flex items-center justify-center w-12 h-12 rounded-full bg-white text-secondary shadow-sm">
+                <span className="material-symbols-outlined text-xl">travel_explore</span>
+              </div>
+              <div className="font-serif-display text-7xl text-primary mb-1">500+</div>
+              <div className="font-label text-[10px] uppercase tracking-widest text-secondary font-bold mb-4">Destinations Mapped</div>
+              <p className="font-serif-display text-lg text-on-surface-variant leading-relaxed">From polar expeditions to private island retreats, we know the terrain.</p>
+            </div>
+
+            <div className="flex flex-col items-center text-center px-12 py-10 group">
+              <div className="mb-5 inline-flex items-center justify-center w-12 h-12 rounded-full bg-white text-secondary shadow-sm">
+                <span className="material-symbols-outlined text-xl">verified_user</span>
+              </div>
+              <div className="font-serif-display text-7xl text-primary mb-1">98%</div>
+              <div className="font-label text-[10px] uppercase tracking-widest text-secondary font-bold mb-4">Guest Satisfaction</div>
+              <p className="font-serif-display text-lg text-on-surface-variant leading-relaxed">Our travelers return not just for the sights, but for the seamless care.</p>
+            </div>
+
           </div>
         </div>
       </section>
