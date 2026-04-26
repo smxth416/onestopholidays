@@ -1,6 +1,15 @@
 import { SmoothLink as Link } from "@/components/SmoothLink";
+import { destinations } from "@/data/destinations";
 
 const HomePage = () => {
+  // Pick 4 featured destinations
+  const featuredDestinations = [
+    destinations.find(d => d.slug === "dubai"),
+    destinations.find(d => d.slug === "bali"),
+    destinations.find(d => d.slug === "thailand"),
+    destinations.find(d => d.slug === "euro-trio"),
+  ].filter(Boolean);
+
   return (
     <main>
       {/* Hero */}
@@ -82,12 +91,7 @@ const HomePage = () => {
 
           {/* 4-col single row */}
           <div className="grid grid-cols-4 gap-8 md:gap-10">
-            {[
-              { name: "Goa", tag: "Coastal Luxury", price: "₹45,000", slug: "goa", desc: "Pristine sands and sunset rhythms at our curated coastal retreats.", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCcv6rs8I3zqx-wkyOWO4DaL8H8A--GG3I_w7KhpUyNGNwxrscXdoVNdniv9a5Dmzr23Gb0sxc6HvaWbCOo4k5kdKYegborB1HuY07VyC3fbkS-GFvuShofoZ5pFVTmJNWzbm5ELGN2_beHEaWU3UVKUZZ9AQccAhXS9wMW_a55lk_0HJ9j8iEKKN974C8sNPzvWDG2aN4iyQP7J1R7eJreDaSYY056fBTQFWe6syzEuz7yVBIY_nd38LhS06Z53RoHzFu3i6FYBZM" },
-              { name: "Dubai", tag: "Urban Opulence", price: "₹85,000", slug: "dubai", desc: "Experience ultimate grandeur where the golden desert meets the future.", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuC9sgUnEP9O4o2qRZDidt8sVElKyekPVlbFqMtQe6f1tb7H6xRCzFxx1lCg3YKT4PnGKwQdpptKhHCpZyu-RnqElWPLcFG_K5lNBxlsOa8qYA_sEMXnSA0qb6kImu6BtSTZCRgb0utaV76yr0gbIHPZZE8Z32NQqgHyXKgXMDNu_AxrysMrQlN91LTo0R4sHNHOuwUG9WsaaTExOcvP_ln5BE-QV7S-3FQ9M_Zz1bV5QZDDeaM0R8tpoYWBPxOh-ZiNkNh4_l2tEGY" },
-              { name: "Maldives", tag: "Private Island", price: "₹1,20,000", slug: "maldives", desc: "A sanctuary of turquoise waters and absolute seclusion for the elite traveler.", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCrLEuBGB4-WOZJw_wcxD4lrfHHP3FhPHl3KsgV8vzJhezKvvTnShqrL2uRDcO8CKJQ7zKAZEpgf4lI8SZFAPAmIIvRjs8IIg-eRoiGKlE3Cx3QnGZCYc9bsJMU24vjW219olAabdJSoKDdjkWxIvamLUSRfyuxU2yxlCzybbMGkXC9IJSYr2fYoUJlqvXNGQMuvZ2RVhhO3axCnEM32jsFWfwWmLWm35C1qFlCwEYM1b5LIWIIF3hKSaU5T9LqdRhDy9q5EohRCM8" },
-              { name: "Kashmir", tag: "Eternal Heaven", price: "₹55,000", slug: "kashmir", desc: "Ethereal valleys and slow shikara rides on the paradise on earth.", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDobEc45AC6O8QAzkMvHJQ60RbV0Cl7mgOSyen7sTrR1ylP2uTfWjlPcTO4JRrybrpjd8Kq9ldHUuXM6z3LB0XzHhTjoqWz6pvwyrmSU5-c3PLz0ickFO28btHLuUsEQKcviQPCw0CV1Bosel5QIJ7fjfVN0ktab0hnWDnsgvmuwaGp6DJN7zx24VwaL6gd_VAFj_WS03WUctmguCoZKSnTHXhJN9vthhJ24mIn_BD3aoN2bEKeev8MA1N90v8-lemTsPd9ZV07kFk" },
-            ].map((dest) => (
+            {featuredDestinations.map((dest) => (
               /* White parent card — border frame responsive */
               <div key={dest.name} className="group bg-white rounded-[25px] p-2 w-full aspect-[2/3] max-h-[55vh] flex flex-col shadow-lg hover:shadow-2xl transition-shadow duration-300">
                 {/* Child image card — full width & height, all content overlaid */}
@@ -102,7 +106,7 @@ const HomePage = () => {
 
                   {/* Hover Tag overlay */}
                   <span className="absolute top-3 left-3 bg-white/20 backdrop-blur-sm text-white font-label text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                    {dest.tag}
+                    {dest.category}
                   </span>
 
                   {/* Name + desc + button — overlaid at bottom */}
