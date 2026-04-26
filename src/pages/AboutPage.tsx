@@ -27,26 +27,80 @@ const AboutPage = () => {
 
       {/* Mission & Vision */}
       <section className="h-screen flex items-center px-8 border-y border-outline-variant/10">
-        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-6">
 
-          <div className="flex flex-col items-center text-center p-16 rounded-2xl border border-outline-variant/20 hover:shadow-xl hover:shadow-black/10 transition-shadow duration-300 bg-[#faf7f2]">
-            <div className="mb-6 flex items-center justify-center w-14 h-14 rounded-full bg-secondary-container text-secondary">
-              <span className="material-symbols-outlined text-2xl">rocket_launch</span>
-            </div>
-            <h2 className="font-serif-display text-3xl text-primary mb-5">Our Mission</h2>
-            <p className="font-serif-display text-lg text-on-surface-variant leading-relaxed">
-              We empower travelers to discover the world with ease and elegance — turning complex preparations into seamless, memorable journeys through personalized itineraries and immigration solutions.
-            </p>
+          {/* Mission Card */}
+          <div className="p-8 rounded-3xl border-2 border-primary/30 bg-white shadow-sm">
+            <h2 className="font-serif-display text-2xl text-primary mb-6 font-semibold">Our Mission</h2>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg className="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                  </svg>
+                </div>
+                <p className="text-base text-on-surface-variant leading-relaxed">
+                  To empower travelers to discover the world with ease and elegance through personalized itineraries.
+                </p>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg className="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                  </svg>
+                </div>
+                <p className="text-base text-on-surface-variant leading-relaxed">
+                  To deliver comprehensive immigration solutions that transform complex preparations into seamless journeys.
+                </p>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg className="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                  </svg>
+                </div>
+                <p className="text-base text-on-surface-variant leading-relaxed">
+                  To commit to unparalleled customer satisfaction by providing responsive, 24/7 support and personalized service.
+                </p>
+              </li>
+            </ul>
           </div>
 
-          <div className="flex flex-col items-center text-center p-16 rounded-2xl border border-outline-variant/20 hover:shadow-xl hover:shadow-black/10 transition-shadow duration-300 bg-[#faf7f2]">
-            <div className="mb-6 flex items-center justify-center w-14 h-14 rounded-full bg-secondary-container text-secondary">
-              <span className="material-symbols-outlined text-2xl">travel_explore</span>
-            </div>
-            <h2 className="font-serif-display text-3xl text-primary mb-5">Our Vision</h2>
-            <p className="font-serif-display text-lg text-on-surface-variant leading-relaxed">
-              To be the global standard in bespoke travel — where every journey is shaped by personal aspiration and authentic cultural connection, with borders that feel fluid.
-            </p>
+          {/* Vision Card */}
+          <div className="p-8 rounded-3xl border-2 border-secondary/30 bg-white shadow-sm">
+            <h2 className="font-serif-display text-2xl text-primary mb-6 font-semibold">Our Vision</h2>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg className="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                  </svg>
+                </div>
+                <p className="text-base text-on-surface-variant leading-relaxed">
+                  To become the global standard in bespoke travel, recognized for our integrity and quality.
+                </p>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg className="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                  </svg>
+                </div>
+                <p className="text-base text-on-surface-variant leading-relaxed">
+                  To be synonymous with cutting-edge innovation, constantly integrating the latest technology for smarter travel solutions.
+                </p>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg className="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                  </svg>
+                </div>
+                <p className="text-base text-on-surface-variant leading-relaxed">
+                  To achieve a future where our brand represents uncompromising excellence and reliability in every journey we curate.
+                </p>
+              </li>
+            </ul>
           </div>
 
         </div>
