@@ -4,8 +4,7 @@ const TermsPage = () => {
       <section className="min-h-screen flex flex-col justify-center px-8 py-32">
         <div className="max-w-4xl mx-auto w-full">
           <span className="font-label text-sm tracking-[0.3em] uppercase text-secondary font-bold">Legal</span>
-          <h1 className="font-serif-display text-6xl md:text-7xl text-primary mt-4 mb-6 leading-tight">Terms of Service</h1>
-          <p className="font-serif-display text-xl text-on-surface-variant mb-16">Last updated: April 2024</p>
+          <h1 className="font-serif-display text-6xl md:text-7xl text-primary mt-4 mb-16 leading-tight">Terms of Service</h1>
 
           <div className="space-y-12 font-serif-display text-lg text-on-surface-variant leading-relaxed">
 
