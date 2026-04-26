@@ -72,7 +72,7 @@ const AboutPage = () => {
                 <div className={`inline-flex items-center justify-center w-10 h-10 rounded-full bg-surface border-[3px] border-secondary absolute left-0 md:left-1/2 -translate-x-0 md:-translate-x-1/2 z-10 shadow-lg group-hover:scale-125 transition-transform duration-500`}>
                   <div className="w-2.5 h-2.5 bg-secondary-container rounded-full"></div>
                 </div>
-                <div className={`w-[calc(100%-4rem)] md:w-[calc(50%-4rem)] pl-6 md:pl-0 ${i % 2 === 0 ? 'md:pr-16 text-left md:text-right' : 'md:pl-16 text-left'}`}>
+                <div className={`w-[calc(100%-4rem)] md:w-[calc(50%-2rem)] pl-6 md:pl-0 ${i % 2 === 0 ? 'md:pr-8 text-left md:text-right' : 'md:pl-8 text-left'}`}>
                   <div className="p-8 rounded-[24px] shadow-sm border border-outline-variant/20 hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
                     <span className="font-serif-display text-4xl text-secondary mb-3 block">{item.year}</span>
                     <h3 className="font-serif-display text-2xl text-primary mb-3">{item.title}</h3>
