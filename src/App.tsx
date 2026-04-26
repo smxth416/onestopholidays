@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { SmoothScrollProvider } from "@/contexts/SmoothScrollProvider";
 import RouteScroll from "./components/RouteScroll";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -24,22 +25,24 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <RouteScroll />
-        <div className="scroll-smooth">
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/destinations" element={<DestinationsPage />} />
-            <Route path="/destinations/:slug" element={<DestinationDetailPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-            <Route path="/terms" element={<TermsPage />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <WhatsAppButton />
-          <Footer />
-        </div>
+        <SmoothScrollProvider>
+          <RouteScroll />
+          <div>
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/destinations" element={<DestinationsPage />} />
+              <Route path="/destinations/:slug" element={<DestinationDetailPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+              <Route path="/terms" element={<TermsPage />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+            <WhatsAppButton />
+            <Footer />
+          </div>
+        </SmoothScrollProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

@@ -113,13 +113,12 @@ const DestinationDetailPage = () => {
 
               return (
                 <div key={i} className="relative w-full flex flex-col items-center md:block mb-8 md:mb-16 group">
-                  {/* The Box */}
-                  <div className={`w-[92%] md:w-[55%] rounded-[20px] px-6 pt-10 pb-6 shadow-sm border border-outline-variant/10 hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative z-10 ${isEven ? "md:mr-auto md:ml-0" : "md:ml-auto md:mr-0"}`}>
+                  
+                  {/* The Box - In front */}
+                  <div className={`w-[92%] md:w-[55%] rounded-[20px] px-6 pt-6 pb-6 shadow-sm border border-outline-variant/10 hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative bg-white ${isEven ? "md:mr-auto md:ml-0" : "md:ml-auto md:mr-0"}`} style={{ zIndex: 10 }}>
 
-                    {/* Notch */}
-                    <div className="absolute -top-6 left-1/2 -translate-x-1/2 h-12 px-6 rounded-t-2xl flex items-center justify-center 
-                      after:content-[''] after:absolute after:bottom-0 after:-left-4 after:w-4 after:h-4 after:bg-transparent after:rounded-br-[16px] after:shadow-[6px_6px_0_0_#FFF] 
-                      before:content-[''] before:absolute before:bottom-0 before:-right-4 before:w-4 before:h-4 before:bg-transparent before:rounded-bl-[16px] before:shadow-[-6px_6px_0_0_#FFF]">
+                    {/* Day Badge Inside */}
+                    <div className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 mb-4">
                       <span className="font-label text-xs uppercase tracking-widest text-secondary font-bold whitespace-nowrap">{item.day}</span>
                     </div>
 
@@ -137,9 +136,9 @@ const DestinationDetailPage = () => {
                     </ul>
                   </div>
 
-                  {/* The Connecting Path for Desktop */}
+                  {/* The Connecting Path for Desktop - Behind the card */}
                   {!isLast && (
-                    <svg className="hidden md:block absolute w-full h-[80px] top-[100%] left-0 pointer-events-none -mt-2" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <svg className="hidden md:block absolute w-full h-[80px] top-[100%] left-0 pointer-events-none -mt-2" viewBox="0 0 100 100" preserveAspectRatio="none" style={{ zIndex: 0 }}>
                       <defs>
                         <linearGradient id="line-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
                           <stop offset="0%" stopColor="rgba(0,0,0,0.15)" />

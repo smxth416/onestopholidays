@@ -48,24 +48,24 @@ const DestinationsPage = () => {
       <section className="flex flex-col justify-center px-8 w-full">
         <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {filtered.map((dest) => (
-            <div key={dest.name} className="group relative rounded-[24px] shadow-sm hover:shadow-xl border border-outline-variant/10 overflow-hidden transition-all duration-500 hover:-translate-y-1">
-              <div className="aspect-[4/3] overflow-hidden m-2 rounded-[18px]">
+            <Link
+              key={dest.name}
+              to={`/destinations/${dest.slug}`}
+              className="group relative rounded-[24px] shadow-sm hover:shadow-xl border border-outline-variant/10 overflow-hidden transition-all duration-500 hover:-translate-y-1 flex flex-col h-full cursor-pointer"
+            >
+              <div className="aspect-[4/3] overflow-hidden m-2 rounded-[18px] flex-shrink-0">
                 <img alt={dest.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src={dest.img} />
               </div>
-              <div className="p-6 pt-3">
-                <div className="flex justify-between items-center mb-3">
-                  <h3 className="font-headline text-2xl text-primary">{dest.name}</h3>
-                  <span className="font-label text-[10px] font-bold px-3 py-1.5 bg-secondary-container text-on-secondary-container rounded-full tracking-widest">FROM {dest.price}</span>
+              <div className="p-6 pt-3 flex flex-col flex-grow">
+                <h3 className="font-headline text-2xl text-primary mb-3">{dest.name}</h3>
+                <p className="font-serif-display text-base text-on-surface-variant leading-relaxed flex-grow mb-6" style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{dest.desc}</p>
+                <div className="mt-auto">
+                  <span className="block w-full py-3 rounded-full border border-outline-variant/50 text-on-surface font-label text-[11px] uppercase tracking-widest group-hover:bg-primary group-hover:text-white transition-all text-center">
+                    View Details
+                  </span>
                 </div>
-                <p className="font-serif-display text-base text-on-surface-variant mb-6 line-clamp-3 leading-relaxed">{dest.desc}</p>
-                <Link
-                  to={`/destinations/${dest.slug}`}
-                  className="block w-full py-3 rounded-full border border-outline-variant/50 text-on-surface font-label text-[11px] uppercase tracking-widest hover:bg-primary hover:text-white transition-all text-center"
-                >
-                  View Details
-                </Link>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>

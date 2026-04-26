@@ -34,32 +34,26 @@ const AboutPage = () => {
             <h2 className="font-serif-display text-2xl text-primary mb-6 font-semibold">Our Mission</h2>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <svg className="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                  </svg>
+                <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
+                  <span className="material-symbols-outlined text-blue-600 text-xl">explore</span>
                 </div>
-                <p className="text-base text-on-surface-variant leading-relaxed">
+                <p className="text-base text-on-surface-variant leading-relaxed pt-1.5">
                   To empower travelers to discover the world with ease and elegance through personalized itineraries.
                 </p>
               </li>
               <li className="flex items-start gap-3">
-                <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <svg className="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                  </svg>
+                <div className="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center flex-shrink-0">
+                  <span className="material-symbols-outlined text-green-600 text-xl">flight_takeoff</span>
                 </div>
-                <p className="text-base text-on-surface-variant leading-relaxed">
+                <p className="text-base text-on-surface-variant leading-relaxed pt-1.5">
                   To deliver comprehensive immigration solutions that transform complex preparations into seamless journeys.
                 </p>
               </li>
               <li className="flex items-start gap-3">
-                <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <svg className="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                  </svg>
+                <div className="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center flex-shrink-0">
+                  <span className="material-symbols-outlined text-purple-600 text-xl">support_agent</span>
                 </div>
-                <p className="text-base text-on-surface-variant leading-relaxed">
+                <p className="text-base text-on-surface-variant leading-relaxed pt-1.5">
                   To commit to unparalleled customer satisfaction by providing responsive, 24/7 support and personalized service.
                 </p>
               </li>
@@ -71,32 +65,26 @@ const AboutPage = () => {
             <h2 className="font-serif-display text-2xl text-primary mb-6 font-semibold">Our Vision</h2>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <svg className="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                  </svg>
+                <div className="w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center flex-shrink-0">
+                  <span className="material-symbols-outlined text-amber-600 text-xl">emoji_events</span>
                 </div>
-                <p className="text-base text-on-surface-variant leading-relaxed">
+                <p className="text-base text-on-surface-variant leading-relaxed pt-1.5">
                   To become the global standard in bespoke travel, recognized for our integrity and quality.
                 </p>
               </li>
               <li className="flex items-start gap-3">
-                <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <svg className="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                  </svg>
+                <div className="w-10 h-10 rounded-full bg-cyan-50 flex items-center justify-center flex-shrink-0">
+                  <span className="material-symbols-outlined text-cyan-600 text-xl">rocket_launch</span>
                 </div>
-                <p className="text-base text-on-surface-variant leading-relaxed">
+                <p className="text-base text-on-surface-variant leading-relaxed pt-1.5">
                   To be synonymous with cutting-edge innovation, constantly integrating the latest technology for smarter travel solutions.
                 </p>
               </li>
               <li className="flex items-start gap-3">
-                <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <svg className="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                  </svg>
+                <div className="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center flex-shrink-0">
+                  <span className="material-symbols-outlined text-rose-600 text-xl">verified</span>
                 </div>
-                <p className="text-base text-on-surface-variant leading-relaxed">
+                <p className="text-base text-on-surface-variant leading-relaxed pt-1.5">
                   To achieve a future where our brand represents uncompromising excellence and reliability in every journey we curate.
                 </p>
               </li>
