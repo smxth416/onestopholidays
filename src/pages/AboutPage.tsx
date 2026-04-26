@@ -26,29 +26,29 @@ const AboutPage = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="min-h-screen flex flex-col justify-center py-24 px-8 border-y border-outline-variant/10">
-        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
-          <div className="p-12 md:p-16 border border-outline-variant/20 rounded-3xl relative overflow-hidden shadow-xl transform transition hover:-translate-y-2">
-            <div className="absolute -top-12 -right-12 w-40 h-40 bg-secondary/10 rounded-full blur-3xl"></div>
-            <div className="mb-8 inline-flex items-center justify-center w-20 h-20 rounded-[20px] bg-secondary-container text-secondary">
-              <span className="material-symbols-outlined text-4xl">flag</span>
+      <section className="h-screen flex items-center px-8 border-y border-outline-variant/10">
+        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+
+          <div className="flex flex-col items-center text-center p-16 rounded-2xl border border-outline-variant/20 hover:shadow-xl hover:shadow-black/10 transition-shadow duration-300 bg-[#faf7f2]">
+            <div className="mb-6 flex items-center justify-center w-14 h-14 rounded-full bg-secondary-container text-secondary">
+              <span className="material-symbols-outlined text-2xl">rocket_launch</span>
             </div>
-            <h2 className="font-serif-display text-4xl md:text-5xl text-primary mb-6">Our Mission</h2>
-            <p className="font-serif-display text-xl text-on-surface-variant leading-relaxed">
-              We empower travelers to discover the world with ease and elegance. By curating personalized itineraries and providing comprehensive immigration solutions, we transform complex preparations into seamless, memorable journeys.
+            <h2 className="font-serif-display text-3xl text-primary mb-5">Our Mission</h2>
+            <p className="font-serif-display text-lg text-on-surface-variant leading-relaxed">
+              We empower travelers to discover the world with ease and elegance — turning complex preparations into seamless, memorable journeys through personalized itineraries and immigration solutions.
             </p>
           </div>
-          
-          <div className="p-12 md:p-16 border border-outline-variant/20 rounded-3xl relative overflow-hidden shadow-xl transform transition hover:-translate-y-2">
-            <div className="absolute -bottom-12 -left-12 w-40 h-40 bg-primary/5 rounded-full blur-3xl"></div>
-            <div className="mb-8 inline-flex items-center justify-center w-20 h-20 rounded-[20px] bg-primary-container text-primary">
-              <span className="material-symbols-outlined text-4xl">visibility</span>
+
+          <div className="flex flex-col items-center text-center p-16 rounded-2xl border border-outline-variant/20 hover:shadow-xl hover:shadow-black/10 transition-shadow duration-300 bg-[#faf7f2]">
+            <div className="mb-6 flex items-center justify-center w-14 h-14 rounded-full bg-secondary-container text-secondary">
+              <span className="material-symbols-outlined text-2xl">travel_explore</span>
             </div>
-            <h2 className="font-serif-display text-4xl md:text-5xl text-primary mb-6">Our Vision</h2>
-            <p className="font-serif-display text-xl text-on-surface-variant leading-relaxed">
-              To be the definitive global standard in bespoke travel and mobility. We envision a world where borders are fluid and every journey is crafted with profound attention to personal aspirations and authentic cultural connection.
+            <h2 className="font-serif-display text-3xl text-primary mb-5">Our Vision</h2>
+            <p className="font-serif-display text-lg text-on-surface-variant leading-relaxed">
+              To be the global standard in bespoke travel — where every journey is shaped by personal aspiration and authentic cultural connection, with borders that feel fluid.
             </p>
           </div>
+
         </div>
       </section>
 
