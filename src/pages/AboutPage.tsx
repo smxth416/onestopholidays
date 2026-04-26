@@ -95,27 +95,27 @@ const AboutPage = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-outline-variant/20">
 
-            <div className="flex flex-col items-center text-center px-12 py-10 group">
-              <div className="mb-5 inline-flex items-center justify-center w-12 h-12 rounded-full bg-white text-secondary shadow-sm">
-                <span className="material-symbols-outlined text-xl">history_edu</span>
+            <div className="flex flex-col items-center text-center px-12 py-10 group hover:shadow-lg transition-shadow duration-300 rounded-[28px]">
+              <div className="mb-5 inline-flex items-center justify-center w-24 h-24 rounded-full bg-white text-secondary shadow-sm">
+                <span className="material-symbols-outlined text-5xl">history_edu</span>
               </div>
               <div className="font-serif-display text-7xl text-primary mb-1">10+</div>
               <div className="font-label text-[10px] uppercase tracking-widest text-secondary font-bold mb-4">Years of Heritage</div>
               <p className="font-serif-display text-lg text-on-surface-variant leading-relaxed">A decade spent perfecting the art of bespoke itineraries across continents.</p>
             </div>
 
-            <div className="flex flex-col items-center text-center px-12 py-10 group">
-              <div className="mb-5 inline-flex items-center justify-center w-12 h-12 rounded-full bg-white text-secondary shadow-sm">
-                <span className="material-symbols-outlined text-xl">travel_explore</span>
+            <div className="flex flex-col items-center text-center px-12 py-10 group hover:shadow-lg transition-shadow duration-300 rounded-[28px]">
+              <div className="mb-5 inline-flex items-center justify-center w-24 h-24 rounded-full bg-white text-secondary shadow-sm">
+                <span className="material-symbols-outlined text-5xl">travel_explore</span>
               </div>
               <div className="font-serif-display text-7xl text-primary mb-1">500+</div>
               <div className="font-label text-[10px] uppercase tracking-widest text-secondary font-bold mb-4">Destinations Mapped</div>
               <p className="font-serif-display text-lg text-on-surface-variant leading-relaxed">From polar expeditions to private island retreats, we know the terrain.</p>
             </div>
 
-            <div className="flex flex-col items-center text-center px-12 py-10 group">
-              <div className="mb-5 inline-flex items-center justify-center w-12 h-12 rounded-full bg-white text-secondary shadow-sm">
-                <span className="material-symbols-outlined text-xl">verified_user</span>
+            <div className="flex flex-col items-center text-center px-12 py-10 group hover:shadow-lg transition-shadow duration-300 rounded-[28px]">
+              <div className="mb-5 inline-flex items-center justify-center w-24 h-24 rounded-full bg-white text-secondary shadow-sm">
+                <span className="material-symbols-outlined text-5xl">verified_user</span>
               </div>
               <div className="font-serif-display text-7xl text-primary mb-1">98%</div>
               <div className="font-label text-[10px] uppercase tracking-widest text-secondary font-bold mb-4">Guest Satisfaction</div>
