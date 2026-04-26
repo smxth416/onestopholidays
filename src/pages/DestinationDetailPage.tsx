@@ -79,7 +79,7 @@ const DestinationDetailPage = () => {
       </section>
 
       {/* Highlights */}
-      <section className="min-h-screen flex flex-col justify-center py-24">
+      <section className="h-screen flex flex-col justify-center pt-4 pb-12">
         <div className="max-w-7xl mx-auto px-8 w-full">
           <div className="text-center mb-16">
             <span className="font-label text-xs uppercase tracking-[0.3em] text-secondary font-bold">What Awaits</span>
@@ -99,9 +99,9 @@ const DestinationDetailPage = () => {
       </section>
 
       {/* Itinerary */}
-      <section className="flex flex-col justify-center py-24 overflow-hidden">
+      <section className="flex flex-col justify-center py-12 overflow-hidden">
         <div className="max-w-3xl mx-auto px-6 w-full relative">
-          <div className="text-center mb-24">
+          <div className="text-center mb-16">
             <span className="font-label text-xs uppercase tracking-[0.4em] text-secondary font-bold">Your Journey</span>
             <h2 className="font-headline text-5xl md:text-6xl mt-4 text-[#1a1a1a]">Day-by-Day Itinerary</h2>
           </div>
@@ -112,24 +112,24 @@ const DestinationDetailPage = () => {
               const isLast = i === dest.itinerary.length - 1;
 
               return (
-                <div key={i} className="relative w-full flex flex-col items-center md:block mb-[60px] md:mb-[160px] group">
+                <div key={i} className="relative w-full flex flex-col items-center md:block mb-8 md:mb-16 group">
                   {/* The Box */}
-                  <div className={`w-[92%] md:w-[60%] rounded-[24px] px-8 pt-12 pb-8 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] transition-all duration-700 ease-out hover:-translate-y-2 relative z-10 ${isEven ? "md:mr-auto md:ml-0" : "md:ml-auto md:mr-0"}`}>
+                  <div className={`w-[92%] md:w-[55%] rounded-[20px] px-6 pt-10 pb-6 shadow-sm border border-outline-variant/10 hover:shadow-md transition-all duration-300 hover:-translate-y-1 relative z-10 ${isEven ? "md:mr-auto md:ml-0" : "md:ml-auto md:mr-0"}`}>
 
                     {/* Notch */}
-                    <div className="absolute -top-7 left-1/2 -translate-x-1/2 h-14 px-8 rounded-t-2xl flex items-center justify-center 
-                      after:content-[''] after:absolute after:bottom-0 after:-left-5 after:w-5 after:h-5 after:bg-transparent after:rounded-br-[20px] after:shadow-[8px_8px_0_0_#FFF] 
-                      before:content-[''] before:absolute before:bottom-0 before:-right-5 before:w-5 before:h-5 before:bg-transparent before:rounded-bl-[20px] before:shadow-[-8px_8px_0_0_#FFF]">
-                      <span className="font-label text-sm uppercase tracking-widest text-secondary font-bold whitespace-nowrap">{item.day}</span>
+                    <div className="absolute -top-6 left-1/2 -translate-x-1/2 h-12 px-6 rounded-t-2xl flex items-center justify-center 
+                      after:content-[''] after:absolute after:bottom-0 after:-left-4 after:w-4 after:h-4 after:bg-transparent after:rounded-br-[16px] after:shadow-[6px_6px_0_0_#FFF] 
+                      before:content-[''] before:absolute before:bottom-0 before:-right-4 before:w-4 before:h-4 before:bg-transparent before:rounded-bl-[16px] before:shadow-[-6px_6px_0_0_#FFF]">
+                      <span className="font-label text-xs uppercase tracking-widest text-secondary font-bold whitespace-nowrap">{item.day}</span>
                     </div>
 
                     {/* Content */}
-                    <h3 className="font-headline text-2xl mb-4 text-center leading-snug text-[#1a1a1a]">{item.title}</h3>
-                    <ul className="space-y-2 mt-2">
+                    <h3 className="font-headline text-xl mb-3 text-center leading-snug text-[#1a1a1a]">{item.title}</h3>
+                    <ul className="space-y-1.5 mt-2">
                       {item.description.split(/\.\s+/).filter(Boolean).map((point, pi) => (
-                        <li key={pi} className="flex items-start gap-3 text-left">
-                          <span className="mt-[0.55rem] flex-shrink-0 w-1.5 h-1.5 rounded-full bg-secondary"></span>
-                          <span style={{ fontFamily: "'Inter', sans-serif" }} className="text-sm text-on-surface/70 leading-relaxed">
+                        <li key={pi} className="flex items-start gap-2.5 text-left">
+                          <span className="mt-[0.5rem] flex-shrink-0 w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                          <span className="text-sm text-on-surface/70 leading-relaxed">
                             {point.endsWith(".") ? point : `${point}.`}
                           </span>
                         </li>
@@ -139,7 +139,7 @@ const DestinationDetailPage = () => {
 
                   {/* The Connecting Path for Desktop */}
                   {!isLast && (
-                    <svg className="hidden md:block absolute w-full h-[180px] top-[100%] left-0 pointer-events-none -mt-[10px]" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <svg className="hidden md:block absolute w-full h-[80px] top-[100%] left-0 pointer-events-none -mt-2" viewBox="0 0 100 100" preserveAspectRatio="none">
                       <defs>
                         <linearGradient id="line-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
                           <stop offset="0%" stopColor="rgba(0,0,0,0.15)" />
@@ -158,16 +158,16 @@ const DestinationDetailPage = () => {
                         `}
                       </style>
                       {isEven ? (
-                        <path className="animated-path" d="M 30 0 C 30 75, 70 25, 70 100" fill="none" stroke="url(#line-gradient)" strokeWidth="1.5" strokeDasharray="8 8" vectorEffect="non-scaling-stroke" />
+                        <path className="animated-path" d="M 27.5 0 C 27.5 60, 72.5 40, 72.5 100" fill="none" stroke="url(#line-gradient)" strokeWidth="1.5" strokeDasharray="6 6" vectorEffect="non-scaling-stroke" />
                       ) : (
-                        <path className="animated-path" d="M 70 0 C 70 75, 30 25, 30 100" fill="none" stroke="url(#line-gradient)" strokeWidth="1.5" strokeDasharray="8 8" vectorEffect="non-scaling-stroke" />
+                        <path className="animated-path" d="M 72.5 0 C 72.5 60, 27.5 40, 27.5 100" fill="none" stroke="url(#line-gradient)" strokeWidth="1.5" strokeDasharray="6 6" vectorEffect="non-scaling-stroke" />
                       )}
                     </svg>
                   )}
 
                   {/* The Connecting Path for Mobile */}
                   {!isLast && (
-                    <div className="md:hidden w-px h-[60px] bg-gradient-to-b from-black/0 via-black/20 to-black/0 mt-4"></div>
+                    <div className="md:hidden w-px h-8 bg-gradient-to-b from-black/0 via-black/20 to-black/0 mt-2"></div>
                   )}
                 </div>
               );
@@ -177,7 +177,7 @@ const DestinationDetailPage = () => {
       </section>
 
       {/* Inclusions & Exclusions */}
-      <section className="min-h-screen flex flex-col justify-center py-24 border-y border-outline-variant/10">
+      <section className="min-h-screen flex flex-col justify-center py-12 border-y border-outline-variant/10">
         <div className="max-w-6xl mx-auto px-8 w-full">
           <div className="text-center mb-16">
             <span className="font-label text-xs uppercase tracking-[0.3em] text-secondary font-bold">Details</span>
@@ -225,7 +225,7 @@ const DestinationDetailPage = () => {
       </section>
 
       {/* CTA */}
-      <section className="min-h-screen flex flex-col justify-center py-24">
+      <section className="py-20">
         <div className="max-w-4xl mx-auto px-8 text-center w-full">
           <h2 className="font-headline text-5xl mb-6">Ready to Experience {dest.name}?</h2>
           <p className="font-body text-xl text-on-surface/60 mb-10 max-w-2xl mx-auto">
