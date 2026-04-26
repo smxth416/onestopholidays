@@ -127,68 +127,68 @@ const AboutPage = () => {
       </section>
 
       {/* Global Offices replacing Local Roots */}
-      <section className="min-h-screen flex flex-col justify-center py-24 px-8 border-t border-outline-variant/10">
-        <div className="max-w-7xl mx-auto w-full">
-          <div className="mb-20 text-center">
-            <span className="font-label text-sm tracking-[0.3em] uppercase text-secondary font-bold">Global Presence</span>
-            <h2 className="font-serif-display text-5xl md:text-6xl mt-4 text-primary">Our Operational Hubs</h2>
+      <section className="h-screen flex flex-col justify-center py-16 px-8 border-t border-outline-variant/10">
+        <div className="max-w-6xl mx-auto w-full">
+          <div className="mb-12 text-center">
+            <span className="font-label text-xs tracking-[0.3em] uppercase text-secondary font-bold">Global Presence</span>
+            <h2 className="font-serif-display text-4xl md:text-5xl mt-3 text-primary">Our Operational Hubs</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
-            <div className="p-10 md:p-14 rounded-[32px] relative overflow-hidden group hover:shadow-2xl transition-all duration-500 border border-outline-variant/20 flex flex-col justify-between">
-              <div className="absolute -top-6 -right-6 md:top-8 md:right-8 opacity-[0.15] group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 pointer-events-none">
-                <img src="https://flagcdn.com/ca.svg" alt="Canada Flag" className="w-32 md:w-36 h-auto drop-shadow-xl rounded-sm object-cover" />
+            <div className="p-8 md:p-10 rounded-[28px] relative overflow-hidden group hover:shadow-xl transition-all duration-500 border border-outline-variant/20 flex flex-col justify-between">
+              <div className="absolute -top-6 -right-6 md:top-6 md:right-6 opacity-[0.12] group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 pointer-events-none">
+                <img src="https://flagcdn.com/ca.svg" alt="Canada Flag" className="w-28 h-auto drop-shadow-xl rounded-sm object-cover" />
               </div>
               <div className="relative z-10">
-                <div className="mb-8 inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary-container text-secondary group-hover:bg-secondary group-hover:text-white transition-colors duration-500">
-                  <span className="material-symbols-outlined text-3xl">public</span>
+                <div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-full bg-secondary-container text-secondary group-hover:bg-secondary group-hover:text-white transition-colors duration-500">
+                  <span className="material-symbols-outlined text-2xl">public</span>
                 </div>
-                <h3 className="font-serif-display text-5xl text-primary mb-2">Canada</h3>
-                <p className="font-label text-sm tracking-widest uppercase text-secondary font-bold mb-10">Registered Office</p>
+                <h3 className="font-serif-display text-4xl text-primary mb-1">Canada</h3>
+                <p className="font-label text-xs tracking-widest uppercase text-secondary font-bold mb-6">Registered Office</p>
                 
-                <div className="space-y-6">
-                  <div className="flex items-start gap-5">
-                    <span className="material-symbols-outlined text-xl text-secondary mt-1 bg-surface-container-lowest p-2 rounded-full">location_on</span>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-4">
+                    <span className="material-symbols-outlined text-xl text-secondary mt-0.5 bg-surface-container-lowest p-1.5 rounded-full">location_on</span>
                     <div>
                       <p className="font-label font-bold text-primary mb-1 tracking-wider text-xs uppercase">Surrey Branch</p>
-                      <p className="font-serif-display text-xl text-on-surface-variant leading-relaxed">Unit 201, 7380 King George Blvd<br/>Surrey, BC V3W 5A5</p>
+                      <p className="font-serif-display text-lg text-on-surface-variant leading-relaxed">Unit 201, 7380 King George Blvd<br/>Surrey, BC V3W 5A5</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-5">
-                    <span className="material-symbols-outlined text-xl text-secondary mt-1 bg-surface-container-lowest p-2 rounded-full">call</span>
+                  <div className="flex items-start gap-4">
+                    <span className="material-symbols-outlined text-xl text-secondary mt-0.5 bg-surface-container-lowest p-1.5 rounded-full">call</span>
                     <div>
                       <p className="font-label font-bold text-primary mb-1 tracking-wider text-xs uppercase">Contact</p>
-                      <p className="font-serif-display text-xl text-on-surface-variant">+1 (604) 555-0198</p>
+                      <p className="font-serif-display text-lg text-on-surface-variant">+1 (604) 555-0198</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="p-10 md:p-14 rounded-[32px] relative overflow-hidden group hover:shadow-2xl transition-all duration-500 border border-outline-variant/20 flex flex-col justify-between">
-              <div className="absolute -top-6 -right-6 md:top-8 md:right-8 opacity-[0.15] group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 pointer-events-none">
-                <img src="https://flagcdn.com/in.svg" alt="India Flag" className="w-32 md:w-36 h-auto drop-shadow-xl rounded-sm object-cover" />
+            <div className="p-8 md:p-10 rounded-[28px] relative overflow-hidden group hover:shadow-xl transition-all duration-500 border border-outline-variant/20 flex flex-col justify-between">
+              <div className="absolute -top-6 -right-6 md:top-6 md:right-6 opacity-[0.12] group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 pointer-events-none">
+                <img src="https://flagcdn.com/in.svg" alt="India Flag" className="w-28 h-auto drop-shadow-xl rounded-sm object-cover" />
               </div>
               <div className="relative z-10">
-                <div className="mb-8 inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary-container text-secondary group-hover:bg-secondary group-hover:text-white transition-colors duration-500">
-                  <span className="material-symbols-outlined text-3xl">public</span>
+                <div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-full bg-secondary-container text-secondary group-hover:bg-secondary group-hover:text-white transition-colors duration-500">
+                  <span className="material-symbols-outlined text-2xl">public</span>
                 </div>
-                <h3 className="font-serif-display text-5xl text-primary mb-2">India</h3>
-                <p className="font-label text-sm tracking-widest uppercase text-secondary font-bold mb-10">Corporate Office</p>
+                <h3 className="font-serif-display text-4xl text-primary mb-1">India</h3>
+                <p className="font-label text-xs tracking-widest uppercase text-secondary font-bold mb-6">Corporate Office</p>
                 
-                <div className="space-y-6">
-                  <div className="flex items-start gap-5">
-                    <span className="material-symbols-outlined text-xl text-secondary mt-1 bg-surface-container-lowest p-2 rounded-full">location_on</span>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-4">
+                    <span className="material-symbols-outlined text-xl text-secondary mt-0.5 bg-surface-container-lowest p-1.5 rounded-full">location_on</span>
                     <div>
                       <p className="font-label font-bold text-primary mb-1 tracking-wider text-xs uppercase">Rajkot Hub</p>
-                      <p className="font-serif-display text-xl text-on-surface-variant leading-relaxed">301 Silver Plaza, Kalawad Road<br/>Rajkot, Gujarat 360005</p>
+                      <p className="font-serif-display text-lg text-on-surface-variant leading-relaxed">301 Silver Plaza, Kalawad Road<br/>Rajkot, Gujarat 360005</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-5">
-                    <span className="material-symbols-outlined text-xl text-secondary mt-1 bg-surface-container-lowest p-2 rounded-full">call</span>
+                  <div className="flex items-start gap-4">
+                    <span className="material-symbols-outlined text-xl text-secondary mt-0.5 bg-surface-container-lowest p-1.5 rounded-full">call</span>
                     <div>
                       <p className="font-label font-bold text-primary mb-1 tracking-wider text-xs uppercase">Contact</p>
-                      <p className="font-serif-display text-xl text-on-surface-variant">+91 98765 43210</p>
+                      <p className="font-serif-display text-lg text-on-surface-variant">+91 98765 43210</p>
                     </div>
                   </div>
                 </div>
