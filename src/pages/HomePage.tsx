@@ -1,123 +1,190 @@
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { SmoothLink as Link } from "@/components/SmoothLink";
 import { destinations } from "@/data/destinations";
+import { useMemo, useEffect } from "react";
+import { motion } from "framer-motion";
+
+import { OptimizedImage } from "@/components/OptimizedImage";
+import BentoGrid from "@/components/BentoGrid";
 
 const HomePage = () => {
-  // Pick 4 featured destinations
-  const featuredDestinations = [
-    destinations.find(d => d.slug === "dubai"),
-    destinations.find(d => d.slug === "bali"),
-    destinations.find(d => d.slug === "thailand"),
-    destinations.find(d => d.slug === "euro-trio"),
-  ].filter(Boolean);
+  // Memoize featured destinations to prevent recalculation during scroll-triggered re-renders
+  const featuredDestinations = useMemo(() => [
+    destinations.find(d => d.slug === "dubai-tour-packages-from-rajkot"),
+    destinations.find(d => d.slug === "bali-tour-packages-from-rajkot"),
+    destinations.find(d => d.slug === "thailand-tour-packages-from-rajkot"),
+    destinations.find(d => d.slug === "euro-trio-tour-packages-from-rajkot"),
+  ].filter(Boolean), []);
+
+  // Preload featured images for instant display
+  useEffect(() => {
+    featuredDestinations.forEach((dest: any) => {
+      if (dest.img) {
+        const img = new Image();
+        img.src = dest.img;
+      }
+    });
+  }, [featuredDestinations]);
 
   return (
     <main>
       {/* Hero */}
-      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden py-24">
+      <section className="relative h-screen flex flex-col justify-between pt-32 md:pt-40 pb-20 overflow-hidden bg-white">
         <div className="absolute inset-0 z-0">
-          <img className="w-full h-full object-cover" alt="Cinematic wide shot of a luxury overwater villa in Maldives during sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYu9bPzFIIyyx8i_UpEjb0SMZYQv_SQHK6nzgvE40ODmYq3kzxV-VWE_9MpjUbYTcopntz3ruIFwQ6vB-J-2kOAuhMO8UgiRwZGdDsAe3lk9oNQYAAKKS0YFA25Tu4EsHIUSD4fQavFC3OOfEteB5eEQbovyyXEBswt4rcH_IXKBjlnNlcUO95PEr5GCmy3fJoeOYSogACg8zD5LBZNTKJA39DJ2v1xhI887B1sH6whH_cxjjy0cwdfigijzuHtQDiJxnuCHZZ094" />
-          <div className="absolute inset-0 hero-gradient"></div>
+          <img 
+            className="w-full h-full object-cover" 
+            alt="One Stop Holidays Hero" 
+            src="/hero.webp" 
+          />
+          {/* Subtle Overlay for Readability */}
+          <div className="absolute inset-0 bg-white/10 md:bg-transparent" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-8">
-            <h1 className="text-white font-headline text-7xl md:text-8xl leading-[0.9] tracking-tighter mb-8 italic">
-              Curating Journeys <br />Beyond the Ordinary.
-            </h1>
-            <p className="text-white/80 text-xl md:text-2xl max-w-xl mb-12 font-light leading-relaxed">
-              Experience the art of bespoke travel with One Stop Holidays. We transform your dreams into perfectly choreographed itineraries.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link to="/destinations" className="bg-secondary text-on-secondary px-10 py-4 rounded-full font-label text-sm font-extrabold tracking-widest uppercase editorial-shadow hover:bg-secondary/90 transition-all">
-                Explore Destinations
+
+        <div className="relative z-10 max-w-7xl mx-auto pl-4 md:pl-8 pr-6 md:pr-12 w-full h-full flex flex-col justify-between md:justify-center">
+          {/* Subtle Radial Glow behind content */}
+          <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[400px] h-[400px] bg-secondary/[0.03] rounded-full blur-[100px] -z-10 pointer-events-none" />
+          
+          {/* Top Content: Headline, Description & Trust */}
+          <div className="w-full">
+            <motion.h1 
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
+              className="font-body text-2xl md:text-5xl leading-tight tracking-tight mb-6 font-normal text-primary/80 max-w-[280px] md:max-w-[560px]"
+            >
+              Curating extraordinary journeys across the globe.
+            </motion.h1>
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1, ease: [0.19, 1, 0.22, 1] }}
+              className="text-on-surface/60 text-base md:text-lg mb-8 md:mb-10 font-normal leading-relaxed"
+            >
+              The art of refined travel, handcrafted for the discerning explorer.
+            </motion.p>
+
+            {/* Trust Element - Moved up for better visibility on mobile */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.3 }}
+              className="flex items-center gap-3 md:gap-4 py-2"
+            >
+              <div className="flex -space-x-2 md:-space-x-3">
+                {[1,2,3].map(i => (
+                  <div key={i} className="w-7 h-7 md:w-8 md:h-8 rounded-full border-2 border-white bg-zinc-200 overflow-hidden shadow-sm">
+                    <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt="User" className="w-full h-full object-cover grayscale" />
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-col">
+                <span className="font-label text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-primary/80 leading-none">Trusted by 5000+</span>
+                <span className="font-label text-[8px] md:text-[9px] uppercase tracking-widest text-primary/60 mt-1">International Travellers</span>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Bottom Content: CTAs Side-by-Side */}
+          <div className="w-full md:mt-10">
+            <motion.div 
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.19, 1, 0.22, 1] }}
+              className="flex flex-row items-center gap-3 md:gap-4"
+            >
+              <a 
+                href="https://wa.me/919213692135" 
+                className="group relative flex items-center bg-secondary text-white p-1.5 pr-5 md:pr-8 rounded-full font-label text-[9px] md:text-[11px] font-bold uppercase tracking-[0.1em] md:tracking-[0.2em] transition-all hover:bg-secondary/90 shadow-xl shadow-secondary/10 active:scale-95"
+              >
+                {/* Icon Circle */}
+                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/20 flex items-center justify-center mr-2 md:mr-4 transition-transform duration-500 group-hover:scale-110">
+                  <svg className="w-5 h-5 md:w-6 md:h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                  </svg>
+                </div>
+                <span>Enquire</span>
+              </a>
+              
+              <Link 
+                to="/destinations" 
+                className="group flex items-center bg-white/40 backdrop-blur-sm border border-primary/20 text-primary/80 p-1.5 pr-5 md:pr-8 rounded-full font-label text-[9px] md:text-[11px] font-bold uppercase tracking-[0.1em] md:tracking-[0.2em] transition-all hover:text-primary hover:border-primary/40 hover:bg-white/60 shadow-sm"
+              >
+                {/* Icon Circle */}
+                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary/10 flex items-center justify-center mr-2 md:mr-4 transition-transform duration-500 group-hover:scale-110">
+                  <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+                  </svg>
+                </div>
+                <span>Explore</span>
               </Link>
-              <button className="border border-white/30 text-white backdrop-blur-md px-10 py-4 rounded-full font-label text-sm font-extrabold tracking-widest uppercase hover:bg-white/10 transition-all">
-                View Packages
-              </button>
-            </div>
-            <div className="mt-20 grid grid-cols-3 gap-8 max-w-2xl border-t border-white/20 pt-8">
-              <div>
-                <p className="text-white font-headline text-4xl">5000+</p>
-                <p className="text-white/60 font-label text-xs uppercase tracking-widest mt-1">Travellers</p>
-              </div>
-              <div>
-                <p className="text-white font-headline text-4xl">50+</p>
-                <p className="text-white/60 font-label text-xs uppercase tracking-widest mt-1">Destinations</p>
-              </div>
-              <div>
-                <p className="text-white font-headline text-4xl">10+</p>
-                <p className="text-white/60 font-label text-xs uppercase tracking-widest mt-1">Years Experience</p>
-              </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Why Choose Us */}
-      <section className="min-h-screen flex flex-col justify-center py-24">
-        <div className="max-w-7xl mx-auto px-8 w-full">
-          <div className="mb-16 flex flex-col md:flex-row justify-between items-end gap-6">
+      <section className="py-20 md:py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-6 md:px-8 w-full">
+          <div className="mb-12 md:mb-16">
             <div className="max-w-2xl">
-              <span className="font-label text-secondary font-bold tracking-[0.2em] text-sm uppercase mb-4 block">The Curator's Standard</span>
-              <h2 className="text-on-surface font-headline text-5xl leading-tight">Why travelers trust our expert curation.</h2>
+              <span className="font-label text-secondary font-bold tracking-[0.2em] text-xs md:text-sm uppercase mb-4 block">The Curator's Standard</span>
+              <h2 className="text-on-surface font-headline text-4xl md:text-5xl leading-tight">Why travelers trust our expert curation.</h2>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { icon: "verified_user", title: "Unrivaled Expertise", desc: "A decade of forging global partnerships to bring you exclusive access and insights." },
               { icon: "diamond", title: "Luxury Bespoke", desc: "No templates. Every itinerary is hand-crafted to align with your personal travel philosophy." },
               { icon: "support_agent", title: "Concierge Support", desc: "Travel with confidence with our 24/7 dedicated support team at your fingertips." },
               { icon: "celebration", title: "Authentic Roots", desc: "Proudly serving Rajkot with local intimacy and a global perspective." },
             ].map((item) => (
-              <div key={item.title} className="p-8 rounded-[20px] editorial-shadow group hover:bg-surface-bright transition-colors">
+              <div key={item.title} className="p-6 md:p-8 rounded-[24px] bg-zinc-50 border border-outline-variant/5 group hover:bg-white hover:shadow-xl transition-all duration-500">
                 <div className="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center mb-6">
                   <span className="material-symbols-outlined text-on-secondary-container">{item.icon}</span>
                 </div>
-                <h3 className="font-headline text-2xl mb-4">{item.title}</h3>
-                <p className="text-on-surface-variant font-light leading-relaxed">{item.desc}</p>
+                <h3 className="font-headline text-xl md:text-2xl mb-4 text-primary">{item.title}</h3>
+                <p className="text-on-surface-variant/80 font-body text-sm md:text-base leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Destinations Preview — World-Class Selections */}
-      <section className="h-screen max-h-screen pt-20 flex flex-col justify-center overflow-hidden px-8">
-        <div className="max-w-6xl mx-auto w-full flex flex-col justify-center gap-12">
+      {/* Destinations Preview */}
+      <section className="py-20 md:py-32 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-8 w-full">
           {/* Header */}
-          <div className="text-center flex-shrink-0">
-            <h2 className="text-on-surface font-headline text-5xl md:text-6xl italic mb-3">Featured Escapes</h2>
-            <p className="text-on-surface-variant font-light text-lg">Hand-picked destinations that define luxury and serenity.</p>
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-on-surface font-headline text-4xl md:text-6xl italic mb-4">Featured Escapes</h2>
+            <p className="text-on-surface-variant/60 font-body text-base md:text-lg max-w-xl mx-auto">Hand-picked destinations that define luxury and serenity.</p>
           </div>
 
-          {/* 4-col single row */}
-          <div className="grid grid-cols-4 gap-8 md:gap-10">
+          {/* Flexible Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {featuredDestinations.map((dest) => (
-              /* White parent card — border frame responsive */
-              <div key={dest.name} className="group bg-white rounded-[25px] p-2 w-full aspect-[2/3] max-h-[55vh] flex flex-col shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                {/* Child image card — full width & height, all content overlaid */}
-                <div className="relative overflow-hidden rounded-[19px] w-full h-full">
-                  <img
+              <div key={dest.slug} className="group bg-white rounded-[28px] p-2 w-full aspect-[4/5] sm:aspect-[3/4] lg:aspect-[2/3] flex flex-col border border-outline-variant/10 shadow-sm transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+                <div className="relative overflow-hidden rounded-[22px] w-full h-full">
+                  <OptimizedImage
                     src={dest.img}
                     alt={dest.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    containerClassName="w-full h-full"
                   />
-                  {/* Strong gradient for readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
 
-                  {/* Hover Tag overlay */}
-                  <span className="absolute top-3 left-3 bg-white/20 backdrop-blur-sm text-white font-label text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                  <span className="absolute top-4 left-4 bg-white/20 backdrop-blur-md text-white font-label text-[9px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border border-white/10 z-10">
                     {dest.category}
                   </span>
 
-                  {/* Name + desc + button — overlaid at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 p-4 flex flex-col gap-1.5">
-                    <h3 className="font-headline text-white text-xl leading-tight">{dest.name}</h3>
-                    <p className="font-body text-white/75 text-xs leading-snug line-clamp-2">{dest.desc}</p>
+                  <div className="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-2">
+                    <h3 className="font-headline text-white text-xl md:text-2xl leading-tight">{dest.name}</h3>
+                    <p className="font-body text-white/70 text-[11px] md:text-xs leading-relaxed line-clamp-2">{dest.desc}</p>
                     <Link
                       to={`/destinations/${dest.slug}`}
-                      className="mt-2 w-full py-2.5 rounded-full bg-white text-gray-900 font-label text-xs font-bold uppercase tracking-widest text-center hover:bg-white/90 transition-colors duration-200"
+                      className="mt-3 w-full py-3 rounded-full bg-white text-primary font-label text-[10px] font-bold uppercase tracking-[0.2em] text-center hover:bg-secondary hover:text-white transition-all duration-300"
                     >
-                      Book Now
+                      Book Journey
                     </Link>
                   </div>
                 </div>
@@ -127,52 +194,13 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="min-h-screen flex flex-col justify-center py-24 relative overflow-hidden">
+      <BentoGrid />
 
-        <div className="max-w-7xl mx-auto px-8 relative z-10 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-16">
-            <div className="lg:col-span-4">
-              <span className="font-label text-secondary font-bold tracking-[0.2em] text-sm uppercase mb-4 block">Kind Words</span>
-              <h2 className="text-on-surface font-headline text-5xl leading-tight">Stories from our travelers in Rajkot.</h2>
-            </div>
-            <div className="lg:col-span-8 flex overflow-x-auto pb-12 gap-8 snap-x no-scrollbar">
-              <div className="min-w-[400px] p-10 rounded-[20px] editorial-shadow snap-start">
-                <div className="flex text-secondary mb-6">
-                  {[1, 2, 3, 4, 5].map(i => <span key={i} className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>)}
-                </div>
-                <p className="font-headline text-2xl italic leading-relaxed mb-8">"Their attention to detail for our Maldives honeymoon was impeccable. Truly a one-stop boutique experience right here in Rajkot."</p>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-surface-container-high overflow-hidden">
-                    <img className="w-full h-full object-cover" alt="Pragnesh Shah" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtJ2ntWcDeeS3lUg8fz1Q7Pp8t9T0LCPogC2TFj2YjfkNL-XF1uzTRq2wXL7V50n35z1Q5NvsUQHsi__rW6lh_tCbAXZO8SMRoexQvouFp0PeWKmIOgTLg_p-gRExeji69u8G4xWzucLI99O6esk-TYPNYMOXx7XIYISQKBHZJeZ1bcqLiFu1bS17KZbnYtRgc0rOC4pHccMUlygScqW44dNIbdrIXKbvTlcydMSe-ztqm27PUqP2njZlSbdME_ocvsPXM_DrTad0" />
-                  </div>
-                  <div>
-                    <h4 className="font-label text-sm font-bold uppercase tracking-widest text-on-surface">Pragnesh Shah</h4>
-                    <p className="font-label text-xs text-on-surface-variant">Business Owner, Rajkot</p>
-                  </div>
-                </div>
-              </div>
-              <div className="min-w-[400px] p-10 rounded-[20px] editorial-shadow snap-start">
-                <div className="flex text-secondary mb-6">
-                  {[1, 2, 3, 4, 5].map(i => <span key={i} className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>)}
-                </div>
-                <p className="font-headline text-2xl italic leading-relaxed mb-8">"One Stop Holidays managed our extended family trip to Kashmir perfectly. The local guides they provided were exceptional."</p>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-surface-container-high overflow-hidden">
-                    <img className="w-full h-full object-cover" alt="Meera Vora" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW9-PDgiNY-Oro9oJZVyQebkCi_0_wH9dhCZ6aKl1gZQttzMlcZdQJbhvEWW9hKkTarLaSVpiaRPc5NiPYLonT5tHbpqHNQ2UzpnMrR0OqQ8I11OKDDjzRNe-zn0UCVNBjWBVwvcTc9tY9V4P1fLagtBgDTWl0AtsMtd8Nh8o1oX6ir9ernIuENxPddrg9xebQiO8tWV3tjimgiGu4R1VdojG3-L3kc3K5aEBLi9NCxgRRPr4XWN9_xs63d4N6SUGD_aR7YAXv5E4" />
-                  </div>
-                  <div>
-                    <h4 className="font-label text-sm font-bold uppercase tracking-widest text-on-surface">Meera Vora</h4>
-                    <p className="font-label text-xs text-on-surface-variant">Educator, Rajkot</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Testimonials */}
+      <TestimonialsSection />
     </main>
   );
 };
 
 export default HomePage;
+

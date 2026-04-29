@@ -1,1 +1,10 @@
-export { useSmoothScroll } from '@/contexts/SmoothScrollProvider';
+import { useContext } from "react";
+import { SmoothScrollContext } from "@/providers/SmoothScrollProvider";
+
+export const useSmoothScroll = () => {
+  const context = useContext(SmoothScrollContext);
+  if (!context) {
+    throw new Error("useSmoothScroll must be used within a SmoothScrollProvider");
+  }
+  return context;
+};

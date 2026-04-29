@@ -149,11 +149,16 @@ export default {
           "0%": { backgroundPosition: "0% 50%" },
           "100%": { backgroundPosition: "200% 50%" },
         },
+        fly: {
+          "from": { transform: "translateY(0.1em)" },
+          "to": { transform: "translateY(-0.1em)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "text-shine": "text-shine 5s linear infinite",
+        fly: "fly 0.6s ease-in-out infinite alternate",
       },
     },
   },

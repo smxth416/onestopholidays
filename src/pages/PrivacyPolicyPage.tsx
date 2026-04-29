@@ -49,7 +49,7 @@ const PrivacyPolicyPage = () => {
 
             <div>
               <h2 className="font-headline text-2xl text-primary mb-4">6. Your Rights</h2>
-              <p>You have the right to access, correct, or request deletion of your personal data at any time. To exercise these rights, please contact us at <span className="text-secondary">hello@onestopholidays.com</span>. We will respond to all requests within 30 days.</p>
+              <p>You have the right to access, correct, or request deletion of your personal data at any time. To exercise these rights, please contact us at <span className="text-secondary">admin@onestopholidays.co</span>. We will respond to all requests within 30 days.</p>
             </div>
 
             <div>
@@ -67,9 +67,9 @@ const PrivacyPolicyPage = () => {
               <p>For any privacy-related questions or concerns, please contact:</p>
               <div className="mt-4 p-6 bg-surface-container-low rounded-lg">
                 <p className="font-label font-bold text-primary mb-1">One Stop Holidays</p>
-                <p>301 Silver Plaza, Kalawad Road, Rajkot, Gujarat 360005</p>
-                <p className="text-secondary mt-2">hello@onestopholidays.com</p>
-                <p>+91 (0) 281 4455 6677</p>
+                <p>The City Center, Raiya Rd, Nehru Nagar, Rajkot, Gujarat 360007</p>
+                <p className="text-secondary mt-2">admin@onestopholidays.co</p>
+                <p>+91 92136-92135</p>
               </div>
             </div>
 

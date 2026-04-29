@@ -79,9 +79,9 @@ const TermsPage = () => {
               <p>For any questions regarding these Terms of Service, please reach out to:</p>
               <div className="mt-4 p-6 bg-surface-container-low rounded-lg">
                 <p className="font-label font-bold text-primary mb-1">One Stop Holidays</p>
-                <p>301 Silver Plaza, Kalawad Road, Rajkot, Gujarat 360005</p>
-                <p className="text-secondary mt-2">hello@onestopholidays.com</p>
-                <p>+91 (0) 281 4455 6677</p>
+                <p>The City Center, Raiya Rd, Nehru Nagar, Rajkot, Gujarat 360007</p>
+                <p className="text-secondary mt-2">admin@onestopholidays.co</p>
+                <p>+91 92136-92135</p>
               </div>
             </div>
 

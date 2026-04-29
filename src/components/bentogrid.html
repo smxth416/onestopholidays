@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Travel Bento Grid</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  /* ─── Design Tokens ─── */
+  :root {
+    --bg: #F0EDE8;
+    --card: #FFFFFF;
+    --border: rgba(0,0,0,0.06);
+    --shadow: 0 2px 12px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.04);
+    --shadow-hover: 0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
+    --radius: 24px;
+    --radius-sm: 16px;
+    --gap: 16px;
+
+    --purple: #6C63FF;
+    --purple-light: #EEE9FF;
+    --coral: #FF6B5B;
+    --coral-light: #FFEAE7;
+    --yellow: #FFD166;
+    --yellow-light: #FFF8E6;
+    --mint: #06D6A0;
+    --mint-light: #E6FBF5;
+    --navy: #1A1A2E;
+    --gray: #6B7280;
+    --gray-light: #F9F8F7;
+
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    font-family: var(--font-body);
+    color: var(--navy);
+    min-height: 100vh;
+    padding: 40px 24px;
+  }
+
+  /* ─── Grid Container ─── */
+  .bento {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.6fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: var(--gap);
+  }
+
+  /* ─── Card Base ─── */
+  .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    padding: 28px;
+    position: relative;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    will-change: transform;
+  }
+  .card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-3px);
+  }
+
+  /* ─── Grid Placements ─── */
+  .card-1 { grid-column: 1; grid-row: 1; }
+  .card-2 { grid-column: 2; grid-row: 1; min-height: 280px; }
+  .card-3 { grid-column: 3; grid-row: 1; }
+  .card-4 { grid-column: 1 / 2; grid-row: 2; }
+  .card-5 { grid-column: 2 / 4; grid-row: 2; }
+  .card-6 { grid-column: 1 / 4; grid-row: 3; min-height: 200px; }
+
+  /* ─── Typography ─── */
+  .card-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 100px;
+    margin-bottom: 14px;
+  }
+  .tag-purple { background: var(--purple-light); color: var(--purple); }
+  .tag-coral  { background: var(--coral-light);  color: var(--coral); }
+  .tag-yellow { background: var(--yellow-light); color: #B07B00; }
+  .tag-mint   { background: var(--mint-light);   color: #059669; }
+
+  .card-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.25;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .card-desc {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--gray);
+    max-width: 28ch;
+  }
+
+  /* ═══════════════════════════════
+     CARD 1 — Fixed Travel Packages
+     Geometric: floating price orbs
+  ════════════════════════════════ */
+  .card-1 { background: var(--purple); }
+  .card-1 .card-tag { background: rgba(255,255,255,0.18); color: #fff; }
+  .card-1 .card-title { color: #fff; font-size: 20px; }
+  .card-1 .card-desc { color: rgba(255,255,255,0.72); max-width: 24ch; }
+
+  .price-orbs {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    border: 1.5px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
+    animation: floatOrb var(--dur, 4s) ease-in-out infinite alternate;
+    animation-delay: var(--delay, 0s);
+  }
+  .orb-1 { width: 72px; height: 72px; font-size: 13px; bottom: 28px; right: 24px; --dur: 3.5s; --delay: 0s; }
+  .orb-2 { width: 48px; height: 48px; font-size: 11px; bottom: 68px; right: 80px; --dur: 4.2s; --delay: -1.5s; background: rgba(255,255,255,0.08); }
+  .orb-3 { width: 32px; height: 32px; bottom: 110px; right: 30px; --dur: 5s; --delay: -0.8s; background: rgba(255,209,102,0.4); border-color: rgba(255,209,102,0.6); }
+
+  @keyframes floatOrb {
+    from { transform: translateY(0px) rotate(0deg); }
+    to   { transform: translateY(-12px) rotate(8deg); }
+  }
+
+  .package-badge {
+    position: absolute;
+    bottom: 24px;
+    left: 28px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 12px;
+    padding: 8px 14px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+    backdrop-filter: blur(8px);
+  }
+  .package-badge span { color: var(--yellow); font-weight: 700; }
+
+  /* ════════════════════════════
+     CARD 2 — Fast Booking
+     Geometric: animated flight path
+  ═════════════════════════════ */
+  .card-2 { background: var(--gray-light); display: flex; flex-direction: column; justify-content: space-between; }
+
+  .booking-visual {
+    flex: 1;
+    position: relative;
+    min-height: 140px;
+    margin: 16px -28px -28px;
+    overflow: hidden;
+  }
+
+  .flight-svg {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 100%;
+  }
+
+  /* Dashed path animation */
+  .path-line {
+    stroke-dasharray: 6 5;
+    stroke-dashoffset: 0;
+    animation: dashMove 2s linear infinite;
+  }
+  @keyframes dashMove {
+    to { stroke-dashoffset: -110; }
+  }
+
+  /* Airplane along path */
+  .plane-icon {
+    animation: flyPlane 4s ease-in-out infinite;
+    transform-origin: center;
+  }
+  @keyframes flyPlane {
+    0%   { transform: translate(0,0)   rotate(0deg); opacity: 1; }
+    45%  { transform: translate(160px,-32px) rotate(-8deg); opacity: 1; }
+    50%  { opacity: 0; transform: translate(165px,-34px); }
+    51%  { transform: translate(-20px, 60px) rotate(-8deg); opacity: 0; }
+    60%  { opacity: 1; }
+    100% { transform: translate(0,0)   rotate(0deg); opacity: 1; }
+  }
+
+  .confirm-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 6px 14px 6px 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--navy);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    margin-top: 2px;
+  }
+  .confirm-dot {
+    width: 8px; height: 8px;
+    background: var(--mint);
+    border-radius: 50%;
+    animation: pulseDot 1.5s ease-in-out infinite;
+  }
+  @keyframes pulseDot {
+    0%,100% { box-shadow: 0 0 0 0 rgba(6,214,160,0.4); }
+    50%      { box-shadow: 0 0 0 5px rgba(6,214,160,0); }
+  }
+
+  /* ════════════════════════════
+     CARD 3 — Unlimited Customization
+  ═════════════════════════════ */
+  .card-3 { background: var(--yellow-light); }
+  .card-3 .card-title { font-size: 20px; }
+
+  .slider-demo {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .slider-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: var(--gray);
+    font-weight: 500;
+  }
+  .slider-track {
+    flex: 1;
+    height: 6px;
+    background: rgba(0,0,0,0.1);
+    border-radius: 100px;
+    overflow: hidden;
+    position: relative;
+  }
+  .slider-fill {
+    height: 100%;
+    border-radius: 100px;
+    background: var(--coral);
+    animation: slideIn 2.5s ease-in-out infinite alternate;
+    animation-delay: var(--d, 0s);
+  }
+  .slider-fill.s2 { background: var(--purple); }
+  .slider-fill.s3 { background: var(--mint); }
+  @keyframes slideIn {
+    from { width: 35%; }
+    to   { width: 85%; }
+  }
+  .slider-val {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--navy);
+    min-width: 28px;
+    text-align: right;
+  }
+
+  /* ════════════════════════════
+     CARD 4 — Complete Travel Solutions
+     Wide card, list style
+  ═════════════════════════════ */
+  .card-4 { display: flex; flex-direction: column; }
+
+  .service-list {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .service-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: var(--gray-light);
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy);
+    transition: background 0.2s;
+    animation: itemReveal 0.5s ease both;
+    animation-delay: var(--d, 0s);
+  }
+  @keyframes itemReveal {
+    from { opacity: 0; transform: translateX(-10px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  .service-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  /* ════════════════════════════
+     CARD 5 — No Paperwork Hassle
+     Geometric: orbiting dots globe
+  ═════════════════════════════ */
+  .card-5 { display: flex; align-items: center; gap: 32px; }
+  .card-5-text { flex: 1; }
+  .card-5 .card-desc { max-width: 36ch; }
+
+  .globe-wrap {
+    flex-shrink: 0;
+    width: 160px; height: 160px;
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .globe-svg {
+    width: 140px; height: 140px;
+    overflow: visible;
+  }
+
+  /* Globe orbit rings */
+  .orbit-ring {
+    fill: none;
+    stroke: var(--purple);
+    stroke-width: 1;
+    opacity: 0.2;
+  }
+  .orbit-ring.r2 { stroke: var(--coral); }
+
+  /* Orbiting dot on ring 1 */
+  .dot-traveler {
+    animation: orbitRing1 5s linear infinite;
+    transform-origin: 70px 70px;
+  }
+  @keyframes orbitRing1 {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  /* Orbiting dot on ring 2 */
+  .dot-traveler-2 {
+    animation: orbitRing2 7s linear infinite reverse;
+    transform-origin: 70px 70px;
+  }
+  @keyframes orbitRing2 {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  /* Pulse from center */
+  .globe-pulse {
+    animation: globePulse 2.5s ease-in-out infinite;
+  }
+  @keyframes globePulse {
+    0%,100% { r: 22; opacity: 0.12; }
+    50%      { r: 30; opacity: 0.06; }
+  }
+
+  .doc-chips {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .doc-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    background: var(--coral-light);
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--coral);
+    animation: chipPop 0.4s cubic-bezier(0.34,1.56,0.64,1) both;
+    animation-delay: var(--d, 0s);
+  }
+  @keyframes chipPop {
+    from { opacity: 0; transform: scale(0.7); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  .chip-check { font-size: 10px; color: var(--mint); }
+
+  /* ════════════════════════════
+     CARD 6 — Testimonial
+  ═════════════════════════════ */
+  .card-6 {
+    background: var(--navy);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 56px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-6::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: -80px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(108,99,255,0.2) 0%, transparent 70%);
+    animation: bgPulse 6s ease-in-out infinite alternate;
+  }
+  .card-6::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; right: -60px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,107,91,0.15) 0%, transparent 70%);
+    animation: bgPulse 8s ease-in-out infinite alternate-reverse;
+  }
+  @keyframes bgPulse {
+    from { transform: scale(1); opacity: 0.7; }
+    to   { transform: scale(1.4); opacity: 1; }
+  }
+
+  .quote-mark {
+    font-family: var(--font-display);
+    font-size: 80px;
+    line-height: 0.6;
+    color: var(--purple);
+    margin-bottom: 24px;
+    opacity: 0.8;
+    position: relative;
+    z-index: 1;
+    animation: quoteFloat 4s ease-in-out infinite alternate;
+  }
+  @keyframes quoteFloat {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-6px); }
+  }
+
+  .testimonial-text {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3.5vw, 40px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+    max-width: 700px;
+    position: relative;
+    z-index: 1;
+    animation: textReveal 1s ease both;
+  }
+  @keyframes textReveal {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .testimonial-author {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    z-index: 1;
+  }
+  .author-avatar {
+    display: flex;
+    gap: -8px;
+  }
+  .avatar-circle {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 2px solid var(--navy);
+    background: var(--gray-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    margin-left: -8px;
+    overflow: hidden;
+  }
+  .avatar-circle:first-child { margin-left: 0; }
+
+  .author-text { text-align: left; }
+  .author-name { font-size: 14px; font-weight: 600; color: #fff; }
+  .author-meta { font-size: 12px; color: rgba(255,255,255,0.5); }
+
+  .star-row {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 4px;
+  }
+  .star { font-size: 12px; color: var(--yellow); }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 900px) {
+    .bento {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+    }
+    .card-1 { grid-column: 1; grid-row: auto; }
+    .card-2 { grid-column: 2; grid-row: auto; }
+    .card-3 { grid-column: 1; grid-row: auto; }
+    .card-4 { grid-column: 2; grid-row: auto; }
+    .card-5 { grid-column: 1 / 3; grid-row: auto; }
+    .card-6 { grid-column: 1 / 3; grid-row: auto; }
+    .card-5 { flex-direction: column; align-items: flex-start; }
+    .globe-wrap { align-self: center; }
+  }
+
+  @media (max-width: 560px) {
+    body { padding: 16px 12px; }
+    :root { --gap: 12px; --radius: 18px; }
+    .bento {
+      grid-template-columns: 1fr;
+    }
+    .card-1,.card-2,.card-3,.card-4,.card-5,.card-6 {
+      grid-column: 1 !important;
+      grid-row: auto !important;
+    }
+    .card-5 { flex-direction: column; }
+    .card-6 { padding: 40px 24px; }
+    .quote-mark { font-size: 56px; }
+  }
+
+  /* ─── Entrance Animations ─── */
+  .card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: cardEnter 0.6s cubic-bezier(0.23,1,0.32,1) forwards;
+  }
+  .card-1 { animation-delay: 0.05s; }
+  .card-2 { animation-delay: 0.12s; }
+  .card-3 { animation-delay: 0.19s; }
+  .card-4 { animation-delay: 0.26s; }
+  .card-5 { animation-delay: 0.33s; }
+  .card-6 { animation-delay: 0.42s; }
+
+  @keyframes cardEnter {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── Section Label ─── */
+  .section-eyebrow {
+    text-align: center;
+    margin-bottom: 32px;
+    animation: cardEnter 0.5s ease both;
+  }
+  .section-eyebrow span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--purple);
+    background: var(--purple-light);
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+  }
+  .section-eyebrow h2 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+  .section-eyebrow p {
+    font-size: 16px;
+    color: var(--gray);
+    margin-top: 8px;
+  }
+</style>
+</head>
+<body>
+
+<div class="bento">
+
+  <!-- ── Card 1: Fixed Travel Packages ── -->
+  <div class="card card-1">
+    <div class="price-orbs">
+      <div class="orb orb-1">$499</div>
+      <div class="orb orb-2">$299</div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="card-tag tag-purple">Pricing</div>
+    <div class="card-title">Fixed Travel Packages</div>
+    <div class="card-desc">Transparent pricing for global destinations — no hidden costs.</div>
+    <div class="package-badge">From <span>$299</span> per person</div>
+  </div>
+
+  <!-- ── Card 2: Fast Booking ── -->
+  <div class="card card-2">
+    <div class="card-tag tag-mint">Speed</div>
+    <div class="card-title">Fast Booking Process</div>
+    <div class="card-desc">Instant confirmations for flights, hotels, and tours.</div>
+    <div style="margin-top:8px;">
+      <div class="confirm-pill">
+        <div class="confirm-dot"></div>
+        Booking confirmed
+      </div>
+    </div>
+
+    <div class="booking-visual">
+      <svg class="flight-svg" viewBox="0 0 420 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Ground horizon -->
+        <path d="M0 130 Q105 110 210 130 Q315 150 420 130" stroke="#E5E2DC" stroke-width="1.5" fill="none"/>
+
+        <!-- Dashed arc path -->
+        <path class="path-line" d="M30 118 Q120 30 210 50 Q300 68 390 118"
+          stroke="#6C63FF" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+        <!-- City blobs -->
+        <circle cx="30" cy="122" r="6" fill="#6C63FF" opacity="0.9"/>
+        <circle cx="390" cy="122" r="6" fill="#FF6B5B" opacity="0.9"/>
+        <rect x="22" y="110" width="6" height="12" fill="#6C63FF" opacity="0.5" rx="1"/>
+        <rect x="30" y="106" width="4" height="16" fill="#6C63FF" opacity="0.4" rx="1"/>
+        <rect x="378" y="112" width="6" height="10" fill="#FF6B5B" opacity="0.5" rx="1"/>
+        <rect x="386" y="108" width="4" height="14" fill="#FF6B5B" opacity="0.4" rx="1"/>
+
+        <!-- Airplane group -->
+        <g class="plane-icon" transform="translate(25,104)">
+          <path d="M0 4 L14 0 L18 4 L10 6 Z" fill="#1A1A2E"/>
+          <path d="M4 4 L6 8 L3 8 Z" fill="#1A1A2E" opacity="0.6"/>
+          <path d="M11 4 L13 2 L16 4 L13 5 Z" fill="#6C63FF"/>
+        </g>
+
+        <!-- Labels -->
+        <text x="10" y="148" font-family="DM Sans,sans-serif" font-size="10" fill="#9CA3AF">Origin</text>
+        <text x="368" y="148" font-family="DM Sans,sans-serif" font-size="10" fill="#9CA3AF">Destination</text>
+
+        <!-- Small clouds -->
+        <ellipse cx="160" cy="28" rx="18" ry="8" fill="#E5E2DC" opacity="0.7"/>
+        <ellipse cx="148" cy="30" rx="10" ry="6" fill="#E5E2DC" opacity="0.7"/>
+        <ellipse cx="260" cy="38" rx="14" ry="6" fill="#E5E2DC" opacity="0.5"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ── Card 3: Unlimited Customization ── -->
+  <div class="card card-3">
+    <div class="card-tag tag-yellow">Flexible</div>
+    <div class="card-title">Unlimited Customization</div>
+    <div class="card-desc">Modify your itinerary anytime.</div>
+
+    <div class="slider-demo">
+      <div class="slider-row">
+        <span>Hotels</span>
+        <div class="slider-track">
+          <div class="slider-fill" style="--d:0s; width:70%;"></div>
+        </div>
+        <span class="slider-val">★★★★</span>
+      </div>
+      <div class="slider-row">
+        <span>Days</span>
+        <div class="slider-track">
+          <div class="slider-fill s2" style="--d:-0.8s; width:50%;"></div>
+        </div>
+        <span class="slider-val">14d</span>
+      </div>
+      <div class="slider-row">
+        <span>Budget</span>
+        <div class="slider-track">
+          <div class="slider-fill s3" style="--d:-1.6s; width:60%;"></div>
+        </div>
+        <span class="slider-val">$2k</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Card 4: Complete Travel Solutions ── -->
+  <div class="card card-4">
+    <div class="card-tag tag-coral">All-In-One</div>
+    <div class="card-title">Complete Travel Solutions</div>
+    <div class="card-desc">Flights, hotels, visas, and experiences — all in one place.</div>
+
+    <div class="service-list">
+      <div class="service-item" style="--d:0.1s">
+        <div class="service-icon" style="background:#EEE9FF;">✈️</div>
+        Flights & Transfers
+      </div>
+      <div class="service-item" style="--d:0.2s">
+        <div class="service-icon" style="background:#FFEAE7;">🏨</div>
+        Hotels & Resorts
+      </div>
+      <div class="service-item" style="--d:0.3s">
+        <div class="service-icon" style="background:#FFF8E6;">📋</div>
+        Visa Assistance
+      </div>
+      <div class="service-item" style="--d:0.4s">
+        <div class="service-icon" style="background:#E6FBF5;">🗺️</div>
+        Guided Experiences
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Card 5: No Paperwork Hassle ── -->
+  <div class="card card-5">
+    <div class="card-5-text">
+      <div class="card-tag tag-coral">Simplified</div>
+      <div class="card-title">No Paperwork Hassle</div>
+      <div class="card-desc">Smooth travel with minimal documentation and full support from our team.</div>
+
+      <div class="doc-chips">
+        <div class="doc-chip" style="--d:0.1s"><span class="chip-check">✓</span> eVisa Ready</div>
+        <div class="doc-chip" style="--d:0.2s"><span class="chip-check">✓</span> Digital Tickets</div>
+        <div class="doc-chip" style="--d:0.3s"><span class="chip-check">✓</span> 24/7 Support</div>
+        <div class="doc-chip" style="--d:0.4s"><span class="chip-check">✓</span> No Hidden Docs</div>
+      </div>
+    </div>
+
+    <div class="globe-wrap">
+      <svg class="globe-svg" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+        <!-- Pulse rings -->
+        <circle class="globe-pulse" cx="70" cy="70" r="22" fill="#6C63FF" opacity="0.12"/>
+
+        <!-- Globe body -->
+        <circle cx="70" cy="70" r="42" fill="none" stroke="#E5E2DC" stroke-width="1.5"/>
+        <circle cx="70" cy="70" r="42" fill="#F9F8F7" opacity="0.5"/>
+
+        <!-- Latitude lines -->
+        <ellipse cx="70" cy="70" rx="42" ry="14" fill="none" stroke="#DDD9D3" stroke-width="1" opacity="0.7"/>
+        <line x1="28" y1="70" x2="112" y2="70" stroke="#DDD9D3" stroke-width="1" opacity="0.5"/>
+        <line x1="70" y1="28" x2="70" y2="112" stroke="#DDD9D3" stroke-width="1" opacity="0.5"/>
+
+        <!-- Continent blobs (simplified) -->
+        <path d="M52 55 Q58 48 66 52 Q70 56 66 62 Q60 65 54 62 Z" fill="#D1CCF5" opacity="0.8"/>
+        <path d="M75 58 Q82 54 88 58 Q90 64 85 68 Q79 68 76 63 Z" fill="#D1CCF5" opacity="0.6"/>
+        <path d="M60 72 Q65 68 70 72 Q72 77 67 80 Q62 79 60 75 Z" fill="#D1CCF5" opacity="0.5"/>
+
+        <!-- Orbit ring 1 (tilted ellipse for ring effect) -->
+        <ellipse class="orbit-ring" cx="70" cy="70" rx="56" ry="20" transform="rotate(-25, 70, 70)"/>
+        <!-- Orbit ring 2 -->
+        <ellipse class="orbit-ring r2" cx="70" cy="70" rx="56" ry="22" transform="rotate(40, 70, 70)"/>
+
+        <!-- Orbiting dot 1 on ring 1 -->
+        <g class="dot-traveler">
+          <circle cx="126" cy="70" r="5" fill="#6C63FF"/>
+          <circle cx="126" cy="70" r="8" fill="#6C63FF" opacity="0.2"/>
+        </g>
+
+        <!-- Orbiting dot 2 on ring 2 -->
+        <g class="dot-traveler-2">
+          <circle cx="14" cy="70" r="4" fill="#FF6B5B"/>
+          <circle cx="14" cy="70" r="7" fill="#FF6B5B" opacity="0.2"/>
+        </g>
+
+        <!-- Center pin -->
+        <circle cx="70" cy="70" r="6" fill="#1A1A2E"/>
+        <circle cx="70" cy="70" r="3" fill="white"/>
+      </svg>
+    </div>
+  </div>
+
+
+<script>
+  // Smooth slider value update
+  const sliderVals = document.querySelectorAll('.slider-val');
+  const sliderFills = document.querySelectorAll('.slider-fill');
+  const valData = [
+    ['★★', '★★★', '★★★★', '★★★★★'],
+    ['7d', '10d', '14d', '21d'],
+    ['$1k', '$1.5k', '$2k', '$3k']
+  ];
+  let step = 0;
+  setInterval(() => {
+    step = (step + 1) % 4;
+    sliderVals.forEach((v, i) => { v.textContent = valData[i][step]; });
+  }, 2500);
+
+  // Intersection observer for entrance animations
+  const cards = document.querySelectorAll('.card');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.animationPlayState = 'running';
+        }
+      });
+    }, { threshold: 0.15 });
+    cards.forEach(c => io.observe(c));
+  }
+</script>
+</body>
+</html>

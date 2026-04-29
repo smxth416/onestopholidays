@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { SmoothLink as Link } from "@/components/SmoothLink";
+import { OptimizedImage } from "@/components/OptimizedImage";
 import { destinations } from "@/data/destinations";
 
 const DestinationsPage = () => {
@@ -7,9 +8,11 @@ const DestinationsPage = () => {
 
   const filters = ["All Collections", "Mountain Retreats", "Coastal Luxury", "Desert Safari", "International Gems"];
 
-  const filtered = activeFilter === "All Collections"
-    ? destinations
-    : destinations.filter((d) => d.category === activeFilter);
+  const filtered = useMemo(() => {
+    return activeFilter === "All Collections"
+      ? destinations
+      : destinations.filter((d) => d.category === activeFilter);
+  }, [activeFilter]);
 
   const faqs = [
     { q: "What is the best time to book international packages?", a: "We recommend booking at least 3-4 months in advance for premium destinations like the Maldives or Dubai to ensure luxury villa availability and the most competitive flight rates." },
@@ -18,50 +21,57 @@ const DestinationsPage = () => {
   ];
 
   return (
-    <main>
+    <main className="bg-white">
       {/* Hero & Filter */}
-      <section className="pt-32 pb-8 px-8 w-full">
+      <section className="pt-24 md:pt-32 pb-8 px-6 md:px-8 w-full bg-white">
         <div className="max-w-6xl mx-auto w-full">
-          <h1 className="font-headline text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[1.1] mb-10">
+          <h1 className="font-headline text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[1.1] mb-8 md:mb-10 text-primary">
             Curated <br />
-            <span className="italic text-primary">Escapes.</span>
+            <span className="italic text-secondary">Escapes.</span>
           </h1>
-          <div className="flex flex-wrap items-center gap-4 py-8 border-t border-outline-variant/20">
-            <span className="font-label text-xs uppercase tracking-widest text-outline mr-4">Filter By Experience</span>
-            {filters.map((f) => (
-              <button
-                key={f}
-                onClick={() => setActiveFilter(f)}
-                className={`px-6 py-2 rounded-full font-label text-sm transition-all shadow-sm ${activeFilter === f
-                  ? "bg-secondary text-on-secondary shadow-md hover:shadow-lg"
-                  : "bg-surface-container-high text-on-surface hover:brightness-95 border border-outline-variant/30"
-                  } `}
-              >
-                {f}
-              </button>
-            ))}
+          <div className="flex flex-col md:flex-row md:items-center gap-6 py-8 border-t border-outline-variant/20">
+            <span className="font-label text-[10px] md:text-xs uppercase tracking-[0.2em] text-outline-variant font-bold">Filter By Experience</span>
+            <div className="flex flex-wrap items-center gap-3 md:gap-4">
+              {filters.map((f) => (
+                <button
+                  key={f}
+                  onClick={() => setActiveFilter(f)}
+                  className={`px-5 md:px-6 py-2 rounded-full font-label text-[10px] md:text-sm transition-all shadow-sm border ${activeFilter === f
+                    ? "bg-secondary text-on-secondary shadow-md border-secondary"
+                    : "bg-white text-on-surface hover:bg-zinc-50 border-outline-variant/30"
+                    } `}
+                >
+                  {f}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Grid */}
-      <section className="flex flex-col justify-center px-8 w-full">
-        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <section className="flex flex-col justify-center px-6 md:px-8 w-full bg-white" style={{ contain: 'paint' }}>
+        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
           {filtered.map((dest) => (
             <Link
               key={dest.name}
               to={`/destinations/${dest.slug}`}
-              className="group relative rounded-[24px] shadow-sm hover:shadow-xl border border-outline-variant/10 overflow-hidden transition-all duration-500 hover:-translate-y-1 flex flex-col h-full cursor-pointer"
+              className="group relative rounded-[28px] bg-white border border-zinc-100 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl flex flex-col h-full cursor-pointer transform-gpu"
+              style={{ contain: 'layout paint' }}
             >
-              <div className="aspect-[4/3] overflow-hidden m-2 rounded-[18px] flex-shrink-0">
-                <img alt={dest.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src={dest.img} />
-              </div>
-              <div className="p-6 pt-3 flex flex-col flex-grow">
-                <h3 className="font-headline text-2xl text-primary mb-3">{dest.name}</h3>
-                <p className="font-serif-display text-base text-on-surface-variant leading-relaxed flex-grow mb-6" style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{dest.desc}</p>
+                <OptimizedImage
+                  src={dest.img}
+                  alt={dest.name}
+                  className="transition-transform duration-700 group-hover:scale-110"
+                  containerClassName="aspect-[4/3] m-2 rounded-[22px] flex-shrink-0"
+                />
+              <div className="p-6 md:p-8 pt-4 flex flex-col flex-grow text-center">
+                <span className="font-label text-[10px] uppercase tracking-[0.2em] text-secondary font-bold mb-2">{dest.category}</span>
+                <h3 className="font-headline text-2xl md:text-3xl text-primary mb-3">{dest.name}</h3>
+                <p className="font-body text-sm text-on-surface-variant/80 leading-relaxed flex-grow mb-8 mx-auto line-clamp-3">{dest.desc}</p>
                 <div className="mt-auto">
-                  <span className="block w-full py-3 rounded-full border border-outline-variant/50 text-on-surface font-label text-[11px] uppercase tracking-widest group-hover:bg-primary group-hover:text-white transition-all text-center">
-                    View Details
+                  <span className="block w-full py-4 rounded-full border border-zinc-100 text-primary font-label text-[10px] uppercase tracking-[0.2em] font-bold group-hover:bg-primary group-hover:text-white transition-all text-center">
+                    Explore Journey
                   </span>
                 </div>
               </div>
@@ -71,21 +81,21 @@ const DestinationsPage = () => {
       </section>
 
       {/* FAQ */}
-      <section className="min-h-screen flex flex-col justify-center py-24">
-        <div className="max-w-4xl mx-auto px-8 w-full">
-          <div className="text-center mb-20">
+      <section className="flex flex-col justify-center py-16 md:py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-6 md:px-8 w-full">
+          <div className="text-center mb-12 md:mb-20">
             <span className="font-label text-xs uppercase tracking-[0.3em] text-secondary font-bold">Inquiries</span>
-            <h2 className="font-headline text-5xl mt-4">Traveler Essentials</h2>
+            <h2 className="font-headline text-3xl md:text-5xl mt-4 text-primary">Traveler Essentials</h2>
           </div>
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 gap-4 md:gap-6">
             {faqs.map((faq, i) => (
-              <div key={i} className="rounded-DEFAULT p-8 border border-outline-variant/10">
-                <h3 className="font-headline text-2xl mb-4">{faq.q}</h3>
-                <p className="font-body text-lg text-on-surface/70 leading-relaxed">{faq.a}</p>
+              <div key={i} className="rounded-[24px] p-6 md:p-8 border border-outline-variant/10 bg-zinc-50/30" style={{ contain: 'content' }}>
+                <h3 className="font-headline text-xl md:text-2xl mb-4 text-primary">{faq.q}</h3>
+                <p className="font-body text-base md:text-lg text-on-surface-variant leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>
-          <div className="mt-16 text-center">
+          <div className="mt-12 md:mt-16 text-center">
             <p className="font-label text-sm text-on-surface-variant">Still have questions? <a className="text-secondary font-bold underline underline-offset-4 decoration-secondary/30 hover:decoration-secondary" href="#">Connect with a Curator</a></p>
           </div>
         </div>

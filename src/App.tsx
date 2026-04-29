@@ -3,8 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { SmoothScrollProvider } from "@/contexts/SmoothScrollProvider";
-import RouteScroll from "./components/RouteScroll";
+import { SmoothScrollProvider } from "@/providers/SmoothScrollProvider";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
@@ -16,17 +15,22 @@ import DestinationDetailPage from "./pages/DestinationDetailPage";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsPage from "./pages/TermsPage";
+import SitemapPage from "./pages/SitemapPage";
+import BlogHubPage from "./pages/BlogHubPage";
+import BlogDestinationPage from "./pages/BlogDestinationPage";
+
+
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+
       <Toaster />
       <Sonner />
       <BrowserRouter>
         <SmoothScrollProvider>
-          <RouteScroll />
           <div>
             <Navbar />
             <Routes>
@@ -37,6 +41,9 @@ const App = () => (
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
               <Route path="/terms" element={<TermsPage />} />
+              <Route path="/sitemap" element={<SitemapPage />} />
+              <Route path="/blog" element={<BlogHubPage />} />
+              <Route path="/blog/:slug" element={<BlogDestinationPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <WhatsAppButton />

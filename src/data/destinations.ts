@@ -16,7 +16,7 @@ export interface Destination {
 
 export const destinations: Destination[] = [
   {
-    slug: "dubai",
+    slug: "dubai-tour-packages-from-rajkot",
     name: "Dubai",
     price: "Enquire Now",
     category: "International Gems",
@@ -24,7 +24,7 @@ export const destinations: Destination[] = [
     bestTime: "November – March",
     desc: "Experience ultimate grandeur where the golden desert meets the future in a spectacular 5-day journey.",
     longDesc: "Dubai is a city that defies imagination — where the world's tallest tower pierces the sky, man-made islands dot the coast, and ancient souks sit in the shadow of futuristic architecture. Our premium 5-day Dubai experience immerses you in unparalleled luxury, from the gleaming skyscrapers of the Marina to the golden sands of the Arabian desert. Enjoy curated city tours, private desert adventures, and a romantic dhow cruise under the stars.",
-    img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2940&auto=format&fit=crop",
+    img: "/destinations/Dubai.webp",
     highlights: [
       "Burj Khalifa 'At the Top' (124th/125th Floor)",
       "Premium Desert Safari with BBQ Dinner",
@@ -58,7 +58,7 @@ export const destinations: Destination[] = [
     ]
   },
   {
-    slug: "bali",
+    slug: "bali-tour-packages-from-rajkot",
     name: "Bali",
     price: "Enquire Now",
     category: "International Gems",
@@ -66,7 +66,7 @@ export const destinations: Destination[] = [
     bestTime: "April – October",
     desc: "Experience a perfect blend of rich culture, stunning beaches, and romantic leisure in the Island of Gods.",
     longDesc: "Bali is an island paradise that offers a mesmerizing blend of vibrant culture, lush landscapes, and immaculate beaches. From the bustling streets of Kuta and Seminyak to the spiritual heart of Ubud, our curated 6-day itinerary ensures you experience the best of the Island of Gods. Enjoy thrilling water sports, breathtaking sunsets at Uluwatu, a full-day exploration of Nusa Penida, and relaxing romantic moments amidst nature.",
-    img: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=2938&auto=format&fit=crop",
+    img: "/destinations/Bali.webp",
     highlights: [
       "Water Sports at Nusa Dua Beach",
       "Uluwatu Sunset Tour & Optional Kecak Dance",
@@ -99,7 +99,7 @@ export const destinations: Destination[] = [
     ]
   },
   {
-    slug: "singapore-malaysia",
+    slug: "singapore-malaysia-tour-packages-from-rajkot",
     name: "Singapore & Malaysia",
     price: "Enquire Now",
     category: "International Gems",
@@ -107,7 +107,7 @@ export const destinations: Destination[] = [
     bestTime: "Year-round (Best: February – August)",
     desc: "A futuristic twin-city escape blending the neon gardens of Singapore with the cultural heights of Kuala Lumpur.",
     longDesc: "Embark on an extraordinary journey through two of Southeast Asia's most dynamic nations. Witness the perfect fusion of nature and technology at Singapore's Gardens by the Bay, explore the island thrills of Sentosa, and then cross into the vibrant heart of Malaysia. From the iconic Petronas Twin Towers to the sacred heights of Batu Caves, this dual-country experience is crafted for those who seek both modern spectacle and rich cultural depth.",
-    img: "https://images.unsplash.com/photo-1543831613-259160538a7c?q=80&w=2942&auto=format&fit=crop",
+    img: "/destinations/Malaysia.webp",
     highlights: [
       "Gardens by the Bay (Cloud Forest & SuperTree Light Show)",
       "Sentosa Island: Cable Car, Madame Tussauds & SEA Aquarium",
@@ -142,7 +142,7 @@ export const destinations: Destination[] = [
     ]
   },
   {
-    slug: "vietnam",
+    slug: "vietnam-tour-packages-from-rajkot",
     name: "Vietnam",
     price: "Enquire Now",
     category: "International Gems",
@@ -150,7 +150,7 @@ export const destinations: Destination[] = [
     bestTime: "October – April",
     desc: "From the emerald waters of Halong Bay to the lantern-lit streets of Hoi An, discover the soul of Southeast Asia.",
     longDesc: "Vietnam is a tapestry of ancient traditions and modern energy. Our curated 6-day journey takes you through the historic heart of Hanoi, across the limestone karsts of Halong Bay, and down to the coastal beauty of Da Nang. Witness the engineering marvel of the Golden Bridge at Ba Na Hills and lose yourself in the timeless romance of Hoi An. Every moment is crafted to reveal the deep-rooted hospitality and breathtaking landscapes of this legendary land.",
-    img: "https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=2940&auto=format&fit=crop",
+    img: "/destinations/Vietnam.webp",
     highlights: [
       "Full-Day Halong Bay Cruise & Kayaking",
       "Golden Bridge & Ba Na Hills Cable Car",
@@ -185,7 +185,7 @@ export const destinations: Destination[] = [
     ]
   },
   {
-    slug: "euro-trio",
+    slug: "euro-trio-tour-packages-from-rajkot",
     name: "Euro Trio",
     price: "Enquire Now",
     category: "International Gems",
@@ -193,7 +193,7 @@ export const destinations: Destination[] = [
     bestTime: "May – September",
     desc: "A grand odyssey through the timeless icons of France, the alpine majesty of Switzerland, and the artistic soul of Italy.",
     longDesc: "The Euro Trio is the ultimate pilgrimage for the romantic and the explorer alike. Start your journey in the city of lights, Paris, before sweeping through the emerald landscapes of Switzerland via high-speed rail. Conclude your adventure in Italy, wandering through the floating streets of Venice and the ancient corridors of Rome. This 8-day curated journey combines sophisticated urban charm with breathtaking natural wonders and centuries of deep history.",
-    img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=2946&auto=format&fit=crop",
+    img: "/destinations/Europe.webp",
     highlights: [
       "Eiffel Tower 2nd Level Entry & Paris City Tour",
       "High-Speed Intercity Train Transfers",
@@ -230,7 +230,7 @@ export const destinations: Destination[] = [
     ]
   },
   {
-    slug: "sri-lanka",
+    slug: "sri-lanka-tour-packages-from-rajkot",
     name: "Sri Lanka Wellness & Safari",
     price: "Enquire Now",
     category: "Coastal Luxury",
@@ -238,7 +238,7 @@ export const destinations: Destination[] = [
     bestTime: "December – April (West/South) & May – September (East)",
     desc: "A restorative journey blending ancient Ayurveda wellness with the raw beauty of the Yala Wilderness.",
     longDesc: "Sri Lanka is a land of emerald hills, golden shores, and untamed wildlife. Our unique 6-day Wellness & Safari Escape is designed to nourish both body and soul. Traverse the misty tea plantations of Nuwara Eliya, witness the majesty of leopards in Yala National Park, and find your center with included Ayurveda spa sessions. From the sacred Temple of the Tooth in Kandy to the colonial charm of Galle Fort, this is a journey of profound peace and exhilarating discovery.",
-    img: "https://images.unsplash.com/photo-1546708973-b339540b5162?q=80&w=2694&auto=format&fit=crop",
+    img: "/destinations/Srilanka.webp",
     highlights: [
       "2 Included Ayurveda Wellness Spa Sessions",
       "Private Jeep Safari at Yala National Park",
@@ -273,7 +273,7 @@ export const destinations: Destination[] = [
     ]
   },
   {
-    slug: "hong-kong-macau",
+    slug: "hong-kong-macau-tour-packages-from-rajkot",
     name: "Hong Kong & Macau",
     price: "Enquire Now",
     category: "International Gems",
@@ -281,7 +281,7 @@ export const destinations: Destination[] = [
     bestTime: "September – December",
     desc: "A dazzling twin-city high-roller adventure blending the neon magic of Disneyland with the colonial grandeur of Macau.",
     longDesc: "Step into a world where neon skyscrapers meet ancient traditions. Our 5-day Hong Kong & Macau experience is designed for families and explorers alike. Delight in the magic of Hong Kong Disneyland, witness the Symphony of Lights over Victoria Harbour, and enjoy a high-speed ferry ride to the 'Vegas of the East'. From the historic Ruins of St. Paul’s in Macau to the panoramic heights of Victoria Peak, this journey offers the perfect balance of modern thrills and old-world charm.",
-    img: "https://images.unsplash.com/photo-1516550893923-42d28e5677af?q=80&w=2944&auto=format&fit=crop",
+    img: "/destinations/HongKong.webp",
     highlights: [
       "Full-Day Hong Kong Disneyland Experience",
       "Victoria Harbour Symphony of Lights Show",
@@ -315,7 +315,7 @@ export const destinations: Destination[] = [
     ]
   },
   {
-    slug: "thailand",
+    slug: "thailand-tour-packages-from-rajkot",
     name: "BANGKOK + PATTAYA + PHUKET + KRABI",
     price: "Enquire Now",
     category: "International Gems",
@@ -323,7 +323,7 @@ export const destinations: Destination[] = [
     bestTime: "November – April",
     desc: "A spectacular circuit spanning the neon lights of Bangkok to the turquoise waters of Phuket, Krabi, and Pattaya.",
     longDesc: "Experience the absolute best of the Land of Smiles in one legendary journey. Our Ultimate Thailand Escape takes you from the world-class beaches of Phuket and the limestone cliffs of Krabi to the vibrant street life of Bangkok and the island thrills of Pattaya. This curated 7-day itinerary includes multiple speedboat island tours, high-end 4★ stays, and all internal logistics — allowing you to immerse yourself fully in the beauty and hospitality of Thailand.",
-    img: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=2939&auto=format&fit=crop",
+    img: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=1200&auto=format&fit=crop",
     highlights: [
       "Phi Phi Islands Speedboat Tour (Maya Bay & Snorkeling)",
       "Krabi 4-Islands Adventure with Picnic Lunch",
@@ -360,7 +360,7 @@ export const destinations: Destination[] = [
     ]
   },
   {
-    slug: "thailand-highlights",
+    slug: "thailand-highlights-tour-packages-from-rajkot",
     name: "BANGKOK + PATTAYA",
     price: "Enquire Now",
     category: "International Gems",
@@ -368,7 +368,7 @@ export const destinations: Destination[] = [
     bestTime: "Year-round",
     desc: "A focused 5-day getaway capturing the neon energy of Pattaya and the spiritual grandeur of Bangkok.",
     longDesc: "Discover the perfect snapshot of Thailand with our Bangkok & Pattaya Highlights tour. Spend your first few days on the shores of Pattaya, enjoying speedboat island excursions and vibrant evening shows. Then, transition to the majestic capital, Bangkok, where ancient temples and modern luxury coexist. This 5-day journey is meticulously planned to ensure you experience the most iconic landmarks of both cities with local expertise and comfort.",
-    img: "https://images.unsplash.com/photo-1563492065599-3520f775eeed?q=80&w=2874&auto=format&fit=crop",
+    img: "https://images.unsplash.com/photo-1563492065599-3520f775eeed?q=80&w=1200&auto=format&fit=crop",
     highlights: [
       "Coral Island Speedboat Tour in Pattaya",
       "Bangkok City & Temple Tour (Wat Pho & Wat Arun)",
@@ -401,7 +401,7 @@ export const destinations: Destination[] = [
     ]
   },
   {
-    slug: "spiritual-circuit",
+    slug: "spiritual-circuit-tour-packages-from-rajkot",
     name: "Ultimate Spiritual Circuit",
     price: "Enquire Now",
     category: "Heritage & Spiritual",
@@ -409,7 +409,7 @@ export const destinations: Destination[] = [
     bestTime: "October – March",
     desc: "A sacred odyssey through India's holiest cities — Kashi, Prayagraj, Ayodhya, and Gaya.",
     longDesc: "The Ultimate Spiritual Circuit is more than a journey; it is a pilgrimage of the soul. From the eternal ghats of Varanasi and the sacred confluence of the Triveni Sangam to the divine birthplace of Lord Ram in Ayodhya and the enlightenment grounds of Bodh Gaya, this 8-day experience is curated for the devout seeker. We provide a seamless blend of deep spirituality and modern comfort, featuring VIP temple access, private rituals with dedicated priests, and premium accommodations in every holy city.",
-    img: "https://images.unsplash.com/photo-1518005020250-ecaec5f28d22?q=80&w=2937&auto=format&fit=crop",
+    img: "https://images.unsplash.com/photo-1518005020250-ecaec5f28d22?q=80&w=1200&auto=format&fit=crop",
     highlights: [
       "VIP Darshan at Kashi Vishwanath Temple",
       "Private Sunrise & Ganga Aarti Boat Rides",
