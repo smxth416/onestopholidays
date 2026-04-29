@@ -65,8 +65,8 @@ const Navbar = () => {
         isVisible || isMenuOpen ? "translate-y-0" : "-translate-y-full"
       } ${
         isScrolled 
-          ? "bg-white/80 backdrop-blur-lg border-b border-outline-variant/10 py-3" 
-          : "bg-transparent py-5"
+          ? "bg-white/80 backdrop-blur-lg border-b border-outline-variant/10 py-2" 
+          : "bg-transparent py-4"
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
@@ -76,7 +76,7 @@ const Navbar = () => {
             src="/logo.png" 
             alt="One Stop Holidays" 
             className={`transition-all duration-500 group-hover:scale-105 ${
-              isScrolled ? "h-12 md:h-14" : "h-14 md:h-20"
+              isScrolled ? "h-10 md:h-12" : "h-12 md:h-16"
             } w-auto object-contain`}
           />
         </Link>

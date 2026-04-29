@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { SmoothLink as Link } from "@/components/SmoothLink";
 import { ArrowLeft, Calendar, Clock, MapPin, Check } from "lucide-react";
 import { destinations } from "@/data/destinations";
+import { motion } from "framer-motion";
 
 const DestinationDetailPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -21,18 +22,7 @@ const DestinationDetailPage = () => {
   return (
     <main className="bg-white">
       {/* Hero Section */}
-      <section className="min-h-screen pt-24 pb-12 md:py-20 flex flex-col justify-center px-6 md:px-12 lg:px-20 relative overflow-hidden bg-white">
-        {/* Back Button */}
-        <div className="absolute top-8 left-6 md:top-12 md:left-12 lg:left-20 z-20">
-          <Link
-            to="/destinations"
-            className="group flex items-center gap-2 text-on-surface/40 hover:text-secondary transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-            <span className="font-label text-[10px] md:text-xs uppercase tracking-widest font-bold">Collections</span>
-          </Link>
-        </div>
-
+      <section className="min-h-screen pt-32 pb-12 md:py-20 flex flex-col justify-center px-6 md:px-12 lg:px-20 relative overflow-hidden bg-white">
         <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
           {/* Contained Image */}
           <div className="relative aspect-square md:aspect-[4/5] lg:aspect-square w-full rounded-[32px] overflow-hidden shadow-2xl order-1 lg:order-1">
@@ -105,7 +95,7 @@ const DestinationDetailPage = () => {
       </section>
 
       {/* Itinerary */}
-      <section className="py-20 md:py-32 bg-zinc-50/30 overflow-hidden">
+      <section className="py-20 md:py-32 bg-white overflow-hidden">
         <div className="max-w-3xl mx-auto px-6 w-full relative">
           <div className="text-center mb-16 md:mb-24">
             <span className="font-label text-xs uppercase tracking-[0.4em] text-secondary font-bold">Your Journey</span>
@@ -146,8 +136,23 @@ const DestinationDetailPage = () => {
 
                   {/* Connecting Line (Desktop) */}
                   {!isLast && (
-                    <svg className="hidden md:block absolute w-full h-[100px] top-[100%] left-0 pointer-events-none -mt-4" viewBox="0 0 100 100" preserveAspectRatio="none" style={{ zIndex: 0 }}>
-                      <path d={isEven ? "M 30 0 C 30 60, 70 40, 70 100" : "M 70 0 C 70 60, 30 40, 30 100"} fill="none" stroke="rgba(0,0,0,0.05)" strokeWidth="2" strokeDasharray="6 6" />
+                    <svg className="hidden md:block absolute w-full h-[180px] top-[100%] left-0 pointer-events-none -mt-10" viewBox="0 0 100 100" preserveAspectRatio="none" style={{ zIndex: 0 }}>
+                      <motion.path 
+                        d={isEven ? "M 30 0 C 30 50, 70 50, 70 100" : "M 70 0 C 70 50, 30 50, 30 100"} 
+                        fill="none" 
+                        stroke="rgba(0,108,78,0.25)" 
+                        strokeWidth="1" 
+                        strokeDasharray="4 4"
+                        initial={{ pathLength: 0, opacity: 0 }}
+                        whileInView={{ pathLength: 1, opacity: 1 }}
+                        animate={{ strokeDashoffset: [0, -8] }}
+                        viewport={{ once: false, margin: "-100px" }}
+                        transition={{ 
+                          pathLength: { duration: 1.5, ease: "linear" },
+                          opacity: { duration: 0.5 },
+                          strokeDashoffset: { duration: 1, repeat: Infinity, ease: "linear" }
+                        }}
+                      />
                     </svg>
                   )}
 
